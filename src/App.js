@@ -23,19 +23,21 @@
 // }
 
 // export default App;
+
 // src/App.js
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { HashRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './pages/Home';
 
 const App = () => {
   return (
     <Router>
-      <Switch>
-        <Route path="/" component={Home} exact />
-      </Switch>
+      <Routes>
+        <Route path="/" element={<Home />} />
+      </Routes>
     </Router>
   );
 };
 
 export default App;
+
