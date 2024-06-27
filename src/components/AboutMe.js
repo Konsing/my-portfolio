@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { motion } from 'framer-motion';
 import { FaLinkedin, FaGithub, FaFileDownload } from 'react-icons/fa';
 
@@ -9,7 +9,6 @@ const AboutMeContainer = styled.section`
   border-radius: 10px;
   margin: 2rem auto;
   text-align: center;
-  max-width: 800px;
 
   h2 {
     font-size: 2.5rem;
@@ -27,7 +26,7 @@ const AboutMeContainer = styled.section`
   .buttons {
     display: flex;
     justify-content: center;
-    gap: 1.5rem;
+    gap: 1rem;
 
     a {
       display: flex;
@@ -39,6 +38,7 @@ const AboutMeContainer = styled.section`
       border: none;
       border-radius: 5px;
       cursor: pointer;
+      margin: 2rem 4rem;
       transition: background 0.3s, transform 0.3s;
       text-decoration: none;
 
@@ -51,6 +51,32 @@ const AboutMeContainer = styled.section`
         margin-right: 0.5rem;
       }
     }
+  }
+`;
+
+const reelAnimation = keyframes`
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+`;
+
+const PhotoReel = styled.div`
+  overflow: hidden;
+  width: 100%;
+  margin: 2rem 0;
+`;
+
+const ReelContainer = styled.div`
+  display: flex;
+  animation: ${reelAnimation} 20s linear infinite;
+  width: calc(200px * 11 * 2); /* 11 images, each 200px wide, duplicated */
+  transform: translateX(-50%);
+  img {
+    height: 200px; /* Adjust height as needed */
+    margin-right: 10px; /* Adjust spacing as needed */
   }
 `;
 
@@ -67,6 +93,16 @@ const AboutMe = () => {
       } 
     }
   };
+
+  const importAll = (r) => {
+    let images = {};
+    r.keys().forEach((item) => { images[item.replace('./', '')] = r(item); });
+    return images;
+  };
+
+  const images = importAll(require.context('../assets', false, /\.(png|jpe?g|svg)$/));
+
+  const imageNames = Object.keys(images).filter(name => name.startsWith('Konsing')).sort();
 
   return (
     <AboutMeContainer
@@ -86,8 +122,18 @@ const AboutMe = () => {
         animate={{ opacity: 1 }}
         transition={{ duration: 1 }}
       >
-        Hello! I'm Konsing Ham, a passionate software developer with experience in building web applications using modern technologies. I love learning new things and solving complex problems.
+        Hello! I'm Konsing Ham Lopez, a dedicated software developer with a strong foundation in computer science and 
+        a passion for tackling challenging projects. I thrive on learning new technologies and quickly adapting to 
+        unfamiliar tools and frameworks. My experience spans software engineering and DevOps practices. Outside of coding, 
+        I enjoy gaming, watching films, and traveling.
       </motion.p>
+      <PhotoReel>
+        <ReelContainer>
+          {[...imageNames, ...imageNames].map((image, index) => (
+            <img key={index} src={images[image]} alt={`Konsing ${index + 1}`} />
+          ))}
+        </ReelContainer>
+      </PhotoReel>
       <motion.div
         className="buttons"
         initial={{ opacity: 0 }}
@@ -97,7 +143,7 @@ const AboutMe = () => {
         <a href="https://www.linkedin.com/in/konsingham/" target="_blank" rel="noopener noreferrer">
           <FaLinkedin className="icon" /> LinkedIn
         </a>
-        <a href={`my-portfolio/public/resume.pdf`} download>
+        <a href={`resume.pdf`} download>
           <FaFileDownload className="icon" /> Resume
         </a>
         <a href="https://github.com/Konsing" target="_blank" rel="noopener noreferrer">
