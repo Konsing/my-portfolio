@@ -5,12 +5,16 @@ import { motion } from 'framer-motion';
 
 const EducationContainer = styled.section`
   padding: 2rem 0;
+  background: linear-gradient(120deg, #a1c4fd, #c2e9fb);
+  border-radius: 10px;
+  margin: 2rem;
 
   .education-item {
     margin: 1rem 0;
     padding: 1rem;
-    background: #eee;
+    background: #fff;
     border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
 `;
 

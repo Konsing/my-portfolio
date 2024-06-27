@@ -67,6 +67,10 @@ my-portfolio/
 │   ├── App.js
 │   ├── index.js
 │   └── reportWebVitals.js
+├── App.js
+├── App.css
+├── index.css
+├── index.html
 ├── .gitignore
 ├── package.json
 └── README.md

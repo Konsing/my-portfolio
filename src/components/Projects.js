@@ -5,12 +5,16 @@ import { motion } from 'framer-motion';
 
 const ProjectsContainer = styled.section`
   padding: 2rem 0;
+  background: linear-gradient(120deg, #89f7fe, #66a6ff);
+  border-radius: 10px;
+  margin: 2rem;
 
   .project-item {
     margin: 1rem 0;
     padding: 1rem;
-    background: #eee;
+    background: #fff;
     border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
 `;
 
