@@ -1,9 +1,10 @@
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
-import { motion } from 'framer-motion';
+import { motion, useAnimation } from 'framer-motion';
 import { FaLinkedin, FaGithub, FaFileDownload, FaEnvelope } from 'react-icons/fa';
+import { useInView } from 'react-intersection-observer';
 
-const AboutMeContainer = styled.section`
+const AboutMeContainer = styled(motion.section)`
   padding: 3rem 2rem;
   background: linear-gradient(120deg, #a1c4fd, #c2e9fb);
   border-radius: 10px;
@@ -69,27 +70,62 @@ const PhotoReel = styled.div`
   margin: 2rem 0;
 `;
 
-const ReelContainer = styled.div`
+const ReelContainer = styled(motion.div)`
   display: flex;
   animation: ${reelAnimation} 20s linear infinite;
-  width: calc(200px * 11 * 2); /* 11 images, each 200px wide, duplicated */
-  transform: translateX(-50%);
+  width: calc(200px * 11 * 2);
+  transform: translateX(0);
   img {
-    height: 200px; /* Adjust height as needed */
-    margin-right: 10px; /* Adjust spacing as needed */
+    height: 200px;
+    margin-right: 10px;
   }
 `;
 
 const AboutMe = () => {
+  const { ref, inView } = useInView({ triggerOnce: false, threshold: 0.1 });
+  const controls = useAnimation();
+
+  React.useEffect(() => {
+    if (inView) {
+      controls.start('visible');
+    } else {
+      controls.start('hidden');
+    }
+  }, [controls, inView]);
+
   const containerVariants = {
     hidden: { opacity: 0, y: 50 },
     visible: { 
       opacity: 1, 
       y: 0, 
       transition: { 
-        duration: 0.8,
+        duration: 0.96,
         type: 'spring',
         stiffness: 100
+      } 
+    }
+  };
+
+  const buttonVariants = {
+    hidden: { opacity: 0, scale: 0.8 },
+    visible: { 
+      opacity: 1, 
+      scale: 1, 
+      transition: { 
+        duration: 0.6,
+        type: 'spring',
+        stiffness: 100
+      } 
+    }
+  };
+
+  const reelVariants = {
+    hidden: { opacity: 0 },
+    visible: { 
+      opacity: 1, 
+      transition: { 
+        duration: 1.2,
+        delay: 0.6
       } 
     }
   };
@@ -108,28 +144,33 @@ const AboutMe = () => {
     <AboutMeContainer
       id="aboutMe"
       initial="hidden"
-      animate="visible"
+      animate={controls}
       variants={containerVariants}
+      ref={ref}
     >
       <motion.h2
         initial={{ x: -100, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
-        transition={{ duration: 0.5 }}
+        transition={{ duration: 0.6 }}
       >
         About Me
       </motion.h2>
       <motion.p
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 1 }}
+        transition={{ duration: 1.2 }}
       >
-        Hello! I'm Konsing Ham Lopez, a dedicated software developer with a strong foundation in computer science and 
+        Hello! I'm Konsing Ham Lopez, a dedicated software developer with a strong foundation in software engineering and 
         a passion for tackling challenging projects. I thrive on learning new technologies and quickly adapting to 
         unfamiliar tools and frameworks. My experience spans software engineering and DevOps practices. Outside of coding, 
-        I enjoy gaming, watching films, and traveling.
+        I enjoy gaming, watching films/shows, and spending time with family.
       </motion.p>
       <PhotoReel>
-        <ReelContainer>
+        <ReelContainer
+          initial="hidden"
+          animate={controls}
+          variants={reelVariants}
+        >
           {[...imageNames, ...imageNames].map((image, index) => (
             <img key={index} src={images[image]} alt={`Konsing ${index + 1}`} />
           ))}
@@ -137,22 +178,43 @@ const AboutMe = () => {
       </PhotoReel>
       <motion.div
         className="buttons"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 0.5 }}
+        initial="hidden"
+        animate={controls}
+        variants={buttonVariants}
       >
-        <a href="https://www.linkedin.com/in/konsingham/" target="_blank" rel="noopener noreferrer">
+        <motion.a
+          href="https://www.linkedin.com/in/konsingham/"
+          target="_blank"
+          rel="noopener noreferrer"
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+        >
           <FaLinkedin className="icon" /> LinkedIn
-        </a>
-        <a href={`resume.pdf`} download>
+        </motion.a>
+        <motion.a
+          href={`resume.pdf`}
+          download
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+        >
           <FaFileDownload className="icon" /> Resume
-        </a>
-        <a href="https://github.com/Konsing" target="_blank" rel="noopener noreferrer">
+        </motion.a>
+        <motion.a
+          href="https://github.com/Konsing"
+          target="_blank"
+          rel="noopener noreferrer"
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+        >
           <FaGithub className="icon" /> GitHub
-        </a>
-        <a href="mailto:ham.konsing@gmail.com">
+        </motion.a>
+        <motion.a
+          href="mailto:ham.konsing@gmail.com"
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+        >
           <FaEnvelope className="icon" /> Email
-        </a>
+        </motion.a>
       </motion.div>
     </AboutMeContainer>
   );
