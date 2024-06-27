@@ -106,6 +106,7 @@ const AboutMe = () => {
 
   return (
     <AboutMeContainer
+      id="aboutMe"
       initial="hidden"
       animate="visible"
       variants={containerVariants}
