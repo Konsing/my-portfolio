@@ -1,7 +1,7 @@
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
 import { motion } from 'framer-motion';
-import { FaLinkedin, FaGithub, FaFileDownload } from 'react-icons/fa';
+import { FaLinkedin, FaGithub, FaFileDownload, FaEnvelope } from 'react-icons/fa';
 
 const AboutMeContainer = styled.section`
   padding: 3rem 2rem;
@@ -149,6 +149,9 @@ const AboutMe = () => {
         </a>
         <a href="https://github.com/Konsing" target="_blank" rel="noopener noreferrer">
           <FaGithub className="icon" /> GitHub
+        </a>
+        <a href="mailto:ham.konsing@gmail.com">
+          <FaEnvelope className="icon" /> Email
         </a>
       </motion.div>
     </AboutMeContainer>
