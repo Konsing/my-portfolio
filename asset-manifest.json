@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.js": "/my-portfolio/static/js/main.5e05fb18.js",
+    "main.js": "/my-portfolio/static/js/main.8e347321.js",
     "static/js/453.41811d64.chunk.js": "/my-portfolio/static/js/453.41811d64.chunk.js",
     "static/media/Konsing3.jpg": "/my-portfolio/static/media/Konsing3.443716797bbfcea120ca.jpg",
     "static/media/BCCollege2.jpg": "/my-portfolio/static/media/BCCollege2.cc6d6da83b7618f856be.jpg",
-    "static/media/Konsing1.jpg": "/my-portfolio/static/media/Konsing1.c6489280848024f1aaea.jpg",
-    "static/media/Konsing2.jpg": "/my-portfolio/static/media/Konsing2.dbf954bbc95206679b52.jpg",
+    "static/media/Konsing4.jpg": "/my-portfolio/static/media/Konsing4.c6489280848024f1aaea.jpg",
+    "static/media/Konsing5.jpg": "/my-portfolio/static/media/Konsing5.dbf954bbc95206679b52.jpg",
     "static/media/Konsing9.jpg": "/my-portfolio/static/media/Konsing9.670b201bbd1b4f54d3b6.jpg",
     "static/media/BCCollege.jpg": "/my-portfolio/static/media/BCCollege.5ce22ec0b56b554e106c.jpg",
-    "static/media/Konsing4.jpg": "/my-portfolio/static/media/Konsing4.56fc725a72ac7f3b7598.jpg",
+    "static/media/Konsing1.jpg": "/my-portfolio/static/media/Konsing1.56fc725a72ac7f3b7598.jpg",
     "static/media/Konsing6.jpg": "/my-portfolio/static/media/Konsing6.525b60be5d4c312d0dfd.jpg",
-    "static/media/Konsing10.jpg": "/my-portfolio/static/media/Konsing10.ec4658fce85a8471acca.jpg",
+    "static/media/Konsing5a.jpg": "/my-portfolio/static/media/Konsing5a.ec4658fce85a8471acca.jpg",
     "static/media/Konsing7.jpg": "/my-portfolio/static/media/Konsing7.1ba976ad2b0c3677cd9c.jpg",
     "static/media/Konsing8.jpg": "/my-portfolio/static/media/Konsing8.86124250d690bfead63d.jpg",
-    "static/media/Konsing5.jpg": "/my-portfolio/static/media/Konsing5.c204f8d4006ab517c252.jpg",
+    "static/media/Konsing2.jpg": "/my-portfolio/static/media/Konsing2.c204f8d4006ab517c252.jpg",
     "static/media/Bash.svg": "/my-portfolio/static/media/Bash.968f3f62ab5034f11fba.svg",
     "static/media/BCCollege3.jpg": "/my-portfolio/static/media/BCCollege3.5a897ab8ff02d6fd0a0c.jpg",
     "static/media/UCDavis3.jpg": "/my-portfolio/static/media/UCDavis3.839348f0d29613ad86a1.jpg",
@@ -52,10 +52,10 @@
     "static/media/Python.svg": "/my-portfolio/static/media/Python.14f5a10cd798d37370e1.svg",
     "index.html": "/my-portfolio/index.html",
     "static/media/Haskell.svg": "/my-portfolio/static/media/Haskell.5b2e30440712f842daf1.svg",
-    "main.5e05fb18.js.map": "/my-portfolio/static/js/main.5e05fb18.js.map",
+    "main.8e347321.js.map": "/my-portfolio/static/js/main.8e347321.js.map",
     "453.41811d64.chunk.js.map": "/my-portfolio/static/js/453.41811d64.chunk.js.map"
   },
   "entrypoints": [
-    "static/js/main.5e05fb18.js"
+    "static/js/main.8e347321.js"
   ]
 }
