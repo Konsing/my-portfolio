@@ -97,7 +97,7 @@ const AboutMe = () => {
         <a href="https://www.linkedin.com/in/konsingham/" target="_blank" rel="noopener noreferrer">
           <FaLinkedin className="icon" /> LinkedIn
         </a>
-        <a href="/my-portfolio/resume.pdf" download>
+        <a href={`my-portfolio/public/resume.pdf`} download>
           <FaFileDownload className="icon" /> Resume
         </a>
         <a href="https://github.com/Konsing" target="_blank" rel="noopener noreferrer">
