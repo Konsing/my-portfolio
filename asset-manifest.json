@@ -1,12 +1,38 @@
 {
   "files": {
-    "main.js": "/my-portfolio/static/js/main.fcddf5fe.js",
-    "static/js/453.acca0757.chunk.js": "/my-portfolio/static/js/453.acca0757.chunk.js",
+    "main.js": "/my-portfolio/static/js/main.83b4d207.js",
+    "static/js/453.41811d64.chunk.js": "/my-portfolio/static/js/453.41811d64.chunk.js",
+    "static/media/Bash.svg": "/my-portfolio/static/media/Bash.968f3f62ab5034f11fba.svg",
+    "static/media/Flask.svg": "/my-portfolio/static/media/Flask.011dbe6094c89ed4076f.svg",
+    "static/media/Docker.svg": "/my-portfolio/static/media/Docker.10959f38e30461ba57db.svg",
+    "static/media/MongoDB.svg": "/my-portfolio/static/media/MongoDB.6cae7760a21945b9580e.svg",
+    "static/media/NodeJS.svg": "/my-portfolio/static/media/NodeJS.f163cddfbfe49648deb1.svg",
+    "static/media/PostgreSQL.svg": "/my-portfolio/static/media/PostgreSQL.00abd60866cb6eccfd8f.svg",
+    "static/media/GCloud.svg": "/my-portfolio/static/media/GCloud.492b85ca63502c22f692.svg",
+    "static/media/SQL.svg": "/my-portfolio/static/media/SQL.644af3df085f328417a5.svg",
+    "static/media/Azure.svg": "/my-portfolio/static/media/Azure.c7485602ba0a23c54603.svg",
+    "static/media/SQLite.svg": "/my-portfolio/static/media/SQLite.95b1b4baaef07a2d29ba.svg",
+    "static/media/React.svg": "/my-portfolio/static/media/React.c60e072461a29d9c3829.svg",
+    "static/media/AWS.svg": "/my-portfolio/static/media/AWS.f0007377656af08d13f3.svg",
+    "static/media/Java.svg": "/my-portfolio/static/media/Java.799fbfb5362634b5a8d1.svg",
+    "static/media/Django.svg": "/my-portfolio/static/media/Django.4b40d7a187aed56fec09.svg",
+    "static/media/GitHub.svg": "/my-portfolio/static/media/GitHub.074f08264b8ed366dbd3.svg",
+    "static/media/Git.svg": "/my-portfolio/static/media/Git.fff69573d1c741b67fee.svg",
+    "static/media/C++.svg": "/my-portfolio/static/media/C++.0bd43dff6057d03b1061.svg",
+    "static/media/C-Sharp.svg": "/my-portfolio/static/media/C-Sharp.b3937fbb64c9ddb88364.svg",
+    "static/media/HTML5.svg": "/my-portfolio/static/media/HTML5.8af6948df811f46a0ead.svg",
+    "static/media/Json.svg": "/my-portfolio/static/media/Json.0896702c591d8afdba17.svg",
+    "static/media/CSS.svg": "/my-portfolio/static/media/CSS.bba0846c17cbd72752bd.svg",
+    "static/media/TypeScript.svg": "/my-portfolio/static/media/TypeScript.b939a2d1b7b5da4819e2.svg",
+    "static/media/C.svg": "/my-portfolio/static/media/C.ac27de8477fe6c13739a.svg",
+    "static/media/JavaScript.svg": "/my-portfolio/static/media/JavaScript.cb6c28ae8b07ac4ffe29.svg",
+    "static/media/Python.svg": "/my-portfolio/static/media/Python.14f5a10cd798d37370e1.svg",
     "index.html": "/my-portfolio/index.html",
-    "main.fcddf5fe.js.map": "/my-portfolio/static/js/main.fcddf5fe.js.map",
-    "453.acca0757.chunk.js.map": "/my-portfolio/static/js/453.acca0757.chunk.js.map"
+    "static/media/Haskell.svg": "/my-portfolio/static/media/Haskell.5b2e30440712f842daf1.svg",
+    "main.83b4d207.js.map": "/my-portfolio/static/js/main.83b4d207.js.map",
+    "453.41811d64.chunk.js.map": "/my-portfolio/static/js/453.41811d64.chunk.js.map"
   },
   "entrypoints": [
-    "static/js/main.fcddf5fe.js"
+    "static/js/main.83b4d207.js"
   ]
 }
