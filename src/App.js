@@ -5,7 +5,7 @@ import Header from './components/Header';
 import Education from './components/Education';
 import Projects from './components/Projects';
 import Skills from './components/Skills';
-import ContactForm from './components/ContactForm';
+import AboutMe from './components/AboutMe';
 import GlobalStyles from './styles/GlobalStyles';
 
 const App = () => {
@@ -18,7 +18,7 @@ const App = () => {
         <Education />
         <Projects />
         <Skills />
-        <ContactForm />
+        <AboutMe />
       </main>
     </>
   );

@@ -19,7 +19,6 @@ const SkillsContainer = styled.section`
   border-radius: 10px;
   margin: 2rem auto;
   text-align: center;
-  border: 3px solid red;
 
   h2 {
     font-size: 2.5rem;

@@ -7,7 +7,6 @@ const ProjectsContainer = styled.section`
   padding: 2rem 0;
   background: linear-gradient(120deg, #89f7fe, #66a6ff);
   border-radius: 10px;
-  margin: 2rem;
 
   .project-item {
     margin: 1rem 0;
