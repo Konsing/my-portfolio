@@ -23,7 +23,7 @@ const SkillsContainer = styled.section`
   h2 {
     font-size: 2.5rem;
     margin-bottom: 2rem;
-    color: #fff;
+    color: #black;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
   }
 

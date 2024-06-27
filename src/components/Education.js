@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { motion } from 'framer-motion';
 
 const EducationContainer = styled.section`
@@ -27,6 +27,7 @@ const EducationContainer = styled.section`
     transition: transform 0.3s;
     cursor: pointer;
     text-decoration: none;
+    position: relative; /* For overlay positioning */
 
     &:hover {
       transform: scale(1.05);
@@ -69,9 +70,21 @@ const EducationContainer = styled.section`
         height: 13rem;
         width: auto;
         margin: 0.5rem;
+        position: relative;
+        z-index: 1; /* Ensure overlay is on top */
       }
     }
   }
+`;
+
+const Overlay = styled(motion.div)`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Adjust color and opacity as needed */
+  z-index: 2;
 `;
 
 const importAll = (r) => {
@@ -93,6 +106,17 @@ const Education = () => {
         type: 'spring',
         stiffness: 100
       } 
+    }
+  };
+
+  const overlayVariants = {
+    hidden: { opacity: 1 },
+    visible: { 
+      opacity: 0, 
+      transition: { 
+        duration: 1.5,
+        ease: 'easeInOut'
+      }
     }
   };
 
@@ -120,8 +144,23 @@ const Education = () => {
           <p className="gpa">Total GPA: 3.63</p>
         </div>
         <div className="institution-images">
+          <Overlay
+            initial="hidden"
+            animate="visible"
+            variants={overlayVariants}
+          />
           <img src={images['UCDavis.jpg']} alt="UC Davis Campus" />
+          <Overlay
+            initial="hidden"
+            animate="visible"
+            variants={overlayVariants}
+          />
           <img src={images['UCDavis2.jpg']} alt="UC Davis Campus 2" />
+          <Overlay
+            initial="hidden"
+            animate="visible"
+            variants={overlayVariants}
+          />
           <img src={images['UCDavis3.jpg']} alt="UC Davis Campus 3" />
         </div>
       </motion.a>
@@ -140,8 +179,23 @@ const Education = () => {
           <p className="gpa">Total GPA: 3.97</p>
         </div>
         <div className="institution-images">
+          <Overlay
+            initial="hidden"
+            animate="visible"
+            variants={overlayVariants}
+          />
           <img src={images['BCCollege.jpg']} alt="Berkeley City College Campus" />
+          <Overlay
+            initial="hidden"
+            animate="visible"
+            variants={overlayVariants}
+          />
           <img src={images['BCCollege2.jpg']} alt="Berkeley City College Campus 2" />
+          <Overlay
+            initial="hidden"
+            animate="visible"
+            variants={overlayVariants}
+          />
           <img src={images['BCCollege3.jpg']} alt="Berkeley City College Campus 3" />
         </div>
       </motion.a>
@@ -160,8 +214,23 @@ const Education = () => {
           <p className="gpa">Total GPA: 3.92</p>
         </div>
         <div className="institution-images">
+          <Overlay
+            initial="hidden"
+            animate="visible"
+            variants={overlayVariants}
+          />
           <img src={images['OCHS1.jpg']} alt="Oakland Charter High School" />
+          <Overlay
+            initial="hidden"
+            animate="visible"
+            variants={overlayVariants}
+          />
           <img src={images['OCHS2.jpg']} alt="Oakland Charter High School 2" />
+          <Overlay
+            initial="hidden"
+            animate="visible"
+            variants={overlayVariants}
+          />
           <img src={images['OCHS3.jpg']} alt="Oakland Charter High School 3" />
         </div>
       </motion.a>
