@@ -17,7 +17,7 @@ const EducationContainer = styled.section`
   }
 
   .education-item {
-    margin: 2rem 0;
+    margin: 2rem 0.5rem;
     padding: 1rem;
     background: linear-gradient(170deg, #c2e9fb, #a1c4fd);
     border-radius: 5px;
@@ -30,7 +30,7 @@ const EducationContainer = styled.section`
     position: relative; /* For overlay positioning */
 
     &:hover {
-      transform: scale(1.05);
+      transform: scale(1.02);
     }
 
     img.logo {
@@ -135,7 +135,7 @@ const Education = () => {
         initial="hidden"
         whileInView="visible"
         variants={itemVariants}
-        whileHover={{ scale: 1.05 }}
+        whileHover={{ scale: 1.02 }}
       >
         <div className="institution-info">
           <img src={images['UCD.png']} alt="UC Davis Logo" className="logo" />
@@ -170,7 +170,7 @@ const Education = () => {
         initial="hidden"
         whileInView="visible"
         variants={itemVariants}
-        whileHover={{ scale: 1.05 }}
+        whileHover={{ scale: 1.02 }}
       >
         <div className="institution-info">
           <img src={images['BCC.png']} alt="Berkeley City College Logo" className="logo" />
@@ -205,7 +205,7 @@ const Education = () => {
         initial="hidden"
         whileInView="visible"
         variants={itemVariants}
-        whileHover={{ scale: 1.05 }}
+        whileHover={{ scale: 1.02 }}
       >
         <div className="institution-info">
           <img src={images['OCHS.png']} alt="Oakland Charter High School Logo" className="logo" />
