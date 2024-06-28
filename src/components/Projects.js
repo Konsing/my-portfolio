@@ -91,7 +91,7 @@ const projects = [
     image: images['ECSite.jpg']
   },
   {
-    title: "Blog Platform Development (Full Stack)",
+    title: "Yappin' Blog Platform Development",
     description: [
       "Built a blog application with Node.js and Handlebars.",
       "Implemented Google OAuth for authentication.",
@@ -142,6 +142,39 @@ const projects = [
     ],
     technologies: ["Python", "Jupyter Notebook", "Pygame"],
     image: images['Connect4AI.png']
+  },
+  {
+    title: "Simple Shell Implementation in C",
+    description: [
+      "Implemented a simple shell in C.",
+      "Supports command execution, built-in commands (`exit`, `cd`, `pwd`), output redirection, and piping.",
+      "Built-in `ls`-like command (`sls`)."
+    ],
+    technologies: ["C"],
+    image: images['sshell.jpg'],
+    url: "https://github.com/example/sshell"
+  },
+  {
+    title: "Java MySQL Banking Application",
+    description: [
+      "Developed a simple banking application using Java and MySQL.",
+      "Performed basic CRUD operations.",
+      "Tested with multiple Java classes for database operations."
+    ],
+    technologies: ["Java", "MySQL", "JDBC"],
+    image: images['Banking.jpg'],
+    url: "https://github.com/example/banking-app"
+  },
+  {
+    title: "Web Crawler with BrowserMob Proxy and Selenium",
+    description: [
+      "Implemented a web crawler using BrowserMob Proxy and Selenium.",
+      "Captured network traffic in HAR format.",
+      "Handled 1,000,000 URLs with proper error logging."
+    ],
+    technologies: ["Python", "Selenium", "BrowserMob Proxy"],
+    image: images['WebCrawler.jpg'],
+    url: "https://github.com/example/web-crawler"
   }
 ];
 
