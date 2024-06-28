@@ -68,6 +68,34 @@ const ProjectsContainer = styled.section`
       font-weight: bold;
     }
   }
+
+  @media (max-width: 768px) {
+    padding: 1rem;
+
+    h2 {
+      font-size: 2rem;
+    }
+
+    .projects-grid {
+      grid-template-columns: 1fr; /* Single column on mobile */
+    }
+
+    .project-item {
+      max-width: 100%;
+
+      h3 {
+        font-size: 1.5rem;
+      }
+
+      ul {
+        font-size: 1rem;
+      }
+
+      .technologies {
+        font-size: 1rem;
+      }
+    }
+  }
 `;
 
 const importAll = (r) => {
@@ -196,12 +224,12 @@ const projects = [
 const Projects = () => {
   const projectVariants = {
     hidden: { opacity: 0, scale: 0.8 },
-    visible: { opacity: 1, scale: 1, transition: { duration: 0.3, type: 'spring', stiffness: 100 } },
+    visible: { opacity: 1, scale: 1, transition: { duration: 0.2, type: 'spring', stiffness: 100 } },
   };
 
   const fadeInUp = {
     hidden: { opacity: 0, y: 50 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.4, type: 'spring', stiffness: 100 } },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.2, type: 'spring', stiffness: 100 } },
   };
 
   return (
@@ -209,7 +237,7 @@ const Projects = () => {
       <motion.h2
         initial={{ x: -100, opacity: 0 }}
         whileInView={{ x: 0, opacity: 1 }}
-        transition={{ duration: 0.3 }}
+        transition={{ duration: 0.2 }}
       >
         Projects
       </motion.h2>

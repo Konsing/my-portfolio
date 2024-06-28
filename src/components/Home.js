@@ -17,7 +17,7 @@ const HomeContainer = styled.section`
   justify-content: center;
   align-items: center;
   text-align: center;
-  animation: ${fadeIn} 2s ease-in-out;
+  animation: ${fadeIn} 0.5s ease-in-out;
 
   h1 {
     font-size: 4rem;
@@ -44,6 +44,20 @@ const HomeContainer = styled.section`
     0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
     40% { transform: translateY(-10px); }
     60% { transform: translateY(-5px); }
+  }
+
+  @media (max-width: 768px) {
+    h1 {
+      font-size: 3rem;
+    }
+
+    p {
+      font-size: 1.2rem;
+    }
+
+    .down-arrow {
+      font-size: 1.5rem;
+    }
   }
 `;
 
