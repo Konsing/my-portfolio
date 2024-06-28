@@ -121,7 +121,27 @@ const projects = [
       "Improved performance and data integrity."
     ],
     technologies: ["C"],
-    image: images['FSSite.jpg']
+    image: images['FSSite.png']
+  },
+  {
+    title: "Game Arcade Website",
+    description: [
+      "Connect4: Implemented from scratch, fully functional with dedicated CSS, JS, and HTML files.",
+      "2048: Implemented from scratch, works as expected with separate files for CSS, JavaScript, and HTML.",
+      "Minesweeper: Adapted from an existing repository with UI adjustments, flag system improvements, and game dynamic enhancements."
+    ],
+    technologies: ["JavaScript", "HTML", "CSS", "Handlebars"],
+    image: images['GameArcade.jpg']
+  },
+  {
+    title: "Connect 4 AI Agents and Game Simulator",
+    description: [
+      "Implemented various AI agents and a game simulator for Connect 4.",
+      "Included strategies: random moves, minimax algorithm, alpha-beta pruning, and Monte Carlo simulations.",
+      "Scripts to run and evaluate the performance of these AI agents in a series of games."
+    ],
+    technologies: ["Python", "Jupyter Notebook", "Pygame"],
+    image: images['Connect4AI.png']
   }
 ];
 
