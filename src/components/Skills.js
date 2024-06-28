@@ -87,10 +87,10 @@ const images = importAll(require.context('../assets', false, /\.(png|jpe?g|svg)$
 const Skills = () => {
   const skills = {
     'Programming Languages': [
-      'C.svg', 'C++.svg', 'Python.svg', 'Java.svg', 'JavaScript.svg', 'TypeScript.svg', 'Haskell.svg'
+      'C.svg', 'C++.svg', 'Python.svg', 'Java.svg', 'JavaScript.svg', 'TypeScript.svg'
     ],
     'Web Development': [
-      'HTML5.svg', 'CSS.svg', 'React.svg', 'NodeJS.svg', 'Flask.svg', 'Django.svg'
+      'HTML5.svg', 'CSS.svg', 'React.svg', 'NodeJS.svg', 'Flask.svg', 'Django.svg', 'Express.jpg', 'Handlebars.jpg'
     ],
     'Databases': [
       'SQL.svg', 'SQLite.svg', 'PostgreSQL.svg', 'MongoDB.svg'
@@ -99,7 +99,7 @@ const Skills = () => {
       'GCloud.svg', 'Docker.svg', 'AWS.svg', 'Azure.svg'
     ],
     'Tools': [
-      'GitHub.svg', 'Git.svg', 'Bash.svg', 'Json.svg'
+      'GitHub.svg', 'Git.svg', 'Bash.svg', 'Json.svg', 'Selenium.png'
     ],
   };
 
@@ -161,8 +161,8 @@ const Skills = () => {
                 variants={letterVariants}
                 custom={skillIndex}
               >
-                <img src={images[skill]} alt={skill.replace('.svg', '')} />
-                <span>{skill.replace('.svg', '').split('').map((char, i) => (
+                <img src={images[skill]} alt={skill.replace('.svg', '').replace('.jpg', '').replace('.png', '')} />
+                <span>{skill.replace('.svg', '').replace('.jpg', '').replace('.png', '').split('').map((char, i) => (
                   <motion.span key={i} variants={letterVariants} custom={i}>
                     {char}
                   </motion.span>
