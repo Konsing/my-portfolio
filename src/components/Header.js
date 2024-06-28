@@ -41,13 +41,13 @@ const HeaderContainer = styled(motion.header)`
       flex-direction: row;
       align-items: center;
       width: 100%;
-      padding: 0.5rem; /* Reduce padding */
+      padding: 0.5rem;
     }
 
     nav a {
-      margin: 0.25rem 0; /* Reduce margin */
-      padding: 0.25rem 0.5rem; /* Reduce padding */
-      font-size: 0.875rem; /* Reduce font size */
+      margin: 0.25rem 0;
+      padding: 0.25rem 0.5rem;
+      font-size: 0.875rem;
     }
   }
 `;

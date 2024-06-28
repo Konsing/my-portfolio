@@ -9,10 +9,9 @@ import GlobalStyles from './styles/GlobalStyles';
 
 const App = () => {
   useEffect(() => {
-    // Ensure the page scrolls to the top on refresh
     window.onbeforeunload = () => window.scrollTo(0, 0);
   }, []);
-  
+
   return (
     <>
       <GlobalStyles />
