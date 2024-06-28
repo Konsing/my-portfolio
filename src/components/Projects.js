@@ -29,7 +29,7 @@ const ProjectsContainer = styled.section`
     padding: 1.5rem;
     background: linear-gradient(0deg, #f9f6ff, #a1ffce);
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
     max-width: 400px;
     transition: transform 0.2s ease-in-out;
 
