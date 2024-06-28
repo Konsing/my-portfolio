@@ -152,7 +152,6 @@ const projects = [
     ],
     technologies: ["C"],
     image: images['sshell.jpg'],
-    url: "https://github.com/example/sshell"
   },
   {
     title: "Java MySQL Banking Application",
@@ -163,7 +162,6 @@ const projects = [
     ],
     technologies: ["Java", "MySQL", "JDBC"],
     image: images['Banking.jpg'],
-    url: "https://github.com/example/banking-app"
   },
   {
     title: "Web Crawler with BrowserMob Proxy and Selenium",
@@ -174,7 +172,24 @@ const projects = [
     ],
     technologies: ["Python", "Selenium", "BrowserMob Proxy"],
     image: images['WebCrawler.jpg'],
-    url: "https://github.com/example/web-crawler"
+  },
+  {
+    title: "Punch Hell - Bullet Hell Game",
+    description: [
+      "Developed a bullet hell game called 'Punch Hell'",
+      "Utilized C#/Unity for assembling the entire game's SFX and music."
+    ],
+    technologies: ["Unity", "C#"],
+    image: images['PHGame.jpg'],
+  },
+  {
+    title: "Portfolio Website",
+    description: [
+      "Developed and published a personal portfolio website using GitHub Pages.",
+      "Utilized React for dynamic content rendering, styled-components for custom styling, and framer-motion for animations."
+    ],
+    technologies: ["React", "GitHub Pages", "HTML", "CSS", "JavaScript", "Styled-components", "Framer-Motion"],
+    image: images['PSite.jpg'],
   }
 ];
 
