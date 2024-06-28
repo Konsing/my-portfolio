@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components'; // Removed keyframes as it's not used
+import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
 const EducationContainer = styled.section`
@@ -27,7 +27,7 @@ const EducationContainer = styled.section`
     transition: transform 0.3s;
     cursor: pointer;
     text-decoration: none;
-    position: relative; /* For overlay positioning */
+    position: relative;
 
     &:hover {
       transform: scale(1.02);
@@ -44,20 +44,20 @@ const EducationContainer = styled.section`
       text-align: left;
 
       h3 {
-        font-size: 2.2rem; /* Slightly increased font size */
+        font-size: 2.2rem;
         margin-bottom: 0.5rem;
         color: #333;
       }
 
       p {
-        font-size: 1.2rem; /* Slightly increased font size */
+        font-size: 1.2rem;
         color: #333;
       }
 
       .gpa {
-        font-size: 1.2rem; /* Ensure GPA is visible */
+        font-size: 1.2rem;
         font-weight: bold;
-        color: #000; /* Darker color for better visibility */
+        color: #000;
       }
     }
 
@@ -71,7 +71,7 @@ const EducationContainer = styled.section`
         width: auto;
         margin: 0.5rem;
         position: relative;
-        z-index: 1; /* Ensure overlay is on top */
+        z-index: 1;
       }
     }
   }
@@ -120,7 +120,7 @@ const Overlay = styled(motion.div)`
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5); /* Adjust color and opacity as needed */
+  background: rgba(0, 0, 0, 0.5);
   z-index: 2;
 `;
 

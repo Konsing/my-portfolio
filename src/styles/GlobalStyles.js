@@ -4,7 +4,7 @@ const GlobalStyles = createGlobalStyle`
   body {
     margin: 0;
     padding: 0;
-    padding-top: 1rem; /* Welcome Text padding*/
+    padding-top: 1rem;
     box-sizing: border-box;
     font-family: 'Arial', sans-serif;
     color: #333;
@@ -24,7 +24,7 @@ const GlobalStyles = createGlobalStyle`
 
   nav {
     position: fixed;
-    background: linear-gradient(0.25turn, #d79259, #986c2f83, #ec845b); /* Gradient background for nav */
+    background: linear-gradient(0.25turn, #d79259, #986c2f83, #ec845b);
     padding: 0.5rem;
     display: flex;
     justify-content: center
@@ -46,21 +46,21 @@ const GlobalStyles = createGlobalStyle`
 
   @media (max-width: 768px) {
     a {
-      margin: 0; /* Remove large margins on links */
+      margin: 0;
     }
 
     nav {
       flex-direction: column;
       padding: 1rem;
-      width: 100%; /* Make nav full width on mobile */
+      width: 100%;
 
       a {
-        margin: 0.5rem 0; /* Adjust link margins for better spacing */
+        margin: 0.5rem 0;
       }
     }
 
     h1 {
-      font-size: 2rem; /* Adjust heading sizes for smaller screens */
+      font-size: 2rem;
     }
 
     h2 {
@@ -72,7 +72,7 @@ const GlobalStyles = createGlobalStyle`
     }
 
     section {
-      padding: 1rem; /* Increase section padding for better readability */
+      padding: 1rem;
     }
   }
 `;
