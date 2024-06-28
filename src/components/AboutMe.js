@@ -53,6 +53,28 @@ const AboutMeContainer = styled(motion.section)`
       }
     }
   }
+
+  @media (max-width: 768px) {
+    padding: 1rem;
+
+    h2 {
+      font-size: 2rem;
+    }
+
+    p {
+      font-size: 1rem;
+    }
+
+    .buttons {
+      flex-direction: column;
+      gap: 0.5rem;
+
+      a {
+        font-size: 1rem;
+        margin: 0;
+      }
+    }
+  }
 `;
 
 const reelAnimation = keyframes`
@@ -79,6 +101,12 @@ const ReelContainer = styled(motion.div)`
     height: 200px;
     margin-right: 10px;
   }
+
+  @media (max-width: 768px) {
+    img {
+      height: 100px;
+    }
+  }
 `;
 
 const AboutMe = () => {
@@ -99,7 +127,7 @@ const AboutMe = () => {
       opacity: 1, 
       y: 0, 
       transition: { 
-        duration: 0.96,
+        duration: 0.76,
         type: 'spring',
         stiffness: 100
       } 
@@ -112,7 +140,7 @@ const AboutMe = () => {
       opacity: 1, 
       scale: 1, 
       transition: { 
-        duration: 0.6,
+        duration: 0.4,
         type: 'spring',
         stiffness: 100
       } 
@@ -124,7 +152,7 @@ const AboutMe = () => {
     visible: { 
       opacity: 1, 
       transition: { 
-        duration: 1.2,
+        duration: 0.75,
         delay: 0.6
       } 
     }
@@ -151,14 +179,14 @@ const AboutMe = () => {
       <motion.h2
         initial={{ x: -100, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
-        transition={{ duration: 0.6 }}
+        transition={{ duration: 0.4 }}
       >
         About Me
       </motion.h2>
       <motion.p
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 1.2 }}
+        transition={{ duration: .80 }}
       >
         Hello! I'm Konsing Ham Lopez, a dedicated software developer with a strong foundation in software engineering and 
         a passion for tackling challenging projects. I thrive on learning new technologies and quickly adapting to 

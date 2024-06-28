@@ -38,13 +38,16 @@ const HeaderContainer = styled(motion.header)`
     align-items: center;
 
     nav {
-      flex-direction: column;
+      flex-direction: row;
       align-items: center;
+      width: 100%;
+      padding: 0.5rem; /* Reduce padding */
     }
 
     nav a {
-      margin: 0.5rem 0;
-      text-align: center;
+      margin: 0.25rem 0; /* Reduce margin */
+      padding: 0.25rem 0.5rem; /* Reduce padding */
+      font-size: 0.875rem; /* Reduce font size */
     }
   }
 `;

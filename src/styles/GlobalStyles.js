@@ -1,4 +1,3 @@
-// src/styles/GlobalStyles.js
 import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyles = createGlobalStyle`
@@ -44,7 +43,38 @@ const GlobalStyles = createGlobalStyle`
   section {
     padding: 0.5rem 0;
   }
+
+  @media (max-width: 768px) {
+    a {
+      margin: 0; /* Remove large margins on links */
+    }
+
+    nav {
+      flex-direction: column;
+      padding: 1rem;
+      width: 100%; /* Make nav full width on mobile */
+
+      a {
+        margin: 0.5rem 0; /* Adjust link margins for better spacing */
+      }
+    }
+
+    h1 {
+      font-size: 2rem; /* Adjust heading sizes for smaller screens */
+    }
+
+    h2 {
+      font-size: 1.5rem;
+    }
+
+    h3 {
+      font-size: 1.25rem;
+    }
+
+    section {
+      padding: 1rem; /* Increase section padding for better readability */
+    }
+  }
 `;
 
 export default GlobalStyles;
-

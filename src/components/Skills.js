@@ -74,6 +74,33 @@ const SkillsContainer = styled.section`
       }
     }
   }
+
+  @media (max-width: 768px) {
+    padding: 1rem;
+
+    h2 {
+      font-size: 2rem;
+    }
+
+    h3 {
+      font-size: 1.5rem;
+    }
+
+    .skills-list {
+      .skill-item {
+        width: 100px;
+
+        img {
+          height: 4rem;
+          width: 4rem;
+        }
+
+        span {
+          font-size: 0.8rem;
+        }
+      }
+    }
+  }
 `;
 
 const importAll = (r) => {

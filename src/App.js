@@ -1,5 +1,4 @@
-// src/App.js
-import React from 'react';
+import React, { useEffect } from 'react';
 import Home from './components/Home';
 import Header from './components/Header';
 import Education from './components/Education';
@@ -9,6 +8,11 @@ import AboutMe from './components/AboutMe';
 import GlobalStyles from './styles/GlobalStyles';
 
 const App = () => {
+  useEffect(() => {
+    // Ensure the page scrolls to the top on refresh
+    window.onbeforeunload = () => window.scrollTo(0, 0);
+  }, []);
+  
   return (
     <>
       <GlobalStyles />

@@ -1,5 +1,5 @@
 import React from 'react';
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components'; // Removed keyframes as it's not used
 import { motion } from 'framer-motion';
 
 const EducationContainer = styled.section`
@@ -75,6 +75,43 @@ const EducationContainer = styled.section`
       }
     }
   }
+
+  @media (max-width: 768px) {
+    padding: 1rem;
+
+    h2 {
+      font-size: 2rem;
+    }
+
+    .education-item {
+      flex-direction: column;
+      align-items: flex-start;
+      text-align: left;
+
+      img.logo {
+        height: 4rem;
+      }
+
+      .institution-info {
+        h3 {
+          font-size: 1.5rem;
+        }
+
+        p, .gpa {
+          font-size: 1rem;
+        }
+      }
+
+      .institution-images {
+        flex-direction: column;
+
+        img {
+          height: 8rem;
+          margin: 0.5rem 0;
+        }
+      }
+    }
+  }
 `;
 
 const Overlay = styled(motion.div)`
@@ -102,7 +139,7 @@ const Education = () => {
       opacity: 1, 
       y: 0, 
       transition: { 
-        duration: 0.8,
+        duration: 0.4,
         type: 'spring',
         stiffness: 100
       } 
@@ -114,7 +151,7 @@ const Education = () => {
     visible: { 
       opacity: 0, 
       transition: { 
-        duration: 1.5,
+        duration: .80,
         ease: 'easeInOut'
       }
     }
@@ -125,7 +162,7 @@ const Education = () => {
       <motion.h2
         initial={{ x: -100, opacity: 0 }}
         whileInView={{ x: 0, opacity: 1 }}
-        transition={{ duration: 0.5 }}
+        transition={{ duration: 0.4 }}
       >
         Education
       </motion.h2>
