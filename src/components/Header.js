@@ -33,14 +33,14 @@ const HeaderContainer = styled(motion.header)`
     }
   }
 
-  @media (max-width: 700px) {
+  @media (max-width: 800px) {
     flex-direction: column;
     align-items: center;
 
     nav {
       flex-direction: row;
       align-items: center;
-      width: 100%;
+      width: 90%;
       padding: 0.5rem;
     }
 

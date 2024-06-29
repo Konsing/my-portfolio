@@ -77,7 +77,7 @@ const ProjectsContainer = styled.section`
     }
 
     .projects-grid {
-      grid-template-columns: 1fr; /* Single column on mobile */
+      grid-template-columns: 1fr;
     }
 
     .project-item {

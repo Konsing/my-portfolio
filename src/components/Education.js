@@ -63,7 +63,7 @@ const EducationContainer = styled.section`
 
     .institution-images {
       display: flex;
-      flex-wrap: nowrap;
+      flex-wrap: wrap;
       justify-content: space-around;
 
       img {

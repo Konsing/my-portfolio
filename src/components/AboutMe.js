@@ -26,6 +26,7 @@ const AboutMeContainer = styled(motion.section)`
 
   .buttons {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     gap: 1rem;
 
