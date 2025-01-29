@@ -1,7 +1,7 @@
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
 import { motion, useAnimation } from 'framer-motion';
-import { FaLinkedin, FaGithub, FaFileDownload, FaEnvelope } from 'react-icons/fa';
+import { FaLinkedin, FaGithub, FaEnvelope } from 'react-icons/fa';
 import { useInView } from 'react-intersection-observer';
 
 const AboutMeContainer = styled(motion.section)`
@@ -33,24 +33,34 @@ const AboutMeContainer = styled(motion.section)`
     a {
       display: flex;
       align-items: center;
-      padding: 0.75rem 1.5rem;
+      justify-content: center;
+      padding: 0.85rem 1.75rem;
       font-size: 1.2rem;
+      font-weight: bold;
       color: white;
-      background: #4b79a1;
+      background: linear-gradient(135deg,rgb(88, 152, 232),rgb(88, 174, 198));
       border: none;
-      border-radius: 5px;
+      border-radius: 50px;
       cursor: pointer;
-      margin: 2rem 4rem;
-      transition: background 0.3s, transform 0.3s;
+      margin: 1rem 2rem;
+      transition: all 0.3s ease-in-out;
       text-decoration: none;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 
       &:hover {
-        background: #3b688f;
-        transform: scale(1.05);
+        background: linear-gradient(135deg,rgb(19, 130, 160),rgb(9, 106, 224));
+        transform: scale(1.08);
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+      }
+
+      &:active {
+        transform: scale(0.95);
+        box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
       }
 
       .icon {
-        margin-right: 0.5rem;
+        margin-right: 0.6rem;
+        font-size: 1.5rem;
       }
     }
   }
@@ -124,38 +134,38 @@ const AboutMe = () => {
 
   const containerVariants = {
     hidden: { opacity: 0, y: 50 },
-    visible: { 
-      opacity: 1, 
-      y: 0, 
-      transition: { 
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
         duration: 0.76,
         type: 'spring',
         stiffness: 100
-      } 
+      }
     }
   };
 
   const buttonVariants = {
     hidden: { opacity: 0, scale: 0.8 },
-    visible: { 
-      opacity: 1, 
-      scale: 1, 
-      transition: { 
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: {
         duration: 0.4,
         type: 'spring',
         stiffness: 100
-      } 
+      }
     }
   };
 
   const reelVariants = {
     hidden: { opacity: 0 },
-    visible: { 
-      opacity: 1, 
-      transition: { 
+    visible: {
+      opacity: 1,
+      transition: {
         duration: 0.75,
         delay: 0.6
-      } 
+      }
     }
   };
 
@@ -189,10 +199,10 @@ const AboutMe = () => {
         animate={{ opacity: 1 }}
         transition={{ duration: .80 }}
       >
-        Hello! I'm Konsing Ham Lopez, a dedicated software developer with a strong foundation in software engineering and 
-        a passion for tackling challenging projects. I thrive on learning new technologies and quickly adapting to 
-        unfamiliar tools and frameworks. My experience spans software engineering and DevOps practices. Outside of coding, 
-        I enjoy gaming, watching films/shows, and spending time with family.
+        Hello! I'm Konsing Ham Lopez, a software developer passionate about building efficient and scalable solutions.
+        With a strong foundation in backend development and system architecture, I enjoy tackling complex projects and
+        adapting to new technologies. My experience spans full-stack development, cloud infrastructure, and automation.
+        Beyond coding, I love gaming, watching films, and spending quality time with family.
       </motion.p>
       <PhotoReel>
         <ReelContainer
@@ -219,14 +229,6 @@ const AboutMe = () => {
           whileTap={{ scale: 0.9 }}
         >
           <FaLinkedin className="icon" /> LinkedIn
-        </motion.a>
-        <motion.a
-          href={`resume.pdf`}
-          download
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
-        >
-          <FaFileDownload className="icon" /> Resume
         </motion.a>
         <motion.a
           href="https://github.com/Konsing"

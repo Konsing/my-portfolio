@@ -135,22 +135,22 @@ const images = importAll(require.context('../assets', false, /\.(png|jpe?g|svg)$
 const Education = () => {
   const itemVariants = {
     hidden: { opacity: 0, y: 50 },
-    visible: { 
-      opacity: 1, 
-      y: 0, 
-      transition: { 
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
         duration: 0.4,
         type: 'spring',
         stiffness: 100
-      } 
+      }
     }
   };
 
   const overlayVariants = {
     hidden: { opacity: 1 },
-    visible: { 
-      opacity: 0, 
-      transition: { 
+    visible: {
+      opacity: 0,
+      transition: {
         duration: .80,
         ease: 'easeInOut'
       }
@@ -168,6 +168,8 @@ const Education = () => {
       </motion.h2>
       <motion.a
         href="https://www.ucdavis.edu/"
+        target="_blank"
+        rel="noopener noreferrer"
         className="education-item"
         initial="hidden"
         whileInView="visible"
@@ -203,6 +205,8 @@ const Education = () => {
       </motion.a>
       <motion.a
         href="https://www.berkeleycitycollege.edu/"
+        target="_blank"
+        rel="noopener noreferrer"
         className="education-item"
         initial="hidden"
         whileInView="visible"
@@ -238,6 +242,8 @@ const Education = () => {
       </motion.a>
       <motion.a
         href="https://ochs.amethodschools.org/"
+        target="_blank"
+        rel="noopener noreferrer"
         className="education-item"
         initial="hidden"
         whileInView="visible"

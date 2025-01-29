@@ -57,8 +57,9 @@ const ProjectsContainer = styled.section`
     }
 
     h3 {
+      font-family: "Trebuchet MS", sans-serif;
       font-size: 2rem;
-      margin-bottom: 1rem;
+      margin-bottom: 1px;
       color: #333;
       text-align: center;
     }
@@ -84,7 +85,7 @@ const ProjectsContainer = styled.section`
     font-size: 1.4rem;
     font-weight: bold;
     color: #333;
-    background: linear-gradient(90deg,rgb(86, 216, 210),rgb(105, 211, 190));
+    background: linear-gradient(90deg,rgb(239, 210, 125),rgb(237, 197, 128));
     padding: 10px 20px;
     border-radius: 8px;
     display: inline-block;
