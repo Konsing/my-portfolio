@@ -6,13 +6,19 @@ const ProjectsContainer = styled.section`
   padding: 2rem 0;
   background: linear-gradient(120deg, #a1ffce, #f9f6ff);
   border-radius: 10px;
+  text-align: center;
 
   h2 {
     font-size: 2.5rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
     color: black;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
-    text-align: center;
+  }
+
+  p {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 2rem;
   }
 
   .projects-grid {
@@ -32,6 +38,11 @@ const ProjectsContainer = styled.section`
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
     max-width: 400px;
     transition: transform 0.2s ease-in-out;
+    cursor: pointer;
+
+    &:hover {
+      transform: scale(1.05);
+    }
 
     &:hover img {
       transform: rotate(3deg);
@@ -69,11 +80,32 @@ const ProjectsContainer = styled.section`
     }
   }
 
+  .info-text {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #333;
+    background: linear-gradient(90deg,rgb(86, 216, 210),rgb(105, 211, 190));
+    padding: 10px 20px;
+    border-radius: 8px;
+    display: inline-block;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease-in-out;
+    
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+
   @media (max-width: 768px) {
     padding: 1rem;
 
     h2 {
       font-size: 2rem;
+    }
+
+    p {
+      font-size: 1rem;
     }
 
     .projects-grid {
@@ -108,6 +140,30 @@ const images = importAll(require.context('../assets', false, /\.(png|jpe?g|svg)$
 
 const projects = [
   {
+    title: "Criterion Collection Stremio Add-on",
+    description: [
+      "Stremio add-on for browsing the Criterion Collection.",
+      "Scrapes movie metadata dynamically using Selenium.",
+      "Displays posters and integrates seamlessly with Stremio.",
+      "Deployed on Render for public access."
+    ],
+    technologies: ["JavaScript", "Node.js", "Stremio Add-on SDK", "Selenium", "Flask", "Docker"],
+    image: images['CriterionAddon.png'],
+    link: "https://github.com/Konsing/Criterion_Collection_Add-On_Stremio"
+  },
+  {
+    title: "AI-Powered Resume Generator",
+    description: [
+      "AI-driven resume analysis for ATS optimization.",
+      "Provides keyword suggestions and formatting improvements.",
+      "Built with OpenAI API, Flask, and React.",
+      "Real-time resume feedback based on job descriptions."
+    ],
+    technologies: ["Python", "Flask", "React", "OpenAI API", "PostgreSQL", "OAuth2", "Docker"],
+    image: images['AI_Resume.png'],
+    link: "https://github.com/Konsing/AI-Powered_Resume_Optimizer"
+  },
+  {
     title: "UC Davis EcoCAR Electric Vehicle",
     description: [
       "Automated onboarding/offboarding with Python and Google APIs.",
@@ -116,7 +172,18 @@ const projects = [
       "Deployed solutions on GCP."
     ],
     technologies: ["Python", "Apache Airflow", "Google APIs", "Streamlit", "Google Cloud Platform (GCP)"],
-    image: images['ECSite.jpg']
+    image: images['ECSite.jpg'],
+    link: "https://github.com/Konsing/EcoCar-Automation"
+  },
+  {
+    title: "Punch Hell - Bullet Hell Game",
+    description: [
+      "Developed a bullet hell game called 'Punch Hell'",
+      "Utilized C#/Unity for assembling the entire game's SFX and music."
+    ],
+    technologies: ["Unity", "C#"],
+    image: images['PHGame.jpg'],
+    link: "https://github.com/Konsing/Punch-Hell-Game_Unity"
   },
   {
     title: "Yappin' Blog Platform Development",
@@ -127,7 +194,8 @@ const projects = [
       "Stored data with SQLite and Dockerized the app."
     ],
     technologies: ["Node.js", "Express", "Handlebars", "HTML", "CSS", "JavaScript", "Google OAuth", "AJAX", "SQLite", "Docker"],
-    image: images['BSite.jpg']
+    image: images['BSite.jpg'],
+    link: "https://github.com/Konsing/Yappin-Blog-Site_Full_Stack"
   },
   {
     title: "Artificial Neural Network Model with Website Integration",
@@ -138,7 +206,30 @@ const projects = [
       "Managed data from 1190 observations."
     ],
     technologies: ["Python", "Flask", "HTML", "CSS", "TensorFlow", "Sci-Kit", "Seaborn"],
-    image: images['ANNSite.jpg']
+    image: images['ANNSite.jpg'],
+    link: "https://github.com/Konsing/Heart-Risk-ANN-Model_Website"
+  },
+  {
+    title: "Game Arcade Website",
+    description: [
+      "Connect4: Implemented from scratch, fully functional with dedicated CSS, JS, and HTML files.",
+      "2048: Implemented from scratch, works as expected with separate files for CSS, JavaScript, and HTML.",
+      "Minesweeper: Adapted from an existing repository with UI adjustments, flag system improvements, and game dynamic enhancements."
+    ],
+    technologies: ["JavaScript", "HTML", "CSS", "Handlebars"],
+    image: images['GameArcade.jpg'],
+    link: "https://github.com/Konsing/Game-Arcade-Site_2048_Minesweeper_Connect4"
+  },
+  {
+    title: "Connect 4 AI Agents and Game Simulator",
+    description: [
+      "Implemented various AI agents and a game simulator for Connect 4.",
+      "Included strategies: random moves, minimax algorithm, alpha-beta pruning, and Monte Carlo simulations.",
+      "Scripts to run and evaluate the performance of these AI agents in a series of games."
+    ],
+    technologies: ["Python", "Jupyter Notebook", "Pygame"],
+    image: images['Connect4AI.png'],
+    link: "https://github.com/Konsing/Connect-4-AI-Agents-and-Game-Simulator"
   },
   {
     title: "MS-FAT Variant Development (File System in C)",
@@ -149,27 +240,8 @@ const projects = [
       "Improved performance and data integrity."
     ],
     technologies: ["C"],
-    image: images['FSSite.png']
-  },
-  {
-    title: "Game Arcade Website",
-    description: [
-      "Connect4: Implemented from scratch, fully functional with dedicated CSS, JS, and HTML files.",
-      "2048: Implemented from scratch, works as expected with separate files for CSS, JavaScript, and HTML.",
-      "Minesweeper: Adapted from an existing repository with UI adjustments, flag system improvements, and game dynamic enhancements."
-    ],
-    technologies: ["JavaScript", "HTML", "CSS", "Handlebars"],
-    image: images['GameArcade.jpg']
-  },
-  {
-    title: "Connect 4 AI Agents and Game Simulator",
-    description: [
-      "Implemented various AI agents and a game simulator for Connect 4.",
-      "Included strategies: random moves, minimax algorithm, alpha-beta pruning, and Monte Carlo simulations.",
-      "Scripts to run and evaluate the performance of these AI agents in a series of games."
-    ],
-    technologies: ["Python", "Jupyter Notebook", "Pygame"],
-    image: images['Connect4AI.png']
+    image: images['FSSite.png'],
+    link: "https://github.com/Konsing/File_System_MS-FAT-Variant"
   },
   {
     title: "Simple Shell Implementation in C",
@@ -180,6 +252,7 @@ const projects = [
     ],
     technologies: ["C"],
     image: images['sshell.jpg'],
+    link: "https://github.com/Konsing/sshell-Simple-Shell-Implementation-in-C-Linux-Bash-"
   },
   {
     title: "Java MySQL Banking Application",
@@ -190,6 +263,7 @@ const projects = [
     ],
     technologies: ["Java", "MySQL", "JDBC"],
     image: images['Banking.jpg'],
+    link: "https://github.com/Konsing/Java-MySQL-Banking-Application"
   },
   {
     title: "Web Crawler with BrowserMob Proxy and Selenium",
@@ -200,15 +274,7 @@ const projects = [
     ],
     technologies: ["Python", "Selenium", "BrowserMob Proxy"],
     image: images['WebCrawler.jpg'],
-  },
-  {
-    title: "Punch Hell - Bullet Hell Game",
-    description: [
-      "Developed a bullet hell game called 'Punch Hell'",
-      "Utilized C#/Unity for assembling the entire game's SFX and music."
-    ],
-    technologies: ["Unity", "C#"],
-    image: images['PHGame.jpg'],
+    link: "https://github.com/Konsing/Web-Crawler-with-BrowserMob-Proxy-and-Selenium"
   },
   {
     title: "Portfolio Website",
@@ -218,6 +284,7 @@ const projects = [
     ],
     technologies: ["React", "GitHub Pages", "HTML", "CSS", "JavaScript", "Styled-components", "Framer-Motion"],
     image: images['PSite.jpg'],
+    link: "https://github.com/Konsing/my-portfolio"
   }
 ];
 
@@ -241,6 +308,7 @@ const Projects = () => {
       >
         Projects
       </motion.h2>
+      <p className="info-text">🚀 Click on a project to view more details on GitHub! 🔗</p>
       <div className="projects-grid">
         {projects.map((project, index) => (
           <motion.div
@@ -250,9 +318,10 @@ const Projects = () => {
             whileInView="visible"
             variants={index % 2 === 0 ? projectVariants : fadeInUp}
             whileHover={{ scale: 1.05 }}
+            onClick={() => window.open(project.link, "_blank")}
           >
+            <h3>{project.title}</h3> {}
             <img src={project.image} alt={project.title} />
-            <h3>{project.title}</h3>
             <ul>
               {project.description.map((item, idx) => (
                 <li key={idx}>{item}</li>
