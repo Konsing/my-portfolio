@@ -117,8 +117,3 @@ my-portfolio/
 📱 **Fully Responsive** – Adjusts seamlessly to different devices and screen sizes.  
 
 ---
-
-## **📜 License**  
-This project is **MIT Licensed**, meaning you are free to modify and share it as you see fit.  
-
----
