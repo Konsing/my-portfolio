@@ -6,7 +6,7 @@ import { useInView } from 'react-intersection-observer';
 
 const AboutMeContainer = styled(motion.section)`
   padding: 3rem 2rem;
-  background: linear-gradient(120deg, #a1c4fd, #c2e9fb);
+  background: #fff;
   border-radius: 10px;
   margin: 2rem auto;
   text-align: center;
@@ -14,13 +14,13 @@ const AboutMeContainer = styled(motion.section)`
   h2 {
     font-size: 2.5rem;
     margin-bottom: 2rem;
-    color: black;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    color: #000;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
   }
 
   p {
     font-size: 1.2rem;
-    color: #333;
+    color: #000;
     margin-bottom: 1.5rem;
   }
 
@@ -37,9 +37,9 @@ const AboutMeContainer = styled(motion.section)`
       padding: 0.85rem 1.75rem;
       font-size: 1.2rem;
       font-weight: bold;
-      color: white;
-      background: linear-gradient(135deg,rgb(88, 152, 232),rgb(88, 174, 198));
-      border: none;
+      color: #fff;
+      background: #000;
+      border: 1px solid #000;
       border-radius: 50px;
       cursor: pointer;
       margin: 1rem 2rem;
@@ -48,7 +48,8 @@ const AboutMeContainer = styled(motion.section)`
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 
       &:hover {
-        background: linear-gradient(135deg,rgb(19, 130, 160),rgb(9, 106, 224));
+        background: #fff;
+        color: #000;
         transform: scale(1.08);
         box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
       }
@@ -110,7 +111,7 @@ const ReelContainer = styled(motion.div)`
   transform: translateX(0);
   img {
     height: 200px;
-    margin-right: 10px;
+    margin-right: 0; /* Removed margin to prevent shaking */
   }
 
   @media (max-width: 768px) {
@@ -121,7 +122,7 @@ const ReelContainer = styled(motion.div)`
 `;
 
 const AboutMe = () => {
-  const { ref, inView } = useInView({ triggerOnce: false, threshold: 0.1 });
+  const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.1 });
   const controls = useAnimation();
 
   React.useEffect(() => {
@@ -137,11 +138,7 @@ const AboutMe = () => {
     visible: {
       opacity: 1,
       y: 0,
-      transition: {
-        duration: 0.76,
-        type: 'spring',
-        stiffness: 100
-      }
+      transition: { duration: 0.5, type: 'spring', stiffness: 100 }
     }
   };
 
@@ -150,11 +147,7 @@ const AboutMe = () => {
     visible: {
       opacity: 1,
       scale: 1,
-      transition: {
-        duration: 0.4,
-        type: 'spring',
-        stiffness: 100
-      }
+      transition: { duration: 0.3, type: 'spring', stiffness: 100 }
     }
   };
 
@@ -162,10 +155,7 @@ const AboutMe = () => {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: {
-        duration: 0.75,
-        delay: 0.6
-      }
+      transition: { duration: 0.5, delay: 0.4 }
     }
   };
 
@@ -176,7 +166,6 @@ const AboutMe = () => {
   };
 
   const images = importAll(require.context('../assets', false, /\.(png|jpe?g|svg)$/));
-
   const imageNames = Object.keys(images).filter(name => name.startsWith('Konsing')).sort();
 
   return (
@@ -187,40 +176,23 @@ const AboutMe = () => {
       variants={containerVariants}
       ref={ref}
     >
-      <motion.h2
-        initial={{ x: -100, opacity: 0 }}
-        animate={{ x: 0, opacity: 1 }}
-        transition={{ duration: 0.4 }}
-      >
+      <motion.h2 initial={{ x: -100, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ duration: 0.3 }}>
         About Me
       </motion.h2>
-      <motion.p
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: .80 }}
-      >
+      <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }}>
         Hello! I'm Konsing Ham Lopez, a software developer passionate about building efficient and scalable solutions.
         With a strong foundation in backend development and system architecture, I enjoy tackling complex projects and
         adapting to new technologies. My experience spans full-stack development, cloud infrastructure, and automation.
         Beyond coding, I love gaming, watching films, and spending quality time with family.
       </motion.p>
       <PhotoReel>
-        <ReelContainer
-          initial="hidden"
-          animate={controls}
-          variants={reelVariants}
-        >
+        <ReelContainer initial="hidden" animate={controls} variants={reelVariants}>
           {[...imageNames, ...imageNames].map((image, index) => (
             <img key={index} src={images[image]} alt={`Konsing ${index + 1}`} />
           ))}
         </ReelContainer>
       </PhotoReel>
-      <motion.div
-        className="buttons"
-        initial="hidden"
-        animate={controls}
-        variants={buttonVariants}
-      >
+      <motion.div initial="hidden" animate={controls} variants={buttonVariants} className="buttons">
         <motion.a
           href="https://www.linkedin.com/in/konsingham/"
           target="_blank"

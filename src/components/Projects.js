@@ -4,20 +4,19 @@ import { motion } from 'framer-motion';
 
 const ProjectsContainer = styled.section`
   padding: 2rem 0;
-  background: linear-gradient(120deg, #a1ffce, #f9f6ff);
+  background: #fff;
   border-radius: 10px;
   text-align: center;
 
   h2 {
     font-size: 2.5rem;
     margin-bottom: 1rem;
-    color: black;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    color: #000;
   }
 
   p {
     font-size: 1.2rem;
-    color: #555;
+    color: #000;
     margin-bottom: 2rem;
   }
 
@@ -33,11 +32,12 @@ const ProjectsContainer = styled.section`
     flex-direction: column;
     align-items: center;
     padding: 1.5rem;
-    background: linear-gradient(0deg, #f9f6ff, #a1ffce);
+    background: #fff;
+    border: 1px solid #000;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
     max-width: 400px;
-    transition: transform 0.2s ease-in-out;
+    transition: transform 0.15s ease-in-out;
     cursor: pointer;
 
     &:hover {
@@ -53,14 +53,14 @@ const ProjectsContainer = styled.section`
       height: auto;
       border-radius: 10px;
       margin-bottom: 1rem;
-      transition: transform 0.2s ease-in-out;
+      transition: transform 0.15s ease-in-out;
     }
 
     h3 {
       font-family: "Trebuchet MS", sans-serif;
       font-size: 2rem;
       margin-bottom: 1px;
-      color: #333;
+      color: #000;
       text-align: center;
     }
 
@@ -69,14 +69,14 @@ const ProjectsContainer = styled.section`
       margin-left: 20px;
       font-size: 1.2rem;
       text-align: left;
-      color: rgb(0, 0, 0);
+      color: #000;
       border-radius: 30px;
     }
 
     .technologies {
       margin-top: 1rem;
       font-size: 1.2rem;
-      color: #333;
+      color: #000;
       font-weight: bold;
     }
   }
@@ -84,14 +84,15 @@ const ProjectsContainer = styled.section`
   .info-text {
     font-size: 1.4rem;
     font-weight: bold;
-    color: #333;
-    background: linear-gradient(90deg,rgb(239, 210, 125),rgb(237, 197, 128));
+    color: #000;
+    background: #fff;
     padding: 10px 20px;
+    border: 1px solid #000;
     border-radius: 8px;
     display: inline-block;
     margin-bottom: 2rem;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: transform 0.2s ease-in-out;
+    transition: transform 0.15s ease-in-out;
     
     &:hover {
       transform: scale(1.05);
@@ -292,12 +293,12 @@ const projects = [
 const Projects = () => {
   const projectVariants = {
     hidden: { opacity: 0, scale: 0.8 },
-    visible: { opacity: 1, scale: 1, transition: { duration: 0.2, type: 'spring', stiffness: 100 } },
+    visible: { opacity: 1, scale: 1, transition: { duration: 0.15, type: 'spring', stiffness: 100 } }
   };
 
   const fadeInUp = {
     hidden: { opacity: 0, y: 50 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.2, type: 'spring', stiffness: 100 } },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.15, type: 'spring', stiffness: 100 } }
   };
 
   return (
@@ -305,7 +306,8 @@ const Projects = () => {
       <motion.h2
         initial={{ x: -100, opacity: 0 }}
         whileInView={{ x: 0, opacity: 1 }}
-        transition={{ duration: 0.2 }}
+        transition={{ duration: 0.15 }}
+        viewport={{ once: true }}
       >
         Projects
       </motion.h2>
@@ -320,8 +322,9 @@ const Projects = () => {
             variants={index % 2 === 0 ? projectVariants : fadeInUp}
             whileHover={{ scale: 1.05 }}
             onClick={() => window.open(project.link, "_blank")}
+            viewport={{ once: true }}
           >
-            <h3>{project.title}</h3> {}
+            <h3>{project.title}</h3>
             <img src={project.image} alt={project.title} />
             <ul>
               {project.description.map((item, idx) => (

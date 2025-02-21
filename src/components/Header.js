@@ -15,20 +15,21 @@ const HeaderContainer = styled(motion.header)`
     display: flex;
     justify-content: space-between;
     width: 700px;
-    margin: 50px 0px 0px 0px;
+    margin: 50px 0 0 0;
     overflow: hidden;
-    border: 1px solid white;
+    border: 1px solid #000;
+    background: #fff;
   }
 
   nav a {
     margin: auto;
-    color: #fff;
+    color: #000;
     cursor: pointer;
     padding: 0.5rem 1rem;
     text-decoration: none;
     text-align: center;
     &:hover {
-      background: rgba(255, 255, 255, 0.2);
+      background: rgba(0, 0, 0, 0.1);
       border-radius: 5px;
     }
   }

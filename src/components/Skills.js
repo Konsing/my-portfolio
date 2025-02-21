@@ -15,7 +15,7 @@ const bounce = keyframes`
 
 const SkillsContainer = styled.section`
   padding: 2rem;
-  background: linear-gradient(120deg, #ff9a9e, #fad0c4);
+  background: #fff;
   border-radius: 10px;
   margin: 2rem auto;
   text-align: center;
@@ -23,8 +23,7 @@ const SkillsContainer = styled.section`
   h2 {
     font-size: 2.5rem;
     margin-bottom: 2rem;
-    color: #black;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    color: #000;
   }
 
   .skills-category {
@@ -33,8 +32,7 @@ const SkillsContainer = styled.section`
     h3 {
       font-size: 2rem;
       margin-bottom: 1.5rem;
-      color: #fff;
-      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+      color: #000;
     }
   }
 
@@ -51,7 +49,8 @@ const SkillsContainer = styled.section`
       flex-direction: column;
       align-items: center;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
-      background: linear-gradient(220deg, #fad0c4, #ff9a9e);
+      background: #fff;
+      border: 1px solid #000;
       transition: transform 0.3s;
 
       &:hover {
@@ -65,10 +64,9 @@ const SkillsContainer = styled.section`
       }
 
       span {
-        color: #fff;
+        color: #000;
         font-size: 1rem;
         font-weight: bold;
-        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
         display: inline-block;
         animation: ${bounce} 1s forwards;
       }
@@ -135,23 +133,13 @@ const Skills = () => {
     visible: (i) => ({
       y: 0,
       opacity: 1,
-      transition: {
-        delay: i * 0.075,
-        type: 'spring',
-        stiffness: 400,
-      }
+      transition: { delay: i * 0.075, type: 'spring', stiffness: 400 }
     })
   };
 
   const categoryVariants = {
     hidden: { opacity: 0, y: -50 },
-    visible: { 
-      opacity: 1, 
-      y: 0, 
-      transition: { 
-        duration: 0.75 
-      } 
-    }
+    visible: { opacity: 1, y: 0, transition: { duration: 0.3 } }
   };
 
   return (
@@ -159,7 +147,8 @@ const Skills = () => {
       <motion.h2
         initial={{ x: -100, opacity: 0 }}
         whileInView={{ x: 0, opacity: 1 }}
-        transition={{ duration: 0.5 }}
+        transition={{ duration: 0.3 }}
+        viewport={{ once: true }}
       >
         Skills
       </motion.h2>
@@ -170,11 +159,13 @@ const Skills = () => {
           initial="hidden"
           whileInView="visible"
           variants={categoryVariants}
+          viewport={{ once: true }}
         >
           <motion.h3
             initial={{ opacity: 0, y: -50 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 0.3 }}
+            viewport={{ once: true }}
           >
             {category}
           </motion.h3>
@@ -187,13 +178,21 @@ const Skills = () => {
                 whileInView="visible"
                 variants={letterVariants}
                 custom={skillIndex}
+                viewport={{ once: true }}
               >
                 <img src={images[skill]} alt={skill.replace('.svg', '').replace('.jpg', '').replace('.png', '')} />
-                <span>{skill.replace('.svg', '').replace('.jpg', '').replace('.png', '').split('').map((char, i) => (
-                  <motion.span key={i} variants={letterVariants} custom={i}>
-                    {char}
-                  </motion.span>
-                ))}</span>
+                <span>
+                  {skill
+                    .replace('.svg', '')
+                    .replace('.jpg', '')
+                    .replace('.png', '')
+                    .split('')
+                    .map((char, i) => (
+                      <motion.span key={i} variants={letterVariants} custom={i}>
+                        {char}
+                      </motion.span>
+                    ))}
+                </span>
               </motion.div>
             ))}
           </div>

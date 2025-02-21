@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 
 const EducationContainer = styled.section`
   padding: 3rem 2rem;
-  background: linear-gradient(120deg, #a1c4fd, #c2e9fb);
+  background: #fff;
   border-radius: 10px;
   margin: 2rem auto;
   text-align: center;
@@ -12,14 +12,15 @@ const EducationContainer = styled.section`
   h2 {
     font-size: 2.5rem;
     margin-bottom: 2rem;
-    color: black;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    color: #000;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
   }
 
   .education-item {
     margin: 2rem 0.5rem;
     padding: 1rem;
-    background: linear-gradient(170deg, #c2e9fb, #a1c4fd);
+    background: #fff;
+    border: 1px solid #000;
     border-radius: 5px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
     display: flex;
@@ -46,12 +47,12 @@ const EducationContainer = styled.section`
       h3 {
         font-size: 2.2rem;
         margin-bottom: 0.5rem;
-        color: #333;
+        color: #000;
       }
 
       p {
         font-size: 1.2rem;
-        color: #333;
+        color: #000;
       }
 
       .gpa {
@@ -120,7 +121,7 @@ const Overlay = styled(motion.div)`
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.05);
   z-index: 2;
 `;
 
@@ -151,7 +152,7 @@ const Education = () => {
     visible: {
       opacity: 0,
       transition: {
-        duration: .80,
+        duration: 0.80,
         ease: 'easeInOut'
       }
     }

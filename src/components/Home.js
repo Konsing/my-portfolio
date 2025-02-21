@@ -1,4 +1,3 @@
-// src/components/Home.js
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
 import { motion, useAnimation } from 'framer-motion';
@@ -18,32 +17,24 @@ const HomeContainer = styled.section`
   align-items: center;
   text-align: center;
   animation: ${fadeIn} 0.5s ease-in-out;
+  background: #fff;
 
   h1 {
     font-size: 4rem;
-    color: #fff;
+    color: #000;
     margin: 0.5rem;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
   }
 
   p {
     font-size: 1.5rem;
-    color: #fff;
+    color: #000;
     margin: 0.5rem;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
   }
 
   .down-arrow {
     font-size: 2rem;
     margin-top: 2rem;
-    color: #fff;
-    animation: bounce 2s infinite;
-  }
-
-  @keyframes bounce {
-    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-    40% { transform: translateY(-10px); }
-    60% { transform: translateY(-5px); }
+    color: #000;
   }
 
   @media (max-width: 768px) {
@@ -62,48 +53,55 @@ const HomeContainer = styled.section`
 `;
 
 const Home = () => {
-  const controls = useAnimation();
-  const [ref, inView] = useInView({ triggerOnce: false, threshold: 0.5 });
+  // Separate refs and controls: h1 reanimates; the others animate once.
+  const h1Controls = useAnimation();
+  const otherControls = useAnimation();
+  const [h1Ref, h1InView] = useInView({ triggerOnce: false, threshold: 0.5 });
+  const [otherRef, otherInView] = useInView({ triggerOnce: true, threshold: 0.5 });
 
   React.useEffect(() => {
-    if (inView) {
-      controls.start('visible');
+    if (h1InView) {
+      h1Controls.start('visible');
     } else {
-      controls.start('hidden');
+      h1Controls.start('hidden');
     }
-  }, [controls, inView]);
+  }, [h1Controls, h1InView]);
+
+  React.useEffect(() => {
+    if (otherInView) {
+      otherControls.start('visible');
+    }
+  }, [otherControls, otherInView]);
 
   return (
-    <HomeContainer id="home" ref={ref}>
+    <HomeContainer id="home">
       <InteractiveBackground />
       <motion.h1
+        ref={h1Ref}
         initial="hidden"
-        animate={controls}
+        animate={h1Controls}
         variants={{
           hidden: { scale: 0.5, opacity: 0 },
-          visible: { scale: 1, opacity: 1, transition: { duration: 1 } },
+          visible: { scale: 1, opacity: 1, transition: { duration: 0.8 } }
         }}
       >
         Konsing Yukman Ham Lopez
       </motion.h1>
       <motion.p
-        initial="hidden"
-        animate={controls}
-        variants={{
-          hidden: { y: 50, opacity: 0 },
-          visible: { y: 0, opacity: 1, transition: { duration: 1, delay: 0.5 } },
-        }}
+        ref={otherRef}
+        initial={{ y: 50, opacity: 0 }}
+        animate={otherControls}
+        transition={{ duration: 0.5, delay: 0.3 }}
+        viewport={{ once: true }}
       >
         Scroll down to learn more about me
       </motion.p>
       <motion.div
         className="down-arrow"
-        initial="hidden"
-        animate={controls}
-        variants={{
-          hidden: { opacity: 0 },
-          visible: { opacity: 1, transition: { duration: 1, delay: 1 } },
-        }}
+        initial={{ opacity: 0 }}
+        animate={otherControls}
+        transition={{ duration: 0.5, delay: 0.6 }}
+        viewport={{ once: true }}
       >
         ↓
       </motion.div>
