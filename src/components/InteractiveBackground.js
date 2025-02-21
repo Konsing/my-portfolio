@@ -1,3 +1,4 @@
+// InteractiveBackground.js
 import React from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
@@ -9,7 +10,7 @@ const BackgroundContainer = styled.div`
   width: 100%;
   height: 100%;
   z-index: -1;
-  background: #fff;
+  background: ${({ theme }) => theme.background};
 `;
 
 const Circle = styled(motion.div)`

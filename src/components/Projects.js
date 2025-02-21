@@ -1,22 +1,23 @@
+// Projects.js
 import React from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
 const ProjectsContainer = styled.section`
   padding: 2rem 0;
-  background: #fff;
+  background: ${({ theme }) => theme.background};
   border-radius: 10px;
   text-align: center;
 
   h2 {
     font-size: 2.5rem;
     margin-bottom: 1rem;
-    color: #000;
+    color: ${({ theme }) => theme.text};
   }
 
   p {
     font-size: 1.2rem;
-    color: #000;
+    color: ${({ theme }) => theme.text};
     margin-bottom: 2rem;
   }
 
@@ -30,15 +31,15 @@ const ProjectsContainer = styled.section`
   .project-item {
     display: flex;
     flex-direction: column;
-    align-items: center;
     padding: 1.5rem;
-    background: #fff;
-    border: 1px solid #000;
+    background: ${({ theme }) => theme.background};
+    border: 1px solid ${({ theme }) => theme.text};
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
     max-width: 400px;
     transition: transform 0.15s ease-in-out;
     cursor: pointer;
+    min-height: 500px;
 
     &:hover {
       transform: scale(1.05);
@@ -60,7 +61,7 @@ const ProjectsContainer = styled.section`
       font-family: "Trebuchet MS", sans-serif;
       font-size: 2rem;
       margin-bottom: 1px;
-      color: #000;
+      color: ${({ theme }) => theme.text};
       text-align: center;
     }
 
@@ -69,14 +70,15 @@ const ProjectsContainer = styled.section`
       margin-left: 20px;
       font-size: 1.2rem;
       text-align: left;
-      color: #000;
+      color: ${({ theme }) => theme.text};
       border-radius: 30px;
+      margin-bottom: 1rem; /* Extra spacing between bullet list and technologies */
     }
 
     .technologies {
-      margin-top: 1rem;
+      margin-top: auto; /* Stick to the bottom of the card */
       font-size: 1.2rem;
-      color: #000;
+      color: ${({ theme }) => theme.text};
       font-weight: bold;
     }
   }
@@ -84,16 +86,16 @@ const ProjectsContainer = styled.section`
   .info-text {
     font-size: 1.4rem;
     font-weight: bold;
-    color: #000;
-    background: #fff;
+    color: ${({ theme }) => theme.text};
+    background: ${({ theme }) => theme.background};
     padding: 10px 20px;
-    border: 1px solid #000;
+    border: 1px solid ${({ theme }) => theme.text};
     border-radius: 8px;
     display: inline-block;
     margin-bottom: 2rem;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     transition: transform 0.15s ease-in-out;
-    
+
     &:hover {
       transform: scale(1.05);
     }
@@ -134,7 +136,9 @@ const ProjectsContainer = styled.section`
 
 const importAll = (r) => {
   let images = {};
-  r.keys().forEach((item) => { images[item.replace('./', '')] = r(item); });
+  r.keys().forEach((item) => {
+    images[item.replace('./', '')] = r(item);
+  });
   return images;
 };
 

@@ -1,10 +1,11 @@
+// Education.js
 import React from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
 const EducationContainer = styled.section`
   padding: 3rem 2rem;
-  background: #fff;
+  background: ${({ theme }) => theme.background};
   border-radius: 10px;
   margin: 2rem auto;
   text-align: center;
@@ -12,15 +13,15 @@ const EducationContainer = styled.section`
   h2 {
     font-size: 2.5rem;
     margin-bottom: 2rem;
-    color: #000;
+    color: ${({ theme }) => theme.text};
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
   }
 
   .education-item {
     margin: 2rem 0.5rem;
     padding: 1rem;
-    background: #fff;
-    border: 1px solid #000;
+    background: ${({ theme }) => theme.background};
+    border: 1px solid ${({ theme }) => theme.text};
     border-radius: 5px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
     display: flex;
@@ -47,18 +48,18 @@ const EducationContainer = styled.section`
       h3 {
         font-size: 2.2rem;
         margin-bottom: 0.5rem;
-        color: #000;
+        color: ${({ theme }) => theme.text};
       }
 
       p {
         font-size: 1.2rem;
-        color: #000;
+        color: ${({ theme }) => theme.text};
       }
 
       .gpa {
         font-size: 1.2rem;
         font-weight: bold;
-        color: #000;
+        color: ${({ theme }) => theme.text};
       }
     }
 
@@ -139,11 +140,7 @@ const Education = () => {
     visible: {
       opacity: 1,
       y: 0,
-      transition: {
-        duration: 0.4,
-        type: 'spring',
-        stiffness: 100
-      }
+      transition: { duration: 0.3, type: 'spring', stiffness: 100 }
     }
   };
 
@@ -151,10 +148,7 @@ const Education = () => {
     hidden: { opacity: 1 },
     visible: {
       opacity: 0,
-      transition: {
-        duration: 0.80,
-        ease: 'easeInOut'
-      }
+      transition: { duration: 0.5, ease: 'easeInOut' }
     }
   };
 
@@ -163,7 +157,8 @@ const Education = () => {
       <motion.h2
         initial={{ x: -100, opacity: 0 }}
         whileInView={{ x: 0, opacity: 1 }}
-        transition={{ duration: 0.4 }}
+        transition={{ duration: 0.3 }}
+        viewport={{ once: true }}
       >
         Education
       </motion.h2>
@@ -176,6 +171,7 @@ const Education = () => {
         whileInView="visible"
         variants={itemVariants}
         whileHover={{ scale: 1.02 }}
+        viewport={{ once: true }}
       >
         <div className="institution-info">
           <img src={images['UCD.png']} alt="UC Davis Logo" className="logo" />
@@ -184,23 +180,11 @@ const Education = () => {
           <p className="gpa">Total GPA: 3.63</p>
         </div>
         <div className="institution-images">
-          <Overlay
-            initial="hidden"
-            animate="visible"
-            variants={overlayVariants}
-          />
+          <Overlay initial="hidden" animate="visible" variants={overlayVariants} />
           <img src={images['UCDavis.jpg']} alt="UC Davis Campus" />
-          <Overlay
-            initial="hidden"
-            animate="visible"
-            variants={overlayVariants}
-          />
+          <Overlay initial="hidden" animate="visible" variants={overlayVariants} />
           <img src={images['UCDavis2.jpg']} alt="UC Davis Campus 2" />
-          <Overlay
-            initial="hidden"
-            animate="visible"
-            variants={overlayVariants}
-          />
+          <Overlay initial="hidden" animate="visible" variants={overlayVariants} />
           <img src={images['UCDavis3.jpg']} alt="UC Davis Campus 3" />
         </div>
       </motion.a>
@@ -213,6 +197,7 @@ const Education = () => {
         whileInView="visible"
         variants={itemVariants}
         whileHover={{ scale: 1.02 }}
+        viewport={{ once: true }}
       >
         <div className="institution-info">
           <img src={images['BCC.png']} alt="Berkeley City College Logo" className="logo" />
@@ -221,23 +206,11 @@ const Education = () => {
           <p className="gpa">Total GPA: 3.97</p>
         </div>
         <div className="institution-images">
-          <Overlay
-            initial="hidden"
-            animate="visible"
-            variants={overlayVariants}
-          />
+          <Overlay initial="hidden" animate="visible" variants={overlayVariants} />
           <img src={images['BCCollege.jpg']} alt="Berkeley City College Campus" />
-          <Overlay
-            initial="hidden"
-            animate="visible"
-            variants={overlayVariants}
-          />
+          <Overlay initial="hidden" animate="visible" variants={overlayVariants} />
           <img src={images['BCCollege2.jpg']} alt="Berkeley City College Campus 2" />
-          <Overlay
-            initial="hidden"
-            animate="visible"
-            variants={overlayVariants}
-          />
+          <Overlay initial="hidden" animate="visible" variants={overlayVariants} />
           <img src={images['BCCollege3.jpg']} alt="Berkeley City College Campus 3" />
         </div>
       </motion.a>
@@ -250,6 +223,7 @@ const Education = () => {
         whileInView="visible"
         variants={itemVariants}
         whileHover={{ scale: 1.02 }}
+        viewport={{ once: true }}
       >
         <div className="institution-info">
           <img src={images['OCHS.png']} alt="Oakland Charter High School Logo" className="logo" />
@@ -258,23 +232,11 @@ const Education = () => {
           <p className="gpa">Total GPA: 3.92</p>
         </div>
         <div className="institution-images">
-          <Overlay
-            initial="hidden"
-            animate="visible"
-            variants={overlayVariants}
-          />
+          <Overlay initial="hidden" animate="visible" variants={overlayVariants} />
           <img src={images['OCHS1.jpg']} alt="Oakland Charter High School" />
-          <Overlay
-            initial="hidden"
-            animate="visible"
-            variants={overlayVariants}
-          />
+          <Overlay initial="hidden" animate="visible" variants={overlayVariants} />
           <img src={images['OCHS2.jpg']} alt="Oakland Charter High School 2" />
-          <Overlay
-            initial="hidden"
-            animate="visible"
-            variants={overlayVariants}
-          />
+          <Overlay initial="hidden" animate="visible" variants={overlayVariants} />
           <img src={images['OCHS3.jpg']} alt="Oakland Charter High School 3" />
         </div>
       </motion.a>

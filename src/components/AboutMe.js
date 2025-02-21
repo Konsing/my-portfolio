@@ -1,3 +1,4 @@
+// AboutMe.js
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
 import { motion, useAnimation } from 'framer-motion';
@@ -6,7 +7,7 @@ import { useInView } from 'react-intersection-observer';
 
 const AboutMeContainer = styled(motion.section)`
   padding: 3rem 2rem;
-  background: #fff;
+  background: ${({ theme }) => theme.background};
   border-radius: 10px;
   margin: 2rem auto;
   text-align: center;
@@ -14,13 +15,13 @@ const AboutMeContainer = styled(motion.section)`
   h2 {
     font-size: 2.5rem;
     margin-bottom: 2rem;
-    color: #000;
+    color: ${({ theme }) => theme.text};
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
   }
 
   p {
     font-size: 1.2rem;
-    color: #000;
+    color: ${({ theme }) => theme.text};
     margin-bottom: 1.5rem;
   }
 
@@ -37,9 +38,9 @@ const AboutMeContainer = styled(motion.section)`
       padding: 0.85rem 1.75rem;
       font-size: 1.2rem;
       font-weight: bold;
-      color: #fff;
-      background: #000;
-      border: 1px solid #000;
+      color: ${({ theme }) => theme.buttonText};
+      background: ${({ theme }) => theme.buttonBackground};
+      border: 1px solid ${({ theme }) => theme.buttonBackground};
       border-radius: 50px;
       cursor: pointer;
       margin: 1rem 2rem;
@@ -48,8 +49,8 @@ const AboutMeContainer = styled(motion.section)`
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 
       &:hover {
-        background: #fff;
-        color: #000;
+        background: ${({ theme }) => theme.buttonText};
+        color: ${({ theme }) => theme.buttonBackground};
         transform: scale(1.08);
         box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
       }
@@ -106,12 +107,16 @@ const PhotoReel = styled.div`
 
 const ReelContainer = styled(motion.div)`
   display: flex;
+  gap: 1rem; /* Use gap to maintain spacing between images */
   animation: ${reelAnimation} 20s linear infinite;
-  width: calc(200px * 11 * 2);
+  /* Adjust width to account for image width and gap.
+     Here we assume each image is 200px wide, gap is 1rem,
+     and there are 11 images duplicated (i.e. 22 images total). */
+  width: calc((200px + 1rem) * 11 * 2);
   transform: translateX(0);
   img {
     height: 200px;
-    margin-right: 0; /* Removed margin to prevent shaking */
+    /* Removed margin-right to avoid jitter */
   }
 
   @media (max-width: 768px) {

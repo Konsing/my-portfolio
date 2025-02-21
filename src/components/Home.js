@@ -1,3 +1,4 @@
+// Home.js
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
 import { motion, useAnimation } from 'framer-motion';
@@ -17,24 +18,24 @@ const HomeContainer = styled.section`
   align-items: center;
   text-align: center;
   animation: ${fadeIn} 0.5s ease-in-out;
-  background: #fff;
+  background: ${({ theme }) => theme.background};
 
   h1 {
     font-size: 4rem;
-    color: #000;
+    color: ${({ theme }) => theme.text};
     margin: 0.5rem;
   }
 
   p {
     font-size: 1.5rem;
-    color: #000;
+    color: ${({ theme }) => theme.text};
     margin: 0.5rem;
   }
 
   .down-arrow {
     font-size: 2rem;
     margin-top: 2rem;
-    color: #000;
+    color: ${({ theme }) => theme.text};
   }
 
   @media (max-width: 768px) {
@@ -52,8 +53,21 @@ const HomeContainer = styled.section`
   }
 `;
 
-const Home = () => {
-  // Separate refs and controls: h1 reanimates; the others animate once.
+const ToggleButton = styled.button`
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  padding: 0.5rem 1rem;
+  background: ${({ theme }) => theme.buttonBackground};
+  color: ${({ theme }) => theme.buttonText};
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  z-index: 1001;
+`;
+
+const Home = ({ toggleTheme }) => {
   const h1Controls = useAnimation();
   const otherControls = useAnimation();
   const [h1Ref, h1InView] = useInView({ triggerOnce: false, threshold: 0.5 });
@@ -75,6 +89,8 @@ const Home = () => {
 
   return (
     <HomeContainer id="home">
+      {/* Toggle Button to switch modes */}
+      <ToggleButton onClick={toggleTheme}>Toggle Mode</ToggleButton>
       <InteractiveBackground />
       <motion.h1
         ref={h1Ref}

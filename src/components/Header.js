@@ -1,3 +1,4 @@
+// Header.js
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-scroll';
@@ -17,13 +18,13 @@ const HeaderContainer = styled(motion.header)`
     width: 700px;
     margin: 50px 0 0 0;
     overflow: hidden;
-    border: 1px solid #000;
-    background: #fff;
+    border: 1px solid ${({ theme }) => theme.text};
+    background: ${({ theme }) => theme.background};
   }
 
   nav a {
     margin: auto;
-    color: #000;
+    color: ${({ theme }) => theme.text};
     cursor: pointer;
     padding: 0.5rem 1rem;
     text-decoration: none;
@@ -58,7 +59,7 @@ const Header = () => {
     <HeaderContainer
       initial={{ y: -50, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.5 }}
+      transition={{ duration: 0.3 }}
     >
       <nav>
         <Link to="home" smooth={true} duration={500}>Home</Link>

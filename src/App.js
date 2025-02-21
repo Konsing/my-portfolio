@@ -1,4 +1,6 @@
-import React, { useEffect } from 'react';
+// App.js
+import React, { useState, useEffect } from 'react';
+import { ThemeProvider } from 'styled-components';
 import Home from './components/Home';
 import Header from './components/Header';
 import Education from './components/Education';
@@ -6,24 +8,35 @@ import Projects from './components/Projects';
 import Skills from './components/Skills';
 import AboutMe from './components/AboutMe';
 import GlobalStyles from './styles/GlobalStyles';
+import { darkTheme, lightTheme } from './theme';
 
 const App = () => {
   useEffect(() => {
     window.onbeforeunload = () => window.scrollTo(0, 0);
   }, []);
 
+  // Dark mode is the default theme
+  const [theme, setTheme] = useState(darkTheme);
+
+  const toggleTheme = () => {
+    setTheme(prevTheme => (prevTheme === darkTheme ? lightTheme : darkTheme));
+  };
+
   return (
-    <>
-      <GlobalStyles />
-      <Header />
-      <main>
-        <Home />
-        <Education />
-        <Projects />
-        <Skills />
-        <AboutMe />
-      </main>
-    </>
+    <ThemeProvider theme={theme}>
+      <>
+        <GlobalStyles />
+        <Header />
+        <main>
+          {/* Pass toggleTheme to Home so the button can switch modes */}
+          <Home toggleTheme={toggleTheme} />
+          <Education />
+          <Projects />
+          <Skills />
+          <AboutMe />
+        </main>
+      </>
+    </ThemeProvider>
   );
 };
 

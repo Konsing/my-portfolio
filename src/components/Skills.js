@@ -1,3 +1,4 @@
+// Skills.js
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
 import { motion } from 'framer-motion';
@@ -15,7 +16,7 @@ const bounce = keyframes`
 
 const SkillsContainer = styled.section`
   padding: 2rem;
-  background: #fff;
+  background: ${({ theme }) => theme.background};
   border-radius: 10px;
   margin: 2rem auto;
   text-align: center;
@@ -23,7 +24,7 @@ const SkillsContainer = styled.section`
   h2 {
     font-size: 2.5rem;
     margin-bottom: 2rem;
-    color: #000;
+    color: ${({ theme }) => theme.text};
   }
 
   .skills-category {
@@ -32,7 +33,7 @@ const SkillsContainer = styled.section`
     h3 {
       font-size: 2rem;
       margin-bottom: 1.5rem;
-      color: #000;
+      color: ${({ theme }) => theme.text};
     }
   }
 
@@ -49,8 +50,8 @@ const SkillsContainer = styled.section`
       flex-direction: column;
       align-items: center;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
-      background: #fff;
-      border: 1px solid #000;
+      background: ${({ theme }) => theme.background};
+      border: 1px solid ${({ theme }) => theme.text};
       transition: transform 0.3s;
 
       &:hover {
@@ -64,7 +65,7 @@ const SkillsContainer = styled.section`
       }
 
       span {
-        color: #000;
+        color: ${({ theme }) => theme.text};
         font-size: 1rem;
         font-weight: bold;
         display: inline-block;
