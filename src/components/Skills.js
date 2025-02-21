@@ -20,11 +20,12 @@ const SkillsContainer = styled.section`
   border-radius: 10px;
   margin: 2rem auto;
   text-align: center;
+  transition: background 0.3s ease, color 0.3s ease;
 
   h2 {
     font-size: 2.5rem;
     margin-bottom: 2rem;
-    color: ${({ theme }) => theme.text};
+    color: ${({ theme }) => theme.headingColor};
   }
 
   .skills-category {
@@ -33,7 +34,7 @@ const SkillsContainer = styled.section`
     h3 {
       font-size: 2rem;
       margin-bottom: 1.5rem;
-      color: ${({ theme }) => theme.text};
+      color: ${({ theme }) => theme.headingColor};
     }
   }
 
@@ -49,9 +50,9 @@ const SkillsContainer = styled.section`
       display: flex;
       flex-direction: column;
       align-items: center;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.6);
       background: ${({ theme }) => theme.background};
-      border: 1px solid ${({ theme }) => theme.text};
+      border: 1px solid ${({ theme }) => theme.borderColor};
       transition: transform 0.3s;
 
       &:hover {
@@ -76,36 +77,22 @@ const SkillsContainer = styled.section`
 
   @media (max-width: 768px) {
     padding: 1rem;
-
-    h2 {
-      font-size: 2rem;
-    }
-
-    h3 {
-      font-size: 1.5rem;
-    }
-
+    h2 { font-size: 2rem; }
+    h3 { font-size: 1.5rem; }
     .skills-list {
       .skill-item {
         width: 100px;
-
-        img {
-          height: 4rem;
-          width: 4rem;
-        }
-
-        span {
-          font-size: 0.8rem;
-        }
+        img { height: 4rem; width: 4rem; }
+        span { font-size: 0.8rem; }
       }
     }
   }
 `;
 
 const importAll = (r) => {
-  let images = {};
-  r.keys().forEach((item) => { images[item.replace('./', '')] = r(item); });
-  return images;
+  let imgs = {};
+  r.keys().forEach((item) => { imgs[item.replace('./', '')] = r(item); });
+  return imgs;
 };
 
 const images = importAll(require.context('../assets', false, /\.(png|jpe?g|svg)$/));
@@ -181,18 +168,13 @@ const Skills = () => {
                 custom={skillIndex}
                 viewport={{ once: true }}
               >
-                <img src={images[skill]} alt={skill.replace('.svg', '').replace('.jpg', '').replace('.png', '')} />
+                <img src={images[skill]} alt={skill.replace('.svg','').replace('.jpg','').replace('.png','')} />
                 <span>
-                  {skill
-                    .replace('.svg', '')
-                    .replace('.jpg', '')
-                    .replace('.png', '')
-                    .split('')
-                    .map((char, i) => (
-                      <motion.span key={i} variants={letterVariants} custom={i}>
-                        {char}
-                      </motion.span>
-                    ))}
+                  {skill.replace('.svg','').replace('.jpg','').replace('.png','').split('').map((char, i) => (
+                    <motion.span key={i} variants={letterVariants} custom={i}>
+                      {char}
+                    </motion.span>
+                  ))}
                 </span>
               </motion.div>
             ))}

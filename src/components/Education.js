@@ -9,21 +9,22 @@ const EducationContainer = styled.section`
   border-radius: 10px;
   margin: 2rem auto;
   text-align: center;
+  transition: background 0.3s ease, color 0.3s ease;
 
   h2 {
     font-size: 2.5rem;
     margin-bottom: 2rem;
-    color: ${({ theme }) => theme.text};
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    color: ${({ theme }) => theme.headingColor};
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
   }
 
   .education-item {
     margin: 2rem 0.5rem;
     padding: 1rem;
     background: ${({ theme }) => theme.background};
-    border: 1px solid ${({ theme }) => theme.text};
+    border: 1px solid ${({ theme }) => theme.borderColor};
     border-radius: 5px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.4);
     display: flex;
     align-items: center;
     transition: transform 0.3s;
@@ -48,7 +49,7 @@ const EducationContainer = styled.section`
       h3 {
         font-size: 2.2rem;
         margin-bottom: 0.5rem;
-        color: ${({ theme }) => theme.text};
+        color: ${({ theme }) => theme.headingColor};
       }
 
       p {
@@ -80,28 +81,18 @@ const EducationContainer = styled.section`
 
   @media (max-width: 768px) {
     padding: 1rem;
-
-    h2 {
-      font-size: 2rem;
-    }
+    h2 { font-size: 2rem; }
 
     .education-item {
       flex-direction: column;
       align-items: flex-start;
       text-align: left;
 
-      img.logo {
-        height: 4rem;
-      }
+      img.logo { height: 4rem; }
 
       .institution-info {
-        h3 {
-          font-size: 1.5rem;
-        }
-
-        p, .gpa {
-          font-size: 1rem;
-        }
+        h3 { font-size: 1.5rem; }
+        p, .gpa { font-size: 1rem; }
       }
 
       .institution-images {
@@ -122,14 +113,14 @@ const Overlay = styled(motion.div)`
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.05);
+  background: rgba(0,0,0,0.05);
   z-index: 2;
 `;
 
 const importAll = (r) => {
-  let images = {};
-  r.keys().forEach((item) => { images[item.replace('./', '')] = r(item); });
-  return images;
+  let imgs = {};
+  r.keys().forEach((item) => { imgs[item.replace('./', '')] = r(item); });
+  return imgs;
 };
 
 const images = importAll(require.context('../assets', false, /\.(png|jpe?g|svg)$/));
@@ -137,19 +128,12 @@ const images = importAll(require.context('../assets', false, /\.(png|jpe?g|svg)$
 const Education = () => {
   const itemVariants = {
     hidden: { opacity: 0, y: 50 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.3, type: 'spring', stiffness: 100 }
-    }
+    visible: { opacity: 1, y: 0, transition: { duration: 0.3, type: 'spring', stiffness: 100 } }
   };
 
   const overlayVariants = {
     hidden: { opacity: 1 },
-    visible: {
-      opacity: 0,
-      transition: { duration: 0.5, ease: 'easeInOut' }
-    }
+    visible: { opacity: 0, transition: { duration: 0.5, ease: 'easeInOut' } }
   };
 
   return (

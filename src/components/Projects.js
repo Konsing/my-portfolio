@@ -8,11 +8,12 @@ const ProjectsContainer = styled.section`
   background: ${({ theme }) => theme.background};
   border-radius: 10px;
   text-align: center;
+  transition: background 0.3s ease, color 0.3s ease;
 
   h2 {
     font-size: 2.5rem;
     margin-bottom: 1rem;
-    color: ${({ theme }) => theme.text};
+    color: ${({ theme }) => theme.headingColor};
   }
 
   p {
@@ -33,9 +34,9 @@ const ProjectsContainer = styled.section`
     flex-direction: column;
     padding: 1.5rem;
     background: ${({ theme }) => theme.background};
-    border: 1px solid ${({ theme }) => theme.text};
+    border: 1px solid ${({ theme }) => theme.borderColor};
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.6);
     max-width: 400px;
     transition: transform 0.15s ease-in-out;
     cursor: pointer;
@@ -61,7 +62,7 @@ const ProjectsContainer = styled.section`
       font-family: "Trebuchet MS", sans-serif;
       font-size: 2rem;
       margin-bottom: 1px;
-      color: ${({ theme }) => theme.text};
+      color: ${({ theme }) => theme.headingColor};
       text-align: center;
     }
 
@@ -76,9 +77,9 @@ const ProjectsContainer = styled.section`
     }
 
     .technologies {
-      margin-top: auto; /* Stick to the bottom of the card */
+      margin-top: auto;
       font-size: 1.2rem;
-      color: ${({ theme }) => theme.text};
+      color: ${({ theme }) => theme.headingColor};  /* Changed color */
       font-weight: bold;
     }
   }
@@ -89,11 +90,11 @@ const ProjectsContainer = styled.section`
     color: ${({ theme }) => theme.text};
     background: ${({ theme }) => theme.background};
     padding: 10px 20px;
-    border: 1px solid ${({ theme }) => theme.text};
+    border: 1px solid ${({ theme }) => theme.borderColor};
     border-radius: 8px;
     display: inline-block;
     margin-bottom: 2rem;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
     transition: transform 0.15s ease-in-out;
 
     &:hover {
@@ -103,43 +104,22 @@ const ProjectsContainer = styled.section`
 
   @media (max-width: 768px) {
     padding: 1rem;
-
-    h2 {
-      font-size: 2rem;
-    }
-
-    p {
-      font-size: 1rem;
-    }
-
-    .projects-grid {
-      grid-template-columns: 1fr;
-    }
-
+    h2 { font-size: 2rem; }
+    p { font-size: 1rem; }
+    .projects-grid { grid-template-columns: 1fr; }
     .project-item {
       max-width: 100%;
-
-      h3 {
-        font-size: 1.5rem;
-      }
-
-      ul {
-        font-size: 1rem;
-      }
-
-      .technologies {
-        font-size: 1rem;
-      }
+      h3 { font-size: 1.5rem; }
+      ul { font-size: 1rem; }
+      .technologies { font-size: 1rem; }
     }
   }
 `;
 
 const importAll = (r) => {
-  let images = {};
-  r.keys().forEach((item) => {
-    images[item.replace('./', '')] = r(item);
-  });
-  return images;
+  let imgs = {};
+  r.keys().forEach((item) => { imgs[item.replace('./', '')] = r(item); });
+  return imgs;
 };
 
 const images = importAll(require.context('../assets', false, /\.(png|jpe?g|svg)$/));

@@ -16,7 +16,7 @@ const BackgroundContainer = styled.div`
 const Circle = styled(motion.div)`
   position: absolute;
   border-radius: 50%;
-  background: rgba(0, 0, 0, 0.1);
+  background: ${({ theme }) => theme.circleColor};
 `;
 
 const generateRandomPosition = () => ({

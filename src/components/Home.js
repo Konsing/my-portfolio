@@ -19,10 +19,11 @@ const HomeContainer = styled.section`
   text-align: center;
   animation: ${fadeIn} 0.5s ease-in-out;
   background: ${({ theme }) => theme.background};
+  position: relative;
 
   h1 {
     font-size: 4rem;
-    color: ${({ theme }) => theme.text};
+    color: ${({ theme }) => theme.headingColor};
     margin: 0.5rem;
   }
 
@@ -39,17 +40,9 @@ const HomeContainer = styled.section`
   }
 
   @media (max-width: 768px) {
-    h1 {
-      font-size: 3rem;
-    }
-
-    p {
-      font-size: 1.2rem;
-    }
-
-    .down-arrow {
-      font-size: 1.5rem;
-    }
+    h1 { font-size: 3rem; }
+    p { font-size: 1.2rem; }
+    .down-arrow { font-size: 1.5rem; }
   }
 `;
 
@@ -60,11 +53,12 @@ const ToggleButton = styled.button`
   padding: 0.5rem 1rem;
   background: ${({ theme }) => theme.buttonBackground};
   color: ${({ theme }) => theme.buttonText};
-  border: none;
+  border: 1px solid ${({ theme }) => theme.borderColor};
   border-radius: 5px;
   cursor: pointer;
   font-size: 1rem;
   z-index: 1001;
+  transition: background 0.3s ease, color 0.3s ease;
 `;
 
 const Home = ({ toggleTheme }) => {
@@ -74,22 +68,15 @@ const Home = ({ toggleTheme }) => {
   const [otherRef, otherInView] = useInView({ triggerOnce: true, threshold: 0.5 });
 
   React.useEffect(() => {
-    if (h1InView) {
-      h1Controls.start('visible');
-    } else {
-      h1Controls.start('hidden');
-    }
+    h1InView ? h1Controls.start('visible') : h1Controls.start('hidden');
   }, [h1Controls, h1InView]);
 
   React.useEffect(() => {
-    if (otherInView) {
-      otherControls.start('visible');
-    }
+    if (otherInView) otherControls.start('visible');
   }, [otherControls, otherInView]);
 
   return (
     <HomeContainer id="home">
-      {/* Toggle Button to switch modes */}
       <ToggleButton onClick={toggleTheme}>Toggle Mode</ToggleButton>
       <InteractiveBackground />
       <motion.h1

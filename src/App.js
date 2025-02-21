@@ -15,12 +15,11 @@ const App = () => {
     window.onbeforeunload = () => window.scrollTo(0, 0);
   }, []);
 
-  // Dark mode is the default theme
+  // Dark mode is the default
   const [theme, setTheme] = useState(darkTheme);
 
-  const toggleTheme = () => {
+  const toggleTheme = () =>
     setTheme(prevTheme => (prevTheme === darkTheme ? lightTheme : darkTheme));
-  };
 
   return (
     <ThemeProvider theme={theme}>
@@ -28,7 +27,6 @@ const App = () => {
         <GlobalStyles />
         <Header />
         <main>
-          {/* Pass toggleTheme to Home so the button can switch modes */}
           <Home toggleTheme={toggleTheme} />
           <Education />
           <Projects />

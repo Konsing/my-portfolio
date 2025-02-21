@@ -11,12 +11,13 @@ const AboutMeContainer = styled(motion.section)`
   border-radius: 10px;
   margin: 2rem auto;
   text-align: center;
+  transition: background 0.3s ease, color 0.3s ease;
 
   h2 {
     font-size: 2.5rem;
     margin-bottom: 2rem;
-    color: ${({ theme }) => theme.text};
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    color: ${({ theme }) => theme.headingColor};
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
   }
 
   p {
@@ -40,24 +41,24 @@ const AboutMeContainer = styled(motion.section)`
       font-weight: bold;
       color: ${({ theme }) => theme.buttonText};
       background: ${({ theme }) => theme.buttonBackground};
-      border: 1px solid ${({ theme }) => theme.buttonBackground};
+      border: 1px solid ${({ theme }) => theme.borderColor};
       border-radius: 50px;
       cursor: pointer;
       margin: 1rem 2rem;
       transition: all 0.3s ease-in-out;
       text-decoration: none;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 
       &:hover {
         background: ${({ theme }) => theme.buttonText};
         color: ${({ theme }) => theme.buttonBackground};
         transform: scale(1.08);
-        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+        box-shadow: 0 6px 15px rgba(0,0,0,0.25);
       }
 
       &:active {
         transform: scale(0.95);
-        box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+        box-shadow: 0 3px 8px rgba(0,0,0,0.2);
       }
 
       .icon {
@@ -69,34 +70,19 @@ const AboutMeContainer = styled(motion.section)`
 
   @media (max-width: 768px) {
     padding: 1rem;
-
-    h2 {
-      font-size: 2rem;
-    }
-
-    p {
-      font-size: 1rem;
-    }
-
+    h2 { font-size: 2rem; }
+    p { font-size: 1rem; }
     .buttons {
       flex-direction: column;
       gap: 0.5rem;
-
-      a {
-        font-size: 1rem;
-        margin: 0;
-      }
+      a { font-size: 1rem; margin: 0; }
     }
   }
 `;
 
 const reelAnimation = keyframes`
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 `;
 
 const PhotoReel = styled.div`
@@ -107,22 +93,17 @@ const PhotoReel = styled.div`
 
 const ReelContainer = styled(motion.div)`
   display: flex;
-  gap: 1rem; /* Use gap to maintain spacing between images */
+  gap: 1rem;
   animation: ${reelAnimation} 20s linear infinite;
-  /* Adjust width to account for image width and gap.
-     Here we assume each image is 200px wide, gap is 1rem,
-     and there are 11 images duplicated (i.e. 22 images total). */
   width: calc((200px + 1rem) * 11 * 2);
   transform: translateX(0);
+
   img {
     height: 200px;
-    /* Removed margin-right to avoid jitter */
   }
 
   @media (max-width: 768px) {
-    img {
-      height: 100px;
-    }
+    img { height: 100px; }
   }
 `;
 
@@ -131,56 +112,35 @@ const AboutMe = () => {
   const controls = useAnimation();
 
   React.useEffect(() => {
-    if (inView) {
-      controls.start('visible');
-    } else {
-      controls.start('hidden');
-    }
+    inView ? controls.start('visible') : controls.start('hidden');
   }, [controls, inView]);
 
   const containerVariants = {
     hidden: { opacity: 0, y: 50 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.5, type: 'spring', stiffness: 100 }
-    }
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5, type: 'spring', stiffness: 100 } }
   };
 
   const buttonVariants = {
     hidden: { opacity: 0, scale: 0.8 },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      transition: { duration: 0.3, type: 'spring', stiffness: 100 }
-    }
+    visible: { opacity: 1, scale: 1, transition: { duration: 0.3, type: 'spring', stiffness: 100 } }
   };
 
   const reelVariants = {
     hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { duration: 0.5, delay: 0.4 }
-    }
+    visible: { opacity: 1, transition: { duration: 0.5, delay: 0.4 } }
   };
 
   const importAll = (r) => {
-    let images = {};
-    r.keys().forEach((item) => { images[item.replace('./', '')] = r(item); });
-    return images;
+    let imgs = {};
+    r.keys().forEach((item) => { imgs[item.replace('./', '')] = r(item); });
+    return imgs;
   };
 
   const images = importAll(require.context('../assets', false, /\.(png|jpe?g|svg)$/));
   const imageNames = Object.keys(images).filter(name => name.startsWith('Konsing')).sort();
 
   return (
-    <AboutMeContainer
-      id="aboutMe"
-      initial="hidden"
-      animate={controls}
-      variants={containerVariants}
-      ref={ref}
-    >
+    <AboutMeContainer id="aboutMe" initial="hidden" animate={controls} variants={containerVariants} ref={ref}>
       <motion.h2 initial={{ x: -100, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ duration: 0.3 }}>
         About Me
       </motion.h2>

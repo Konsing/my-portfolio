@@ -18,7 +18,7 @@ const HeaderContainer = styled(motion.header)`
     width: 700px;
     margin: 50px 0 0 0;
     overflow: hidden;
-    border: 1px solid ${({ theme }) => theme.text};
+    border: 1px solid ${({ theme }) => theme.borderColor};
     background: ${({ theme }) => theme.background};
   }
 
