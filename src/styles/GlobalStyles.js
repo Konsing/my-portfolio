@@ -9,7 +9,7 @@ const GlobalStyles = createGlobalStyle`
   }
   
   body {
-    padding-top: 1rem;
+-   padding-top: 1rem; /* Remove or comment out */
     font-family: 'Arial', sans-serif;
     background: ${({ theme }) => theme.background};
     color: ${({ theme }) => theme.text};

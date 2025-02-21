@@ -12,12 +12,13 @@ const HeaderContainer = styled(motion.header)`
   width: 100%;
   position: fixed;
   z-index: 1000;
-
+  top: 50px; /* Positions the header 20px from the top */
+  
   nav {
     display: flex;
     justify-content: space-between;
     width: 700px;
-    margin: 50px 0 0 0;
+    margin: 0; /* Remove the old 50px margin */
     overflow: hidden;
     border: 1px solid ${({ theme }) => theme.borderColor};
     background: ${({ theme }) => theme.background};

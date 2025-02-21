@@ -10,18 +10,18 @@ const fadeIn = keyframes`
   to { opacity: 1; }
 `;
 
-// Added padding-top so that content is pushed down below the fixed navbar
 const HomeContainer = styled.section`
   height: 100vh;
-  padding-top: 120px; /* space for the navbar */
+  padding-top: 120px; /* space for the fixed navbar */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
   animation: ${fadeIn} 0.5s ease-in-out;
-  background: ${({ theme }) => theme.background};
+  background: ${({ theme }) => theme.homeGradient};
   position: relative;
+  overflow: hidden;
 
   h1 {
     font-size: 4rem;
