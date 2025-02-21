@@ -3,6 +3,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-scroll';
 import { motion } from 'framer-motion';
+import { FaSun, FaMoon } from 'react-icons/fa';
 
 const HeaderContainer = styled(motion.header)`
   display: flex;
@@ -54,7 +55,22 @@ const HeaderContainer = styled(motion.header)`
   }
 `;
 
-const Header = () => {
+const ToggleButton = styled.button`
+  margin: auto;
+  width: 35px;
+  height: 35px;
+  border: 1px solid ${({ theme }) => theme.borderColor};
+  background: ${({ theme }) => theme.buttonBackground};
+  color: ${({ theme }) => theme.buttonText};
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  outline: none;
+`;
+
+const Header = ({ toggleTheme, isDarkMode }) => {
   return (
     <HeaderContainer
       initial={{ y: -50, opacity: 0 }}
@@ -66,7 +82,10 @@ const Header = () => {
         <Link to="education" smooth={true} duration={500}>Education</Link>
         <Link to="projects" smooth={true} duration={500}>Projects</Link>
         <Link to="skills" smooth={true} duration={500}>Skills</Link>
-        <Link to="aboutMe" smooth={true} duration={500}>About Me</Link>
+        <Link to="aboutMe" smooth={true} duration={500}>About</Link>
+        <ToggleButton onClick={toggleTheme}>
+          {isDarkMode ? <FaSun size={18} /> : <FaMoon size={18} />}
+        </ToggleButton>
       </nav>
     </HeaderContainer>
   );

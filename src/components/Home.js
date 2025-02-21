@@ -10,8 +10,10 @@ const fadeIn = keyframes`
   to { opacity: 1; }
 `;
 
+// Added padding-top so that content is pushed down below the fixed navbar
 const HomeContainer = styled.section`
   height: 100vh;
+  padding-top: 120px; /* space for the navbar */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -46,22 +48,7 @@ const HomeContainer = styled.section`
   }
 `;
 
-const ToggleButton = styled.button`
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  padding: 0.5rem 1rem;
-  background: ${({ theme }) => theme.buttonBackground};
-  color: ${({ theme }) => theme.buttonText};
-  border: 1px solid ${({ theme }) => theme.borderColor};
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 1rem;
-  z-index: 1001;
-  transition: background 0.3s ease, color 0.3s ease;
-`;
-
-const Home = ({ toggleTheme }) => {
+const Home = () => {
   const h1Controls = useAnimation();
   const otherControls = useAnimation();
   const [h1Ref, h1InView] = useInView({ triggerOnce: false, threshold: 0.5 });
@@ -77,7 +64,6 @@ const Home = ({ toggleTheme }) => {
 
   return (
     <HomeContainer id="home">
-      <ToggleButton onClick={toggleTheme}>Toggle Mode</ToggleButton>
       <InteractiveBackground />
       <motion.h1
         ref={h1Ref}

@@ -25,7 +25,7 @@ const App = () => {
     <ThemeProvider theme={theme}>
       <>
         <GlobalStyles />
-        <Header />
+        <Header toggleTheme={toggleTheme} isDarkMode={theme === darkTheme} />
         <main>
           <Home toggleTheme={toggleTheme} />
           <Education />
