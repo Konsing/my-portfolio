@@ -126,6 +126,19 @@ const images = importAll(require.context('../assets', false, /\.(png|jpe?g|svg)$
 
 const projects = [
   {
+    title: "Electric Grid Energy X",
+    description: [
+      "Simulated electricity provider with a full-stack TypeScript monorepo.",
+      "RESTful API with 38 endpoints, JWT auth, and role-based access control.",
+      "Next.js web portal and React Native mobile app.",
+      "166 tests including a 71-test RBAC matrix across every role and endpoint.",
+      "Reproducible performance benchmarks with strategic indexing."
+    ],
+    technologies: ["React Native (iOS & Android), React / Next.js, Node.js, PostgreSQL, Firebase, Figma, Postman"],
+    image: images['EGX.png'],
+    link: "https://github.com/Konsing/Electric-Grid-Energy-X"
+  },
+  {
     title: "Criterion Collection Stremio Add-on",
     description: [
       "Stremio add-on for browsing the Criterion Collection.",
@@ -316,7 +329,7 @@ const Projects = () => {
               ))}
             </ul>
             <div className="technologies">
-              Technologies Used: {project.technologies.join(', ')}
+              {project.technologies.join(', ')}
             </div>
           </motion.div>
         ))}
