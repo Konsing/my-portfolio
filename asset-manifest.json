@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.js": "/my-portfolio/static/js/main.260a824b.js",
+    "main.js": "/my-portfolio/static/js/main.b2ca3a80.js",
     "static/js/453.41811d64.chunk.js": "/my-portfolio/static/js/453.41811d64.chunk.js",
     "static/media/BCCollege2.jpg": "/my-portfolio/static/media/BCCollege2.cc6d6da83b7618f856be.jpg",
     "static/media/Konsing7a.jpg": "/my-portfolio/static/media/Konsing7a.7dd68dcd9a37494f1f74.jpg",
@@ -33,6 +33,7 @@
     "static/media/PSite.jpg": "/my-portfolio/static/media/PSite.ec93ca1d2c41e9670711.jpg",
     "static/media/OCHS1.jpg": "/my-portfolio/static/media/OCHS1.11296a45958ba65b1607.jpg",
     "static/media/BCCollege4.jpg": "/my-portfolio/static/media/BCCollege4.6ca2a3d99d2cbd9ca279.jpg",
+    "static/media/StartupPulse.png": "/my-portfolio/static/media/StartupPulse.a481a4a4bdaaac430827.png",
     "static/media/BCC.png": "/my-portfolio/static/media/BCC.795fe2d6f83f7500ac94.png",
     "static/media/sshell.jpg": "/my-portfolio/static/media/sshell.028337ec5e3d4e022e13.jpg",
     "static/media/Konsing6.jpg": "/my-portfolio/static/media/Konsing6.d020c75459328d4ea898.jpg",
@@ -69,10 +70,10 @@
     "static/media/Python.svg": "/my-portfolio/static/media/Python.14f5a10cd798d37370e1.svg",
     "index.html": "/my-portfolio/index.html",
     "static/media/Haskell.svg": "/my-portfolio/static/media/Haskell.5b2e30440712f842daf1.svg",
-    "main.260a824b.js.map": "/my-portfolio/static/js/main.260a824b.js.map",
+    "main.b2ca3a80.js.map": "/my-portfolio/static/js/main.b2ca3a80.js.map",
     "453.41811d64.chunk.js.map": "/my-portfolio/static/js/453.41811d64.chunk.js.map"
   },
   "entrypoints": [
-    "static/js/main.260a824b.js"
+    "static/js/main.b2ca3a80.js"
   ]
 }
