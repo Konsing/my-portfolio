@@ -161,7 +161,7 @@ const Education = () => {
           <img src={images['UCD.png']} alt="UC Davis Logo" className="logo" />
           <h3>University of California, Davis</h3>
           <p>Bachelor of Science in Computer Science</p>
-          <p className="gpa">Total GPA: 3.63</p>
+          <p className="gpa"></p>
         </div>
         <div className="institution-images">
           <Overlay initial="hidden" animate="visible" variants={overlayVariants} />
@@ -187,7 +187,7 @@ const Education = () => {
           <img src={images['BCC.png']} alt="Berkeley City College Logo" className="logo" />
           <h3>Berkeley City College</h3>
           <p>Associate of Science in Mathematics</p>
-          <p className="gpa">Total GPA: 3.97</p>
+          <p className="gpa"></p>
         </div>
         <div className="institution-images">
           <Overlay initial="hidden" animate="visible" variants={overlayVariants} />
@@ -213,7 +213,7 @@ const Education = () => {
           <img src={images['OCHS.png']} alt="Oakland Charter High School Logo" className="logo" />
           <h3>Oakland Charter High School</h3>
           <p>High School Diploma</p>
-          <p className="gpa">Total GPA: 3.92</p>
+          <p className="gpa"></p>
         </div>
         <div className="institution-images">
           <Overlay initial="hidden" animate="visible" variants={overlayVariants} />

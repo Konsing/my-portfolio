@@ -126,6 +126,18 @@ const images = importAll(require.context('../assets', false, /\.(png|jpe?g|svg)$
 
 const projects = [
   {
+  title: "Startup Pulse — Market Intelligence Dashboard",
+  description: [
+    "Automated pipeline that scrapes software engineering jobs from YC, Greenhouse, Ashby, and Hacker News.",
+    "Orchestrated ETL workflows with Apache Airflow and stored analytics data in Google BigQuery.",
+    "Extracted trending tech skills using NLP (TF-IDF + taxonomy matching).",
+    "Built an interactive Streamlit dashboard to explore job market trends."
+  ],
+  technologies: ["Python", "Apache Airflow", "Google BigQuery", "Streamlit", "Playwright", "NLTK", "Scikit-learn", "Docker"],
+  image: images['StartupPulse.png'],
+  link: "https://github.com/Konsing/Startup-Pulse"
+  },
+  {
     title: "Electric Grid Energy X",
     description: [
       "Simulated electricity provider with a full-stack TypeScript monorepo.",
@@ -134,7 +146,7 @@ const projects = [
       "166 tests including a 71-test RBAC matrix across every role and endpoint.",
       "Reproducible performance benchmarks with strategic indexing."
     ],
-    technologies: ["React Native (iOS & Android), React / Next.js, Node.js, PostgreSQL, Firebase, Figma, Postman"],
+    technologies: ["React Native (Expo Mobile), Next.js 14, Express, TypeScript, Prisma, PostgreSQL, Tailwind CSS"],
     image: images['EGX.png'],
     link: "https://github.com/Konsing/Electric-Grid-Energy-X"
   },
