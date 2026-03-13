@@ -163,6 +163,18 @@ const projects = [
     link: "https://github.com/Konsing/Criterion_Collection_Add-On_Stremio"
   },
   {
+    title: "AI PR Reviewer — Automated Code Review Bot",
+    description: [
+      "GitHub App that reviews PRs using Llama 3.3 70B via Groq.",
+      "Posts inline comments with severity badges and auto-labels PRs.",
+      "Configurable per-repo via .pr-reviewer.yml.",
+      "Deployed on Railway — install on any repo for automatic reviews."
+    ],
+    technologies: ["TypeScript", "Node.js", "Probot", "Groq SDK", "Llama 3.3 70B", "GitHub Apps API", "Vitest", "Railway"],
+    image: images['PR1.png'],
+    link: "https://github.com/Konsing/Automated-PR-Reviewer"
+  },
+  {
     title: "AI-Powered Resume Generator",
     description: [
       "AI-driven resume analysis for ATS optimization.",
