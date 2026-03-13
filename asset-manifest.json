@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.js": "/my-portfolio/static/js/main.b2ca3a80.js",
+    "main.js": "/my-portfolio/static/js/main.c935d259.js",
     "static/js/453.41811d64.chunk.js": "/my-portfolio/static/js/453.41811d64.chunk.js",
     "static/media/BCCollege2.jpg": "/my-portfolio/static/media/BCCollege2.cc6d6da83b7618f856be.jpg",
     "static/media/Konsing7a.jpg": "/my-portfolio/static/media/Konsing7a.7dd68dcd9a37494f1f74.jpg",
@@ -25,6 +25,7 @@
     "static/media/PHGame.jpg": "/my-portfolio/static/media/PHGame.875dfdf9f9aa39991376.jpg",
     "static/media/AI_Resume.png": "/my-portfolio/static/media/AI_Resume.a3f9b3bbbf0d09f17806.png",
     "static/media/UCDavis2.jpg": "/my-portfolio/static/media/UCDavis2.59864eb39279b148cbee.jpg",
+    "static/media/PR1.png": "/my-portfolio/static/media/PR1.13b523845a5ea2732c94.png",
     "static/media/BSite.jpg": "/my-portfolio/static/media/BSite.b2bed2b84820f51bab56.jpg",
     "static/media/EGX.png": "/my-portfolio/static/media/EGX.4477f72688c8c3a06bd3.png",
     "static/media/Konsing1.jpg": "/my-portfolio/static/media/Konsing1.3ab88d5d61885b280487.jpg",
@@ -70,10 +71,10 @@
     "static/media/Python.svg": "/my-portfolio/static/media/Python.14f5a10cd798d37370e1.svg",
     "index.html": "/my-portfolio/index.html",
     "static/media/Haskell.svg": "/my-portfolio/static/media/Haskell.5b2e30440712f842daf1.svg",
-    "main.b2ca3a80.js.map": "/my-portfolio/static/js/main.b2ca3a80.js.map",
+    "main.c935d259.js.map": "/my-portfolio/static/js/main.c935d259.js.map",
     "453.41811d64.chunk.js.map": "/my-portfolio/static/js/453.41811d64.chunk.js.map"
   },
   "entrypoints": [
-    "static/js/main.b2ca3a80.js"
+    "static/js/main.c935d259.js"
   ]
 }
