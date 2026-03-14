@@ -150,6 +150,19 @@ const projects = [
     image: images['EGX.png'],
     link: "https://github.com/Konsing/Electric-Grid-Energy-X"
   },
+  {                                                                                                                       
+    title: "FINDIT4ME — Product Aggregator",
+    description: [                                                                                                        
+      "Aggregates merchandise from Shopify, eBay, and Google Shopping (SerpAPI) into a unified storefront.",
+      "Automated daily product refresh via GitHub Actions with retry logic and deduplication.",
+      "Client-side filtering, sorting, and responsive product grid with sold-out badges.",
+      "Deployed on Vercel with Upstash Redis caching for 24-hour search result persistence."
+    ],
+    technologies: ["Next.js 16", "TypeScript", "Tailwind CSS", "SerpAPI", "eBay Browse API", "Upstash Redis", "Vercel",
+  "GitHub Actions"],
+    image: images['FINDIT4ME.png'],
+    link: "https://github.com/Konsing/FINDIT4ME"
+  },
   {
     title: "Criterion Collection Stremio Add-on",
     description: [
