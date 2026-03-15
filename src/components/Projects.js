@@ -126,6 +126,18 @@ const images = importAll(require.context('../assets', false, /\.(png|jpe?g|svg)$
 
 const projects = [
   {
+    title: "AI Inbox Automation — Email Classification Pipeline",
+    description: [
+      "Connects to Gmail via OAuth and classifies emails using Google Gemini in a single API call.",
+      "Real-time pipeline visualization streamed to the browser via Server-Sent Events.",
+      "Posts Slack digest notifications and skips already-classified emails to save API budget.",
+      "Demo mode with live activity feed, run summary dashboard, and persistent history."
+    ],
+    technologies: ["Next.js 16", "TypeScript", "Tailwind CSS", "Google Gemini", "Gmail API", "Supabase", "Slack Webhooks", "Vercel"],
+    image: images['InboxAutomation.png'],
+    link: "https://github.com/Konsing/Inbox-Automation-System"
+  },
+  {
   title: "Startup Pulse — Market Intelligence Dashboard",
   description: [
     "Automated pipeline that scrapes software engineering jobs from YC, Greenhouse, Ashby, and Hacker News.",
@@ -164,18 +176,6 @@ const projects = [
     link: "https://github.com/Konsing/FINDIT4ME"
   },
   {
-    title: "Criterion Collection Stremio Add-on",
-    description: [
-      "Stremio add-on for browsing the Criterion Collection.",
-      "Scrapes movie metadata dynamically using Selenium.",
-      "Displays posters and integrates seamlessly with Stremio.",
-      "Deployed on Render for public access."
-    ],
-    technologies: ["JavaScript", "Node.js", "Stremio Add-on SDK", "Selenium", "Flask", "Docker"],
-    image: images['CriterionAddon.png'],
-    link: "https://github.com/Konsing/Criterion_Collection_Add-On_Stremio"
-  },
-  {
     title: "AI PR Reviewer — Automated Code Review Bot",
     description: [
       "GitHub App that reviews PRs using Llama 3.3 70B via Groq.",
@@ -186,6 +186,18 @@ const projects = [
     technologies: ["TypeScript", "Node.js", "Probot", "Groq SDK", "Llama 3.3 70B", "GitHub Apps API", "Vitest", "Railway"],
     image: images['PR1.png'],
     link: "https://github.com/Konsing/Automated-PR-Reviewer"
+  },
+  {
+    title: "Criterion Collection Stremio Add-on",
+    description: [
+      "Stremio add-on for browsing the Criterion Collection.",
+      "Scrapes movie metadata dynamically using Selenium.",
+      "Displays posters and integrates seamlessly with Stremio.",
+      "Deployed on Render for public access."
+    ],
+    technologies: ["JavaScript", "Node.js", "Stremio Add-on SDK", "Selenium", "Flask", "Docker"],
+    image: images['CriterionAddon.png'],
+    link: "https://github.com/Konsing/Criterion_Collection_Add-On_Stremio"
   },
   {
     title: "AI-Powered Resume Generator",
