@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.js": "/my-portfolio/static/js/main.b2093eda.js",
+    "main.js": "/my-portfolio/static/js/main.04c65232.js",
     "static/js/453.41811d64.chunk.js": "/my-portfolio/static/js/453.41811d64.chunk.js",
     "static/media/BCCollege2.jpg": "/my-portfolio/static/media/BCCollege2.cc6d6da83b7618f856be.jpg",
     "static/media/Konsing7a.jpg": "/my-portfolio/static/media/Konsing7a.7dd68dcd9a37494f1f74.jpg",
@@ -8,6 +8,7 @@
     "static/media/Konsing5b.jpg": "/my-portfolio/static/media/Konsing5b.ccb22a004175d5a50a82.jpg",
     "static/media/FINDIT4ME.png": "/my-portfolio/static/media/FINDIT4ME.2630195f9a3292b49782.png",
     "static/media/Konsing9.jpg": "/my-portfolio/static/media/Konsing9.52f113da538df367f2aa.jpg",
+    "static/media/EGX.png": "/my-portfolio/static/media/EGX.5b04e2a9a5b609134cd5.png",
     "static/media/Konsing7.jpg": "/my-portfolio/static/media/Konsing7.4963345c97dcda984789.jpg",
     "static/media/BCCollege.jpg": "/my-portfolio/static/media/BCCollege.5ce22ec0b56b554e106c.jpg",
     "static/media/Konsing8.jpg": "/my-portfolio/static/media/Konsing8.58f90f860ec37134a61d.jpg",
@@ -29,7 +30,6 @@
     "static/media/PR1.png": "/my-portfolio/static/media/PR1.13b523845a5ea2732c94.png",
     "static/media/InboxAutomation.png": "/my-portfolio/static/media/InboxAutomation.34893d87106e7b96441b.png",
     "static/media/BSite.jpg": "/my-portfolio/static/media/BSite.b2bed2b84820f51bab56.jpg",
-    "static/media/EGX.png": "/my-portfolio/static/media/EGX.4477f72688c8c3a06bd3.png",
     "static/media/Konsing1.jpg": "/my-portfolio/static/media/Konsing1.3ab88d5d61885b280487.jpg",
     "static/media/Konsing5.jpg": "/my-portfolio/static/media/Konsing5.c67b10380b3a45cb3a65.jpg",
     "static/media/Banking.jpg": "/my-portfolio/static/media/Banking.b020dd70168437a51ab5.jpg",
@@ -73,10 +73,10 @@
     "static/media/Python.svg": "/my-portfolio/static/media/Python.14f5a10cd798d37370e1.svg",
     "index.html": "/my-portfolio/index.html",
     "static/media/Haskell.svg": "/my-portfolio/static/media/Haskell.5b2e30440712f842daf1.svg",
-    "main.b2093eda.js.map": "/my-portfolio/static/js/main.b2093eda.js.map",
+    "main.04c65232.js.map": "/my-portfolio/static/js/main.04c65232.js.map",
     "453.41811d64.chunk.js.map": "/my-portfolio/static/js/453.41811d64.chunk.js.map"
   },
   "entrypoints": [
-    "static/js/main.b2093eda.js"
+    "static/js/main.04c65232.js"
   ]
 }
