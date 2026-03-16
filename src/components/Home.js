@@ -45,7 +45,10 @@ const Tagline = styled(motion.p)`
   margin-bottom: 2.5rem;
 
   @media (max-width: 768px) {
-    font-size: 1.05rem;
+    font-size: 0.9rem;
+    white-space: normal;
+    text-align: center;
+    max-width: 90%;
   }
 `;
 

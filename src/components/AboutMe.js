@@ -57,9 +57,8 @@ const Buttons = styled(motion.div)`
   margin-top: 2rem;
 
   @media (max-width: 768px) {
-    flex-direction: column;
-    align-items: center;
-    gap: 0.75rem;
+    flex-direction: row;
+    gap: 0.5rem;
   }
 `;
 

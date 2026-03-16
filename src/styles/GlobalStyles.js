@@ -81,12 +81,13 @@ const GlobalStyles = createGlobalStyle`
 
   @media (max-width: 768px) {
     nav {
-      flex-direction: column;
-      padding: 1rem;
-      width: 100%;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 0.4rem;
 
       a {
-        margin: 0.5rem 0;
+        margin: 0;
       }
     }
 

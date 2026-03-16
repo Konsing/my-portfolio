@@ -64,7 +64,10 @@ const SkillItem = styled(motion.div)`
   background: ${({ theme }) => theme.surface};
   border: 1px solid ${({ theme }) => theme.borderColor};
   transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
-  width: 100px;
+  min-width: 100px;
+  width: auto;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
 
   &:hover {
     border-color: ${({ theme }) => theme.borderHover};
@@ -79,8 +82,8 @@ const SkillItem = styled(motion.div)`
   }
 
   @media (max-width: 768px) {
-    width: 80px;
-    padding: 0.75rem;
+    min-width: 70px;
+    padding: 0.6rem;
 
     img {
       height: 2.5rem;
@@ -96,9 +99,10 @@ const SkillLabel = styled.span`
   text-align: center;
   line-height: 1.3;
   display: inline-block;
+  white-space: nowrap;
 
   @media (max-width: 768px) {
-    font-size: 0.7rem;
+    font-size: 0.6rem;
   }
 `;
 

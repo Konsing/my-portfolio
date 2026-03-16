@@ -83,24 +83,26 @@ const EducationCard = styled(motion.a)`
   }
 
   @media (max-width: 768px) {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1rem;
+    flex-wrap: wrap;
+    gap: 0.75rem;
 
     img.logo {
       height: 3.5rem;
       width: 3.5rem;
-      margin-right: 0;
+      margin-right: 0.75rem;
     }
 
     .institution-info {
-      h3 { font-size: 1.15rem; }
-      p { font-size: 0.875rem; }
+      flex: 1;
+      min-width: 0;
+      h3 { font-size: 1.05rem; }
+      p { font-size: 0.8rem; }
     }
 
     .institution-images {
       width: 100%;
       overflow-x: auto;
+      flex-basis: 100%;
 
       img {
         height: 7rem;
