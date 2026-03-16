@@ -215,7 +215,7 @@ const AboutMe = () => {
           <FaGithub className="icon" /> GitHub
         </LinkButton>
         <LinkButton
-          href="mailto:ham.konsing@gmail.com"
+          href="mailto:konsing.hamlopez@gmail.com"
           whileHover={{ scale: 1.03 }}
           whileTap={{ scale: 0.97 }}
         >

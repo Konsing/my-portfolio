@@ -136,10 +136,8 @@ const skills = {
     { name: 'Node.js', icon: 'NodeJS.svg' },
     { name: 'Tailwind', icon: 'TailwindCSS.svg' },
     { name: 'Streamlit', icon: 'Streamlit.svg' },
-    { name: 'Bootstrap', icon: 'Bootstrap.svg' },
     { name: 'PostgreSQL', icon: 'PostgreSQL.svg' },
     { name: 'MongoDB', icon: 'MongoDB.svg' },
-    { name: 'SQLite', icon: 'SQLite.svg' },
   ],
   'Tools & Infrastructure': [
     { name: 'Git', icon: 'Git.svg' },
