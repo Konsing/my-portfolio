@@ -1,99 +1,106 @@
-// Home.js
 import React from 'react';
-import styled, { keyframes } from 'styled-components';
-import { motion, useAnimation } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
+import styled from 'styled-components';
+import { motion } from 'framer-motion';
 import InteractiveBackground from './InteractiveBackground';
-
-const fadeIn = keyframes`
-  from { opacity: 0; }
-  to { opacity: 1; }
-`;
 
 const HomeContainer = styled.section`
   height: 100vh;
-  padding-top: 120px; /* space for the fixed navbar */
+  padding-top: 100px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
-  animation: ${fadeIn} 0.5s ease-in-out;
   background: ${({ theme }) => theme.homeGradient};
   position: relative;
   overflow: hidden;
 
-  h1 {
-    font-size: 4rem;
-    color: ${({ theme }) => theme.headingColor};
-    margin: 0.5rem;
-  }
-
-  p {
-    font-size: 1.5rem;
-    color: ${({ theme }) => theme.text};
-    margin: 0.5rem;
-  }
-
-  .down-arrow {
-    font-size: 2rem;
-    margin-top: 2rem;
-    color: ${({ theme }) => theme.text};
-  }
-
   @media (max-width: 768px) {
-    h1 { font-size: 3rem; }
-    p { font-size: 1.2rem; }
-    .down-arrow { font-size: 1.5rem; }
+    padding: 0 1.5rem;
+    padding-top: 80px;
   }
 `;
 
+const GradientName = styled(motion.h1)`
+  font-size: 4.5rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  background: ${({ theme }) => theme.accentGradient};
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1.1;
+  margin-bottom: 1rem;
+
+  @media (max-width: 768px) {
+    font-size: 2.8rem;
+  }
+`;
+
+const Tagline = styled(motion.p)`
+  font-size: 1.25rem;
+  color: ${({ theme }) => theme.textMuted};
+  white-space: nowrap;
+  line-height: 1.6;
+  margin-bottom: 2.5rem;
+
+  @media (max-width: 768px) {
+    font-size: 1.05rem;
+  }
+`;
+
+const ScrollIndicator = styled(motion.div)`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  color: ${({ theme }) => theme.textMuted};
+
+  span {
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+`;
+
+const ScrollLine = styled(motion.div)`
+  width: 1px;
+  height: 40px;
+  background: ${({ theme }) => theme.accentGradient};
+  border-radius: 1px;
+  transform-origin: top;
+`;
+
 const Home = () => {
-  const h1Controls = useAnimation();
-  const otherControls = useAnimation();
-  const [h1Ref, h1InView] = useInView({ triggerOnce: false, threshold: 0.5 });
-  const [otherRef, otherInView] = useInView({ triggerOnce: true, threshold: 0.5 });
-
-  React.useEffect(() => {
-    h1InView ? h1Controls.start('visible') : h1Controls.start('hidden');
-  }, [h1Controls, h1InView]);
-
-  React.useEffect(() => {
-    if (otherInView) otherControls.start('visible');
-  }, [otherControls, otherInView]);
-
   return (
     <HomeContainer id="home">
       <InteractiveBackground />
-      <motion.h1
-        ref={h1Ref}
-        initial="hidden"
-        animate={h1Controls}
-        variants={{
-          hidden: { scale: 0.5, opacity: 0 },
-          visible: { scale: 1, opacity: 1, transition: { duration: 0.8 } }
-        }}
+      <GradientName
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
       >
         Konsing Yukman Ham Lopez
-      </motion.h1>
-      <motion.p
-        ref={otherRef}
-        initial={{ y: 50, opacity: 0 }}
-        animate={otherControls}
-        transition={{ duration: 0.5, delay: 0.3 }}
-        viewport={{ once: true }}
+      </GradientName>
+      <Tagline
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
       >
-        Scroll down to learn more about me
-      </motion.p>
-      <motion.div
-        className="down-arrow"
+        Fullstack Software Engineer | AI Automation & LLM Systems
+      </Tagline>
+      <ScrollIndicator
         initial={{ opacity: 0 }}
-        animate={otherControls}
-        transition={{ duration: 0.5, delay: 0.6 }}
-        viewport={{ once: true }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.8, delay: 0.6 }}
       >
-        ↓
-      </motion.div>
+        <span>Scroll</span>
+        <ScrollLine
+          animate={{ scaleY: [0, 1, 0] }}
+          transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+        />
+      </ScrollIndicator>
     </HomeContainer>
   );
 };

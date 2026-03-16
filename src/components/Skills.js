@@ -1,91 +1,104 @@
-// Skills.js
 import React from 'react';
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
-const wiggle = keyframes`
-  0%, 100% { transform: rotate(-5deg); }
-  50% { transform: rotate(5deg); }
-`;
-
-const bounce = keyframes`
-  0% { transform: translateY(-100%); opacity: 0; }
-  50% { transform: translateY(20%); opacity: 1; }
-  100% { transform: translateY(0); opacity: 1; }
-`;
-
 const SkillsContainer = styled.section`
-  padding: 2rem;
-  background: ${({ theme }) => theme.background};
-  border-radius: 10px;
-  margin: 2rem auto;
+  padding: 5rem 4%;
+  width: 100%;
   text-align: center;
-  transition: background 0.3s ease, color 0.3s ease;
 
   h2 {
     font-size: 2.5rem;
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
     color: ${({ theme }) => theme.headingColor};
-  }
-
-  .skills-category {
-    margin: 2rem 0;
-
-    h3 {
-      font-size: 2rem;
-      margin-bottom: 1.5rem;
-      color: ${({ theme }) => theme.headingColor};
-    }
-  }
-
-  .skills-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-
-    .skill-item {
-      margin: 0.5rem;
-      padding: 0.5rem;
-      border-radius: 5px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.6);
-      background: ${({ theme }) => theme.background};
-      border: 1px solid ${({ theme }) => theme.borderColor};
-      transition: transform 0.3s;
-
-      &:hover {
-        animation: ${wiggle} 0.5s infinite;
-      }
-
-      img {
-        margin-bottom: 0.5rem;
-        height: 6rem;
-        width: 6rem;
-      }
-
-      span {
-        color: ${({ theme }) => theme.text};
-        font-size: 1rem;
-        font-weight: bold;
-        display: inline-block;
-        animation: ${bounce} 1s forwards;
-      }
-    }
+    text-align: center;
   }
 
   @media (max-width: 768px) {
-    padding: 1rem;
+    padding: 3rem 1rem;
     h2 { font-size: 2rem; }
-    h3 { font-size: 1.5rem; }
-    .skills-list {
-      .skill-item {
-        width: 100px;
-        img { height: 4rem; width: 4rem; }
-        span { font-size: 0.8rem; }
-      }
+  }
+`;
+
+const CategorySection = styled(motion.div)`
+  margin-bottom: 2.5rem;
+  text-align: center;
+`;
+
+const CategoryTitle = styled(motion.h3)`
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: ${({ theme }) => theme.textMuted};
+  margin-bottom: 1.25rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  position: relative;
+  display: inline-block;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: ${({ theme }) => theme.accentGradient};
+    border-radius: 1px;
+  }
+`;
+
+const SkillsGrid = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+`;
+
+const SkillItem = styled(motion.div)`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem;
+  border-radius: 12px;
+  background: ${({ theme }) => theme.surface};
+  border: 1px solid ${({ theme }) => theme.borderColor};
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+  width: 100px;
+
+  &:hover {
+    border-color: ${({ theme }) => theme.borderHover};
+    box-shadow: 0 0 20px ${({ theme }) => theme.glow};
+    transform: translateY(-2px);
+  }
+
+  img {
+    height: 3.5rem;
+    width: 3.5rem;
+    object-fit: contain;
+  }
+
+  @media (max-width: 768px) {
+    width: 80px;
+    padding: 0.75rem;
+
+    img {
+      height: 2.5rem;
+      width: 2.5rem;
     }
+  }
+`;
+
+const SkillLabel = styled.span`
+  color: ${({ theme }) => theme.text};
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-align: center;
+  line-height: 1.3;
+  display: inline-block;
+
+  @media (max-width: 768px) {
+    font-size: 0.7rem;
   }
 `;
 
@@ -97,89 +110,142 @@ const importAll = (r) => {
 
 const images = importAll(require.context('../assets', false, /\.(png|jpe?g|svg)$/));
 
+const skills = {
+  'Languages': [
+    { name: 'C', icon: 'C.svg' },
+    { name: 'C++', icon: 'C++.svg' },
+    { name: 'Python', icon: 'Python.svg' },
+    { name: 'Java', icon: 'Java.svg' },
+    { name: 'JavaScript', icon: 'JavaScript.svg' },
+    { name: 'TypeScript', icon: 'TypeScript.svg' },
+    { name: 'HTML', icon: 'HTML5.svg' },
+    { name: 'CSS', icon: 'CSS.svg' },
+    { name: 'SQL', icon: 'SQL.svg' },
+    { name: 'Bash', icon: 'Bash.svg' },
+  ],
+  'Frameworks & Databases': [
+    { name: 'Next.js', icon: 'Nextjs.svg' },
+    { name: 'React', icon: 'React.svg' },
+    { name: 'Django', icon: 'Django.svg' },
+    { name: 'Express', icon: 'ExpressJS.svg' },
+    { name: 'Flask', icon: 'Flask.svg' },
+    { name: 'Node.js', icon: 'NodeJS.svg' },
+    { name: 'Tailwind', icon: 'TailwindCSS.svg' },
+    { name: 'Streamlit', icon: 'Streamlit.svg' },
+    { name: 'Bootstrap', icon: 'Bootstrap.svg' },
+    { name: 'PostgreSQL', icon: 'PostgreSQL.svg' },
+    { name: 'MongoDB', icon: 'MongoDB.svg' },
+    { name: 'SQLite', icon: 'SQLite.svg' },
+  ],
+  'Tools & Infrastructure': [
+    { name: 'Git', icon: 'Git.svg' },
+    { name: 'GitHub', icon: 'GitHub.svg' },
+    { name: 'Docker', icon: 'Docker.svg' },
+    { name: 'AWS', icon: 'AWS.svg' },
+    { name: 'GCP', icon: 'GCloud.svg' },
+    { name: 'GitHub Actions', icon: 'GitHub.svg' },
+    { name: 'Jira', icon: 'Jira.svg' },
+    { name: 'Gemini', icon: 'GoogleGemini.svg' },
+    { name: 'Claude API', icon: 'Claude.svg' },
+    { name: 'OpenAI', icon: 'OpenAI.svg' },
+    { name: 'Groq', icon: 'Groq.svg' },
+  ],
+};
+
+const letterVariants = {
+  hidden: { y: -50, opacity: 0 },
+  visible: (i) => ({
+    y: 0,
+    opacity: 1,
+    transition: { delay: i * 0.06, type: 'spring', stiffness: 300, damping: 15 }
+  })
+};
+
+const categoryVariants = {
+  hidden: { opacity: 0, y: -40 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.4, type: 'spring', stiffness: 120 } }
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 30, scale: 0.85 },
+  visible: (i) => ({
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: { delay: i * 0.06, duration: 0.4, type: 'spring', stiffness: 200, damping: 18 }
+  })
+};
+
+const bounceVariants = {
+  hidden: { y: -20, opacity: 0 },
+  visible: (i) => ({
+    y: 0,
+    opacity: 1,
+    transition: { delay: i * 0.04, type: 'spring', stiffness: 400, damping: 12 }
+  })
+};
+
 const Skills = () => {
-  const skills = {
-    'Programming Languages': [
-      'C.svg', 'C++.svg', 'Python.svg', 'Java.svg', 'JavaScript.svg', 'TypeScript.svg'
-    ],
-    'Web Development': [
-      'HTML5.svg', 'CSS.svg', 'React.svg', 'NodeJS.svg', 'Flask.svg', 'Django.svg', 'Express.jpg', 'Handlebars.jpg'
-    ],
-    'Databases': [
-      'SQL.svg', 'SQLite.svg', 'PostgreSQL.svg', 'MongoDB.svg'
-    ],
-    'Cloud & DevOps': [
-      'GCloud.svg', 'Docker.svg', 'AWS.svg', 'Azure.svg'
-    ],
-    'Tools': [
-      'GitHub.svg', 'Git.svg', 'Bash.svg', 'Json.svg', 'Selenium.png'
-    ],
-  };
-
-  const letterVariants = {
-    hidden: { y: -100, opacity: 0 },
-    visible: (i) => ({
-      y: 0,
-      opacity: 1,
-      transition: { delay: i * 0.075, type: 'spring', stiffness: 400 }
-    })
-  };
-
-  const categoryVariants = {
-    hidden: { opacity: 0, y: -50 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.3 } }
-  };
-
   return (
     <SkillsContainer id="skills">
       <motion.h2
-        initial={{ x: -100, opacity: 0 }}
-        whileInView={{ x: 0, opacity: 1 }}
-        transition={{ duration: 0.3 }}
+        initial="hidden"
+        whileInView="visible"
         viewport={{ once: true }}
+        style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap' }}
       >
-        Skills
+        {"Skills".split('').map((char, i) => (
+          <motion.span key={i} variants={letterVariants} custom={i}>
+            {char}
+          </motion.span>
+        ))}
       </motion.h2>
       {Object.entries(skills).map(([category, skillsList]) => (
-        <motion.div
+        <CategorySection
           key={category}
-          className="skills-category"
           initial="hidden"
           whileInView="visible"
           variants={categoryVariants}
           viewport={{ once: true }}
         >
-          <motion.h3
-            initial={{ opacity: 0, y: -50 }}
+          <CategoryTitle
+            initial={{ opacity: 0, y: -30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3 }}
+            transition={{ duration: 0.4, type: 'spring', stiffness: 150 }}
             viewport={{ once: true }}
           >
             {category}
-          </motion.h3>
-          <div className="skills-list">
+          </CategoryTitle>
+          <SkillsGrid>
             {skillsList.map((skill, skillIndex) => (
-              <motion.div
-                key={skill}
-                className="skill-item"
+              <SkillItem
+                key={skill.name}
                 initial="hidden"
                 whileInView="visible"
-                variants={letterVariants}
+                variants={itemVariants}
                 custom={skillIndex}
                 viewport={{ once: true }}
               >
-                <img src={images[skill]} alt={skill.replace('.svg','').replace('.jpg','').replace('.png','')} />
-                <span>
-                  {skill.replace('.svg','').replace('.jpg','').replace('.png','').split('').map((char, i) => (
-                    <motion.span key={i} variants={letterVariants} custom={i}>
-                      {char}
+                <img src={images[skill.icon]} alt={skill.name} />
+                <SkillLabel>
+                  {skill.name.split('').map((char, i) => (
+                    <motion.span
+                      key={i}
+                      variants={bounceVariants}
+                      initial="hidden"
+                      whileInView="visible"
+                      custom={i}
+                      viewport={{ once: true }}
+                      style={{ display: 'inline-block' }}
+                    >
+                      {char === ' ' ? '\u00A0' : char}
                     </motion.span>
                   ))}
-                </span>
-              </motion.div>
+                </SkillLabel>
+              </SkillItem>
             ))}
-          </div>
-        </motion.div>
+          </SkillsGrid>
+        </CategorySection>
       ))}
     </SkillsContainer>
   );

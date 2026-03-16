@@ -1,9 +1,7 @@
-// Header.js
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-scroll';
 import { motion } from 'framer-motion';
-import { FaSun, FaMoon } from 'react-icons/fa';
 
 const HeaderContainer = styled(motion.header)`
   display: flex;
@@ -12,81 +10,86 @@ const HeaderContainer = styled(motion.header)`
   width: 100%;
   position: fixed;
   z-index: 1000;
-  top: 50px; /* Positions the header 20px from the top */
-  
+  top: 24px;
+  padding: 0 1rem;
+  opacity: ${({ $scrolled }) => ($scrolled ? 1 : 0.9)};
+  transition: opacity 0.3s ease;
+
   nav {
     display: flex;
-    justify-content: space-between;
-    width: 700px;
-    margin: 0; /* Remove the old 50px margin */
-    overflow: hidden;
+    justify-content: center;
+    gap: 0.25rem;
+    padding: 0.4rem 0.5rem;
+    background: ${({ theme }) => theme.navBackground};
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
     border: 1px solid ${({ theme }) => theme.borderColor};
-    background: ${({ theme }) => theme.background};
-  }
-
-  nav a {
-    margin: auto;
-    color: ${({ theme }) => theme.text};
-    cursor: pointer;
-    padding: 0.5rem 1rem;
-    text-decoration: none;
-    text-align: center;
-    &:hover {
-      background: rgba(0, 0, 0, 0.1);
-      border-radius: 5px;
-    }
+    border-radius: 16px;
+    overflow: hidden;
   }
 
   @media (max-width: 800px) {
-    flex-direction: column;
-    align-items: center;
+    top: 12px;
 
     nav {
-      flex-direction: row;
-      align-items: center;
-      width: 90%;
-      padding: 0.5rem;
-    }
-
-    nav a {
-      margin: 0.25rem 0;
-      padding: 0.25rem 0.5rem;
-      font-size: 0.875rem;
+      width: 95%;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.15rem;
+      padding: 0.4rem;
     }
   }
 `;
 
-const ToggleButton = styled.button`
-  margin: auto;
-  width: 35px;
-  height: 35px;
-  border: 1px solid ${({ theme }) => theme.borderColor};
-  background: ${({ theme }) => theme.buttonBackground};
-  color: ${({ theme }) => theme.buttonText};
-  border-radius: 50%;
+const NavLink = styled(Link)`
+  position: relative;
+  padding: 0.5rem 1.1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: ${({ theme }) => theme.textMuted};
+  border-radius: 10px;
   cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  outline: none;
+  transition: color 0.2s ease, background 0.2s ease;
+  letter-spacing: 0.01em;
+
+  &:hover {
+    color: ${({ theme }) => theme.text};
+    background: ${({ theme }) => theme.surfaceHover};
+  }
+
+  &.active {
+    color: ${({ theme }) => theme.text};
+    background: ${({ theme }) => theme.surfaceHover};
+  }
+
+  @media (max-width: 800px) {
+    padding: 0.4rem 0.75rem;
+    font-size: 0.8rem;
+  }
 `;
 
-const Header = ({ toggleTheme, isDarkMode }) => {
+const Header = () => {
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 50);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
   return (
     <HeaderContainer
-      initial={{ y: -50, opacity: 0 }}
+      $scrolled={scrolled}
+      initial={{ y: -40, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.3 }}
+      transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
     >
       <nav>
-        <Link to="home" smooth={true} duration={500}>Home</Link>
-        <Link to="education" smooth={true} duration={500}>Education</Link>
-        <Link to="projects" smooth={true} duration={500}>Projects</Link>
-        <Link to="skills" smooth={true} duration={500}>Skills</Link>
-        <Link to="aboutMe" smooth={true} duration={500}>About</Link>
-        <ToggleButton onClick={toggleTheme}>
-          {isDarkMode ? <FaSun size={18} /> : <FaMoon size={18} />}
-        </ToggleButton>
+        <NavLink to="home" smooth={true} duration={500} spy={true} activeClass="active">Home</NavLink>
+        <NavLink to="projects" smooth={true} duration={500} spy={true} activeClass="active" offset={-80}>Projects</NavLink>
+        <NavLink to="skills" smooth={true} duration={500} spy={true} activeClass="active" offset={-80}>Skills</NavLink>
+        <NavLink to="education" smooth={true} duration={500} spy={true} activeClass="active" offset={-80}>Education</NavLink>
+        <NavLink to="aboutMe" smooth={true} duration={500} spy={true} activeClass="active" offset={-80}>About</NavLink>
       </nav>
     </HeaderContainer>
   );

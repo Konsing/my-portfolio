@@ -1,24 +1,26 @@
-// theme.js
-export const lightTheme = {
-  background: "#FFFFFF",
-  homeGradient: "linear-gradient(135deg,rgb(218, 234, 243), #ebedee)",
-  text: "#333333",
-  buttonBackground: "#4A90E2",
-  buttonText: "#FFFFFF",
-  navBackground: "linear-gradient(45deg, #4A90E2, #50E3C2)",
-  borderColor: "#4A90E2",
-  headingColor: "#4A90E2",
-  circleColor: "rgba(0, 0, 0, 0.1)"
+const theme = {
+  background: "#0a0a0f",
+  backgroundAlt: "#101017",
+  surface: "rgba(255, 255, 255, 0.03)",
+  surfaceHover: "rgba(255, 255, 255, 0.06)",
+  homeGradient: "linear-gradient(135deg, #0a0a0f 0%, #0f0f1a 100%)",
+  text: "#e2e2e7",
+  textMuted: "#71717a",
+  accentPrimary: "#38bdf8",
+  accentSecondary: "#818cf8",
+  accentGradient: "linear-gradient(135deg, #38bdf8, #818cf8)",
+  buttonBackground: "transparent",
+  buttonText: "#e2e2e7",
+  buttonBorder: "rgba(255, 255, 255, 0.12)",
+  navBackground: "rgba(10, 10, 15, 0.7)",
+  borderColor: "rgba(255, 255, 255, 0.06)",
+  borderHover: "rgba(255, 255, 255, 0.12)",
+  headingColor: "#e2e2e7",
+  circleColor: "rgba(56, 189, 248, 0.04)",
+  glow: "rgba(56, 189, 248, 0.15)",
+  glowSecondary: "rgba(129, 140, 248, 0.15)",
+  shadow: "0 4px 24px rgba(0, 0, 0, 0.4)",
+  shadowHover: "0 8px 32px rgba(0, 0, 0, 0.5)",
 };
 
-export const darkTheme = {
-  background: "#1E1E1E",
-  homeGradient: "linear-gradient(135deg, #1e1e1e, #2a2a2a)",
-  text: "#F5F5F5",
-  buttonBackground: "#BB86FC",
-  buttonText: "#1E1E1E",
-  navBackground: "linear-gradient(45deg, #BB86FC, #3700B3)",
-  borderColor: "#BB86FC",
-  headingColor: "#BB86FC",
-  circleColor: "rgba(255, 255, 255, 0.1)"
-};
+export default theme;

@@ -1,119 +1,120 @@
-// Projects.js
 import React from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
 const ProjectsContainer = styled.section`
-  padding: 2rem 0;
-  background: ${({ theme }) => theme.background};
-  border-radius: 10px;
+  padding: 5rem 4%;
+  width: 100%;
   text-align: center;
-  transition: background 0.3s ease, color 0.3s ease;
 
   h2 {
     font-size: 2.5rem;
-    margin-bottom: 1rem;
+    margin-bottom: 0.75rem;
     color: ${({ theme }) => theme.headingColor};
   }
 
-  p {
-    font-size: 1.2rem;
-    color: ${({ theme }) => theme.text};
-    margin-bottom: 2rem;
+  .subtitle {
+    font-size: 1rem;
+    color: ${({ theme }) => theme.textMuted};
+    margin-bottom: 3rem;
   }
 
   .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-    gap: 2rem;
-    justify-items: center;
-  }
-
-  .project-item {
-    display: flex;
-    flex-direction: column;
-    padding: 1.5rem;
-    background: ${({ theme }) => theme.background};
-    border: 1px solid ${({ theme }) => theme.borderColor};
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.6);
-    max-width: 400px;
-    transition: transform 0.15s ease-in-out;
-    cursor: pointer;
-    min-height: 500px;
-
-    &:hover {
-      transform: scale(1.05);
-    }
-
-    &:hover img {
-      transform: rotate(3deg);
-    }
-
-    img {
-      width: 100%;
-      height: auto;
-      border-radius: 10px;
-      margin-bottom: 1rem;
-      transition: transform 0.15s ease-in-out;
-    }
-
-    h3 {
-      font-family: "Trebuchet MS", sans-serif;
-      font-size: 2rem;
-      margin-bottom: 1px;
-      color: ${({ theme }) => theme.headingColor};
-      text-align: center;
-    }
-
-    ul {
-      list-style-type: disc;
-      margin-left: 20px;
-      font-size: 1.2rem;
-      text-align: left;
-      color: ${({ theme }) => theme.text};
-      border-radius: 30px;
-      margin-bottom: 1rem; /* Extra spacing between bullet list and technologies */
-    }
-
-    .technologies {
-      margin-top: auto;
-      font-size: 1.2rem;
-      color: ${({ theme }) => theme.headingColor};  /* Changed color */
-      font-weight: bold;
-    }
-  }
-
-  .info-text {
-    font-size: 1.4rem;
-    font-weight: bold;
-    color: ${({ theme }) => theme.text};
-    background: ${({ theme }) => theme.background};
-    padding: 10px 20px;
-    border: 1px solid ${({ theme }) => theme.borderColor};
-    border-radius: 8px;
-    display: inline-block;
-    margin-bottom: 2rem;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    transition: transform 0.15s ease-in-out;
-
-    &:hover {
-      transform: scale(1.05);
-    }
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 1.5rem;
   }
 
   @media (max-width: 768px) {
-    padding: 1rem;
+    padding: 3rem 1rem;
     h2 { font-size: 2rem; }
-    p { font-size: 1rem; }
     .projects-grid { grid-template-columns: 1fr; }
-    .project-item {
-      max-width: 100%;
-      h3 { font-size: 1.5rem; }
-      ul { font-size: 1rem; }
-      .technologies { font-size: 1rem; }
+  }
+`;
+
+const ProjectCard = styled(motion.div)`
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+  background: ${({ theme }) => theme.surface};
+  border: 1px solid ${({ theme }) => theme.borderColor};
+  border-radius: 16px;
+  width: 100%;
+  cursor: pointer;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+  min-height: 480px;
+  text-align: left;
+
+  &:hover {
+    border-color: ${({ theme }) => theme.borderHover};
+    box-shadow: 0 0 40px ${({ theme }) => theme.glow};
+    transform: translateY(-4px);
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 1.25rem;
+    transition: transform 0.3s ease;
+  }
+
+  &:hover img {
+    transform: rotate(2deg) scale(1.02);
+  }
+
+  h3 {
+    font-size: 1.35rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    color: ${({ theme }) => theme.accentPrimary};
+    line-height: 1.3;
+  }
+
+  ul {
+    list-style: none;
+    margin: 0 0 1.25rem 0;
+    padding: 0;
+    flex: 1;
+
+    li {
+      font-size: 0.95rem;
+      color: ${({ theme }) => theme.text};
+      line-height: 1.7;
+      padding-left: 1rem;
+      position: relative;
+      margin-bottom: 0.35rem;
+
+      &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0.6em;
+        width: 4px;
+        height: 4px;
+        border-radius: 50%;
+        background: ${({ theme }) => theme.accentPrimary};
+      }
     }
   }
+`;
+
+const TechPills = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: auto;
+`;
+
+const Pill = styled.span`
+  font-size: 0.7rem;
+  font-weight: 500;
+  padding: 0.25rem 0.6rem;
+  border-radius: 6px;
+  background: ${({ theme }) => theme.surfaceHover};
+  color: ${({ theme }) => theme.accentPrimary};
+  border: 1px solid ${({ theme }) => theme.borderColor};
+  letter-spacing: 0.01em;
 `;
 
 const importAll = (r) => {
@@ -138,16 +139,16 @@ const projects = [
     link: "https://github.com/Konsing/Inbox-Automation-System"
   },
   {
-  title: "Startup Pulse — Market Intelligence Dashboard",
-  description: [
-    "Automated pipeline that scrapes software engineering jobs from YC, Greenhouse, Ashby, and Hacker News.",
-    "Orchestrated ETL workflows with Apache Airflow and stored analytics data in Google BigQuery.",
-    "Extracted trending tech skills using NLP (TF-IDF + taxonomy matching).",
-    "Built an interactive Streamlit dashboard to explore job market trends."
-  ],
-  technologies: ["Python", "Apache Airflow", "Google BigQuery", "Streamlit", "Playwright", "NLTK", "Scikit-learn", "Docker"],
-  image: images['StartupPulse.png'],
-  link: "https://github.com/Konsing/Startup-Pulse"
+    title: "Startup Pulse — Market Intelligence Dashboard",
+    description: [
+      "Automated pipeline that scrapes software engineering jobs from YC, Greenhouse, Ashby, and Hacker News.",
+      "Orchestrated ETL workflows with Apache Airflow and stored analytics data in Google BigQuery.",
+      "Extracted trending tech skills using NLP (TF-IDF + taxonomy matching).",
+      "Built an interactive Streamlit dashboard to explore job market trends."
+    ],
+    technologies: ["Python", "Apache Airflow", "Google BigQuery", "Streamlit", "Playwright", "NLTK", "Scikit-learn", "Docker"],
+    image: images['StartupPulse.png'],
+    link: "https://github.com/Konsing/Startup-Pulse"
   },
   {
     title: "Electric Grid Energy X",
@@ -158,20 +159,19 @@ const projects = [
       "166 tests including a 71-test RBAC matrix across every role and endpoint.",
       "Reproducible performance benchmarks with strategic indexing."
     ],
-    technologies: ["React Native (Expo Mobile), Next.js 14, Express, TypeScript, Prisma, PostgreSQL, Tailwind CSS"],
+    technologies: ["React Native (Expo)", "Next.js 14", "Express", "TypeScript", "Prisma", "PostgreSQL", "Tailwind CSS"],
     image: images['EGX.png'],
     link: "https://github.com/Konsing/Electric-Grid-Energy-X"
   },
-  {                                                                                                                       
+  {
     title: "FINDIT4ME — Product Aggregator",
-    description: [                                                                                                        
+    description: [
       "Aggregates merchandise from Shopify, eBay, and Google Shopping (SerpAPI) into a unified storefront.",
       "Automated daily product refresh via GitHub Actions with retry logic and deduplication.",
       "Client-side filtering, sorting, and responsive product grid with sold-out badges.",
       "Deployed on Vercel with Upstash Redis caching for 24-hour search result persistence."
     ],
-    technologies: ["Next.js 16", "TypeScript", "Tailwind CSS", "SerpAPI", "eBay Browse API", "Upstash Redis", "Vercel",
-  "GitHub Actions"],
+    technologies: ["Next.js 16", "TypeScript", "Tailwind CSS", "SerpAPI", "eBay Browse API", "Upstash Redis", "Vercel", "GitHub Actions"],
     image: images['FINDIT4ME.png'],
     link: "https://github.com/Konsing/FINDIT4ME"
   },
@@ -226,7 +226,7 @@ const projects = [
   {
     title: "Punch Hell - Bullet Hell Game",
     description: [
-      "Developed a bullet hell game called 'Punch Hell'",
+      "Developed a bullet hell game called 'Punch Hell'.",
       "Utilized C#/Unity for assembling the entire game's SFX and music."
     ],
     technologies: ["Unity", "C#"],
@@ -261,8 +261,8 @@ const projects = [
     title: "Game Arcade Website",
     description: [
       "Connect4: Implemented from scratch, fully functional with dedicated CSS, JS, and HTML files.",
-      "2048: Implemented from scratch, works as expected with separate files for CSS, JavaScript, and HTML.",
-      "Minesweeper: Adapted from an existing repository with UI adjustments, flag system improvements, and game dynamic enhancements."
+      "2048: Implemented from scratch, works as expected with separate files.",
+      "Minesweeper: Adapted with UI adjustments, flag system improvements, and game enhancements."
     ],
     technologies: ["JavaScript", "HTML", "CSS", "Handlebars"],
     image: images['GameArcade.jpg'],
@@ -272,8 +272,8 @@ const projects = [
     title: "Connect 4 AI Agents and Game Simulator",
     description: [
       "Implemented various AI agents and a game simulator for Connect 4.",
-      "Included strategies: random moves, minimax algorithm, alpha-beta pruning, and Monte Carlo simulations.",
-      "Scripts to run and evaluate the performance of these AI agents in a series of games."
+      "Included strategies: random moves, minimax, alpha-beta pruning, and Monte Carlo simulations.",
+      "Scripts to evaluate AI agent performance across a series of games."
     ],
     technologies: ["Python", "Jupyter Notebook", "Pygame"],
     image: images['Connect4AI.png'],
@@ -295,8 +295,8 @@ const projects = [
     title: "Simple Shell Implementation in C",
     description: [
       "Implemented a simple shell in C.",
-      "Supports command execution, built-in commands (`exit`, `cd`, `pwd`), output redirection, and piping.",
-      "Built-in `ls`-like command (`sls`)."
+      "Supports command execution, built-in commands, output redirection, and piping.",
+      "Built-in ls-like command (sls)."
     ],
     technologies: ["C"],
     image: images['sshell.jpg'],
@@ -330,57 +330,60 @@ const projects = [
       "Developed and published a personal portfolio website using GitHub Pages.",
       "Utilized React for dynamic content rendering, styled-components for custom styling, and framer-motion for animations."
     ],
-    technologies: ["React", "GitHub Pages", "HTML", "CSS", "JavaScript", "Styled-components", "Framer-Motion"],
+    technologies: ["React", "GitHub Pages", "JavaScript", "Styled-components", "Framer-Motion"],
     image: images['PSite.jpg'],
     link: "https://github.com/Konsing/my-portfolio"
   }
 ];
 
+const cardVariants = {
+  hidden: { opacity: 0, y: 40 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] } }
+};
+
 const Projects = () => {
-  const projectVariants = {
-    hidden: { opacity: 0, scale: 0.8 },
-    visible: { opacity: 1, scale: 1, transition: { duration: 0.15, type: 'spring', stiffness: 100 } }
-  };
-
-  const fadeInUp = {
-    hidden: { opacity: 0, y: 50 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.15, type: 'spring', stiffness: 100 } }
-  };
-
   return (
     <ProjectsContainer id="projects">
       <motion.h2
-        initial={{ x: -100, opacity: 0 }}
-        whileInView={{ x: 0, opacity: 1 }}
-        transition={{ duration: 0.15 }}
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
         viewport={{ once: true }}
       >
         Projects
       </motion.h2>
-      <p className="info-text">🚀 Click on a project to view more details on GitHub! 🔗</p>
+      <motion.p
+        className="subtitle"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 0.5, delay: 0.1 }}
+        viewport={{ once: true }}
+      >
+        Click any project to view it on GitHub
+      </motion.p>
       <div className="projects-grid">
         {projects.map((project, index) => (
-          <motion.div
+          <ProjectCard
             key={index}
-            className="project-item"
             initial="hidden"
             whileInView="visible"
-            variants={index % 2 === 0 ? projectVariants : fadeInUp}
-            whileHover={{ scale: 1.05 }}
+            variants={cardVariants}
+            viewport={{ once: true, margin: "-50px" }}
             onClick={() => window.open(project.link, "_blank")}
-            viewport={{ once: true }}
           >
-            <h3>{project.title}</h3>
             <img src={project.image} alt={project.title} />
+            <h3>{project.title}</h3>
             <ul>
               {project.description.map((item, idx) => (
                 <li key={idx}>{item}</li>
               ))}
             </ul>
-            <div className="technologies">
-              {project.technologies.join(', ')}
-            </div>
-          </motion.div>
+            <TechPills>
+              {project.technologies.map((tech, idx) => (
+                <Pill key={idx}>{tech}</Pill>
+              ))}
+            </TechPills>
+          </ProjectCard>
         ))}
       </div>
     </ProjectsContainer>
