@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-scroll';
 import { motion } from 'framer-motion';
@@ -46,7 +46,8 @@ const NavLink = styled(Link)`
   padding: 0.5rem 1.1rem;
   font-size: 0.875rem;
   font-weight: 500;
-  color: ${({ theme }) => theme.textMuted};
+  color: ${({ theme, $isActive }) => $isActive ? theme.text : theme.textMuted};
+  background: ${({ theme, $isActive }) => $isActive ? theme.surfaceHover : 'transparent'};
   border-radius: 10px;
   cursor: pointer;
   transition: color 0.2s ease, background 0.2s ease;
@@ -57,25 +58,40 @@ const NavLink = styled(Link)`
     background: ${({ theme }) => theme.surfaceHover};
   }
 
-  &.active {
-    color: ${({ theme }) => theme.text};
-    background: ${({ theme }) => theme.surfaceHover};
-  }
-
   @media (max-width: 800px) {
     padding: 0.4rem 0.75rem;
     font-size: 0.8rem;
   }
 `;
 
+const sections = ['home', 'projects', 'skills', 'education', 'aboutMe'];
+
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState('home');
+
+  const detectSection = useCallback(() => {
+    const scrollY = window.scrollY + 150;
+
+    for (let i = sections.length - 1; i >= 0; i--) {
+      const el = document.getElementById(sections[i]);
+      if (el && el.offsetTop <= scrollY) {
+        setActiveSection(sections[i]);
+        return;
+      }
+    }
+    setActiveSection('home');
+  }, []);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 50);
+    const onScroll = () => {
+      setScrolled(window.scrollY > 50);
+      detectSection();
+    };
     window.addEventListener('scroll', onScroll, { passive: true });
+    detectSection();
     return () => window.removeEventListener('scroll', onScroll);
-  }, []);
+  }, [detectSection]);
 
   return (
     <HeaderContainer
@@ -85,11 +101,11 @@ const Header = () => {
       transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
     >
       <nav>
-        <NavLink to="home" smooth={true} duration={500} spy={true} activeClass="active">Home</NavLink>
-        <NavLink to="projects" smooth={true} duration={500} spy={true} activeClass="active" offset={-80}>Projects</NavLink>
-        <NavLink to="skills" smooth={true} duration={500} spy={true} activeClass="active" offset={-80}>Skills</NavLink>
-        <NavLink to="education" smooth={true} duration={500} spy={true} activeClass="active" offset={-80}>Education</NavLink>
-        <NavLink to="aboutMe" smooth={true} duration={500} spy={true} activeClass="active" offset={-80}>About</NavLink>
+        <NavLink to="home" smooth={true} duration={500} $isActive={activeSection === 'home'}>Home</NavLink>
+        <NavLink to="projects" smooth={true} duration={500} offset={+20} $isActive={activeSection === 'projects'}>Projects</NavLink>
+        <NavLink to="skills" smooth={true} duration={500} offset={+20} $isActive={activeSection === 'skills'}>Skills</NavLink>
+        <NavLink to="education" smooth={true} duration={500} offset={+50} $isActive={activeSection === 'education'}>Education</NavLink>
+        <NavLink to="aboutMe" smooth={true} duration={500} offset={-10} $isActive={activeSection === 'aboutMe'}>About</NavLink>
       </nav>
     </HeaderContainer>
   );
