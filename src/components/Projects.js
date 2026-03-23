@@ -226,8 +226,10 @@ const projects = [
   {
     title: "Punch Hell - Bullet Hell Game",
     description: [
-      "Developed a bullet hell game called 'Punch Hell'.",
-      "Utilized C#/Unity for assembling the entire game's SFX and music."
+      "Built audio system in C#/Unity: integrated SFX and cyberpunk tracks with per-level transitions through StageManager singleton.",
+      "Implemented persistent audio settings using Unity's Audio Mixer.",
+      "Designed enemy movement patterns and waypoint configurations for levels 2–6.",
+      "Managed the project repository and coordinated a five-person team through development."
     ],
     technologies: ["Unity", "C#"],
     image: images['PHGame.jpg'],
