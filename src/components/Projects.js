@@ -136,7 +136,7 @@ const projects = [
     ],
     technologies: ["Next.js 14", "TypeScript", "Tailwind CSS", "Groq API", "Web Speech API", "Web Audio API",
       "Vercel"],
-    image: images['VoiceAssistant-v2.png'],
+    image: images['VoiceAssistant.png'],
     link: "https://github.com/Konsing/Voice-Powered-Ai-Agents"
   },
   {
