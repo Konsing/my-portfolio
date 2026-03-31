@@ -126,6 +126,19 @@ const importAll = (r) => {
 const images = importAll(require.context('../assets', false, /\.(png|jpe?g|svg)$/));
 
 const projects = [
+  {                                                                                                              
+    title: "Voice-Powered AI Assistant",
+    description: [                                                                                             
+      "Real-time voice conversations with AI using browser-native Speech APIs and Groq LLM.",                  
+      "Three animated companion themes with immersive ambient effects and particle animations.",               
+      "25+ language support, customizable TTS voices, and conversation export/import.",                        
+      "Password-gated access, sections navigation, and a built-in system guide."                               
+    ],                                                                                                         
+    technologies: ["Next.js 14", "TypeScript", "Tailwind CSS", "Groq API", "Web Speech API", "Web Audio API",  
+"Vercel"],                                                                                                     
+    image: images['VoiceAssistant.png'],
+    link: "https://github.com/Konsing/Voice-Powered-Ai-Agents"                                                 
+  },
   {
     title: "AI Inbox Automation — Email Classification Pipeline",
     description: [
