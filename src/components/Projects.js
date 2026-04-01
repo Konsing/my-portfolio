@@ -256,7 +256,7 @@ const projects = [
       "Utilized AJAX for dynamic updates.",
       "Stored data with SQLite and Dockerized the app."
     ],
-    technologies: ["Node.js", "Express", "Handlebars", "HTML", "CSS", "JavaScript", "Google OAuth", "AJAX", "SQLite", "Docker"],
+    technologies: ["Node.js", "Express", "Handlebars", "HTML", "CSS", "JavaScript", "Google OAuth", "AJAX", "SQLite", "Docker", "AWS (EC2, S3, Lightsail"],
     image: images['BSite.jpg'],
     link: "https://github.com/Konsing/Yappin-Blog-Site_Full_Stack"
   },
