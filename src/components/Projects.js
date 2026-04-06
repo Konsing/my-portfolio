@@ -126,6 +126,18 @@ const importAll = (r) => {
 const images = importAll(require.context('../assets', false, /\.(png|jpe?g|svg)$/));
 
 const projects = [
+  {                                                                                                         
+    title: "RAG Knowledge Assistant",
+    description: [                                                                                        
+      "From-scratch RAG system — no LangChain. Custom chunking, embedding, retrieval, and cited generation.",                                                                                             
+      "MCP server with auto-research tools that search ArXiv/web, ingest results, and answer in one call.",                                                                                                   
+      "Section-aware chunking for academic papers, trafilatura extraction for web pages, 5 document types.",                                                                                                  
+      "React chat UI, FastAPI backend, Qdrant vectors, configurable LLM (OpenAI or Claude)."       
+    ],                                                                                                    
+    technologies: ["Python", "FastAPI", "React", "TypeScript", "Qdrant", "sentence-transformers", "MCP SDK", "OpenAI API", "Tailwind CSS", "Docker"],                                                            
+    image: images['RAG.png'],                                                                  
+    link: "https://github.com/Konsing/rag-knowledge-assistant"                                            
+  },
   {
     title: "Voice-Powered AI Assistant",
     description: [
