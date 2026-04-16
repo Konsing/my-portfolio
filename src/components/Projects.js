@@ -126,6 +126,18 @@ const importAll = (r) => {
 const images = importAll(require.context('../assets', false, /\.(png|jpe?g|svg)$/));
 
 const projects = [
+  {                                      
+    title: "Qwik Sell — Peer-to-Peer Marketplace",
+    description: [                            
+      "Full-stack marketplace with listings, direct messaging, price offers, and favorites.",
+      "JWT auth with email verification, forgot/reset password, seller ratings, and public seller profiles.",
+      "Angular 18 frontend with infinite scroll, multi-photo carousel, real-time inbox, and search filters.",                                  
+      "REST API with Zod-validated endpoints and ownership-checked mutations."
+    ],                                                                                                                                          
+    technologies: ["Angular 18", "TypeScript", "Node.js", "Express", "MongoDB", "Mongoose", "JWT", "Zod", "Cloudinary", "Nodemailer", "Vercel", "Render"],                                  
+    image: images['QwikSell.png'],                                                                                                              
+    link: "https://github.com/Konsing/Qwik-Sell"            
+  },
   {                                                                                                         
     title: "RAG Knowledge Assistant",
     description: [                                                                                        
@@ -201,18 +213,6 @@ const projects = [
     link: "https://github.com/Konsing/FINDIT4ME"
   },
   {
-    title: "AI PR Reviewer — Automated Code Review Bot",
-    description: [
-      "GitHub App that reviews PRs using Llama 3.3 70B via Groq.",
-      "Posts inline comments with severity badges and auto-labels PRs.",
-      "Configurable per-repo via .pr-reviewer.yml.",
-      "Deployed on Railway — install on any repo for automatic reviews."
-    ],
-    technologies: ["TypeScript", "Node.js", "Probot", "Groq SDK", "Llama 3.3 70B", "GitHub Apps API", "Vitest", "Railway"],
-    image: images['PR1.png'],
-    link: "https://github.com/Konsing/Automated-PR-Reviewer"
-  },
-  {
     title: "Criterion Collection Stremio Add-on",
     description: [
       "Stremio add-on for browsing the Criterion Collection.",
@@ -223,6 +223,18 @@ const projects = [
     technologies: ["JavaScript", "Node.js", "Stremio Add-on SDK", "Selenium", "Flask", "Docker"],
     image: images['CriterionAddon.png'],
     link: "https://github.com/Konsing/Criterion_Collection_Add-On_Stremio"
+  },
+  {
+    title: "AI PR Reviewer — Automated Code Review Bot",
+    description: [
+      "GitHub App that reviews PRs using Llama 3.3 70B via Groq.",
+      "Posts inline comments with severity badges and auto-labels PRs.",
+      "Configurable per-repo via .pr-reviewer.yml.",
+      "Deployed on Railway — install on any repo for automatic reviews."
+    ],
+    technologies: ["TypeScript", "Node.js", "Probot", "Groq SDK", "Llama 3.3 70B", "GitHub Apps API", "Vitest", "Railway"],
+    image: images['PR1.png'],
+    link: "https://github.com/Konsing/Automated-PR-Reviewer"
   },
   {
     title: "AI-Powered Resume Generator",
