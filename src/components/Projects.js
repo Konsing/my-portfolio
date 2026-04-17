@@ -281,7 +281,7 @@ const projects = [
       "Stored data with SQLite and Dockerized the app."
     ],
     technologies: ["Node.js", "Express", "Handlebars", "HTML", "CSS", "JavaScript", "Google OAuth", "AJAX", "SQLite", "Docker", "AWS (EC2, S3, Lightsail"],
-    image: images['YappinBlog.jpg'],
+    image: images['YappinBlog.png'],
     link: "https://github.com/Konsing/Yappin-Blog-Site_Full_Stack"
   },
   {
