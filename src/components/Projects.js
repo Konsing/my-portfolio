@@ -126,6 +126,19 @@ const importAll = (r) => {
 const images = importAll(require.context('../assets', false, /\.(png|jpe?g|svg)$/));
 
 const projects = [
+  {
+    title: "Prism — LLM Gateway with a Semantic Cache",
+    description: [
+      "Self-hostable LLM gateway with a pgvector semantic cache — reworded prompts are served from cache for ~$0.",
+      "Provider-agnostic Go core: API-key auth, per-key rate limiting, cost tracking, and SSE streaming.",
+      "Works with any OpenAI-compatible backend — OpenAI, Anthropic, free Gemini, or local Ollama.",
+      "React + TypeScript dashboard for live spend, hit-rate, and request logs; self-migrating Postgres, fully tested."
+    ],
+    technologies: ["Go", "PostgreSQL", "pgvector", "pgx", "React", "TypeScript", "Vite", "Recharts", "Google Gemini", "Docker", "Fly.io",
+"Neon", "Vercel"],
+    image: images['PrismDashboard.png'],
+    link: "https://github.com/Konsing/Prism"
+  },
   {                                      
     title: "Qwik Sell — Peer-to-Peer Marketplace",
     description: [                            
