@@ -9,6 +9,9 @@ const GlobalStyles = createGlobalStyle`
 
   html {
     scroll-behavior: smooth;
+    /* Bumped from the 16px browser default to scale all rem-based sizing up,
+       mimicking a "ctrl +" zoom. Adjust this single value to taste. */
+    font-size: 125%;
   }
 
   body {

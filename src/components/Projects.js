@@ -7,27 +7,32 @@ const ProjectsContainer = styled.section`
   width: 100%;
   text-align: center;
 
+  /* NOTE: the section heading is de-scaled by 0.8 (× 1/1.25) so that, against
+     the global 125% root font-size, it renders at its ORIGINAL size. The card
+     footprint is enlarged instead (see .projects-grid + ProjectCard). The text
+     INSIDE the cards (h3/li/Pill) is sized up separately for readability. */
   h2 {
-    font-size: 2.5rem;
+    font-size: 2rem;
     margin-bottom: 0.75rem;
     color: ${({ theme }) => theme.headingColor};
   }
 
   .subtitle {
-    font-size: 1rem;
+    font-size: 0.8rem;
     color: ${({ theme }) => theme.textMuted};
     margin-bottom: 3rem;
   }
 
   .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    /* min column widened 340px -> 391px (+15%) => fewer, larger cards per row */
+    grid-template-columns: repeat(auto-fill, minmax(391px, 1fr));
     gap: 1.5rem;
   }
 
   @media (max-width: 768px) {
     padding: 3rem 1rem;
-    h2 { font-size: 2rem; }
+    h2 { font-size: 1.6rem; }
     .projects-grid { grid-template-columns: 1fr; }
   }
 `;
@@ -42,7 +47,8 @@ const ProjectCard = styled(motion.div)`
   width: 100%;
   cursor: pointer;
   transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
-  min-height: 480px;
+  /* min-height bumped 480px -> 552px (+15%) to match the wider cards */
+  min-height: 552px;
   text-align: left;
 
   &:hover {
@@ -64,7 +70,7 @@ const ProjectCard = styled(motion.div)`
   }
 
   h3 {
-    font-size: 1.35rem;
+    font-size: 1.25rem;
     font-weight: 600;
     margin-bottom: 0.75rem;
     color: ${({ theme }) => theme.accentPrimary};
@@ -78,7 +84,7 @@ const ProjectCard = styled(motion.div)`
     flex: 1;
 
     li {
-      font-size: 0.95rem;
+      font-size: 0.9rem;
       color: ${({ theme }) => theme.text};
       line-height: 1.7;
       padding-left: 1rem;
@@ -107,7 +113,7 @@ const TechPills = styled.div`
 `;
 
 const Pill = styled.span`
-  font-size: 0.7rem;
+  font-size: 0.66rem;
   font-weight: 500;
   padding: 0.25rem 0.6rem;
   border-radius: 6px;

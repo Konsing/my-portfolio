@@ -6,6 +6,8 @@ const SkillsContainer = styled.section`
   padding: 5rem 4%;
   width: 100%;
   text-align: center;
+  /* Scaled down 10% relative to the rest of the site. Tune this value. */
+  zoom: 0.9;
 
   h2 {
     font-size: 2.5rem;

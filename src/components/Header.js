@@ -12,6 +12,8 @@ const HeaderContainer = styled(motion.header)`
   z-index: 1000;
   top: 24px;
   padding: 0 1rem;
+  /* Navbar sized up ~15% relative to the rest of the site. Tune this value. */
+  zoom: 1.15;
   opacity: ${({ $scrolled }) => ($scrolled ? 1 : 0.9)};
   transition: opacity 0.3s ease;
 
@@ -75,7 +77,9 @@ const Header = () => {
 
     for (let i = sections.length - 1; i >= 0; i--) {
       const el = document.getElementById(sections[i]);
-      if (el && el.offsetTop <= scrollY) {
+      // Use getBoundingClientRect so zoomed sections (Skills/Education) report
+      // their true rendered position; offsetTop is unreliable under CSS zoom.
+      if (el && el.getBoundingClientRect().top + window.scrollY <= scrollY) {
         setActiveSection(sections[i]);
         return;
       }
@@ -104,7 +108,7 @@ const Header = () => {
         <NavLink to="home" smooth={true} duration={500} $isActive={activeSection === 'home'}>Home</NavLink>
         <NavLink to="projects" smooth={true} duration={500} offset={+20} $isActive={activeSection === 'projects'}>Projects</NavLink>
         <NavLink to="skills" smooth={true} duration={500} offset={+20} $isActive={activeSection === 'skills'}>Skills</NavLink>
-        <NavLink to="education" smooth={true} duration={500} offset={+50} $isActive={activeSection === 'education'}>Education</NavLink>
+        <NavLink to="education" smooth={true} duration={500} offset={+10} $isActive={activeSection === 'education'}>Education</NavLink>
         <NavLink to="aboutMe" smooth={true} duration={500} offset={-10} $isActive={activeSection === 'aboutMe'}>About</NavLink>
       </nav>
     </HeaderContainer>
