@@ -304,7 +304,7 @@ const projects = [
       "Minesweeper: Adapted with UI adjustments, flag system improvements, and game enhancements."
     ],
     technologies: ["JavaScript", "HTML", "CSS", "Handlebars"],
-    image: images['GameArcade.jpg'],
+    image: images['GameArcadePic.png'],
     link: "https://github.com/Konsing/Game-Arcade-Site_2048_Minesweeper_Connect4"
   },
   {
