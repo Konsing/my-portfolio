@@ -88,9 +88,17 @@ const Header = () => {
   }, []);
 
   useEffect(() => {
+    // Throttle to one layout read per frame; scroll events can fire faster
+    // than the display refreshes and detectSection forces layout.
+    let ticking = false;
     const onScroll = () => {
-      setScrolled(window.scrollY > 50);
-      detectSection();
+      if (ticking) return;
+      ticking = true;
+      window.requestAnimationFrame(() => {
+        setScrolled(window.scrollY > 50);
+        detectSection();
+        ticking = false;
+      });
     };
     window.addEventListener('scroll', onScroll, { passive: true });
     detectSection();

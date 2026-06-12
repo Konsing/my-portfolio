@@ -153,9 +153,9 @@ const Education = () => {
           <p>Bachelor of Science in Computer Science</p>
         </div>
         <div className="institution-images">
-          <img src={images['UCDavis.jpg']} alt="UC Davis Campus" />
-          <img src={images['UCDavis2.jpg']} alt="UC Davis Campus 2" />
-          <img src={images['UCDavis3.jpg']} alt="UC Davis Campus 3" />
+          <img src={images['UCDavis.jpg']} alt="UC Davis Campus" width={640} height={480} loading="lazy" decoding="async" />
+          <img src={images['UCDavis2.jpg']} alt="UC Davis Campus 2" width={918} height={420} loading="lazy" decoding="async" />
+          <img src={images['UCDavis3.jpg']} alt="UC Davis Campus 3" width={2732} height={1821} loading="lazy" decoding="async" />
         </div>
       </EducationCard>
 
@@ -174,9 +174,9 @@ const Education = () => {
           <p>Associate of Science in Mathematics</p>
         </div>
         <div className="institution-images">
-          <img src={images['BCCollege.jpg']} alt="Berkeley City College Campus" />
-          <img src={images['BCCollege2.jpg']} alt="Berkeley City College Campus 2" />
-          <img src={images['BCCollege3.jpg']} alt="Berkeley City College Campus 3" />
+          <img src={images['BCCollege.jpg']} alt="Berkeley City College Campus" width={3196} height={3196} loading="lazy" decoding="async" />
+          <img src={images['BCCollege2.jpg']} alt="Berkeley City College Campus 2" width={3600} height={2400} loading="lazy" decoding="async" />
+          <img src={images['BCCollege3.jpg']} alt="Berkeley City College Campus 3" width={2500} height={1875} loading="lazy" decoding="async" />
         </div>
       </EducationCard>
 
@@ -195,9 +195,9 @@ const Education = () => {
           <p>High School Diploma</p>
         </div>
         <div className="institution-images">
-          <img src={images['OCHS1.jpg']} alt="Oakland Charter High School" />
-          <img src={images['OCHS2.jpg']} alt="Oakland Charter High School 2" />
-          <img src={images['OCHS3.jpg']} alt="Oakland Charter High School 3" />
+          <img src={images['OCHS1.jpg']} alt="Oakland Charter High School" width={650} height={433} loading="lazy" decoding="async" />
+          <img src={images['OCHS2.jpg']} alt="Oakland Charter High School 2" width={1240} height={827} loading="lazy" decoding="async" />
+          <img src={images['OCHS3.jpg']} alt="Oakland Charter High School 3" width={1240} height={826} loading="lazy" decoding="async" />
         </div>
       </EducationCard>
     </EducationContainer>

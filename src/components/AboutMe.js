@@ -117,6 +117,9 @@ const ReelContainer = styled(motion.div)`
 
   img {
     height: 180px;
+    /* width must stay auto (derived from aspect-ratio) — without this, the
+       width="" attribute on the lazy images sets a literal pixel width. */
+    width: auto;
     border-radius: 10px;
     object-fit: cover;
   }
@@ -126,6 +129,43 @@ const ReelContainer = styled(motion.div)`
   }
 `;
 
+const importAll = (r) => {
+  let imgs = {};
+  r.keys().forEach((item) => { imgs[item.replace('./', '')] = r(item); });
+  return imgs;
+};
+
+const images = importAll(require.context('../assets', false, /\.(png|jpe?g|svg)$/));
+const imageNames = Object.keys(images).filter(name => name.startsWith('Konsing')).sort();
+
+/* Intrinsic dimensions, passed as width/height attributes so the browser
+   reserves each lazy image's aspect-ratio box before it downloads. The reel
+   renders at a fixed CSS height with auto width, so without these the reel
+   width jumps around as images load. */
+const imageDims = {
+  'Konsing1.jpg': [1400, 933],
+  'Konsing2.jpg': [768, 512],
+  'Konsing3.jpg': [3864, 2576],
+  'Konsing4.jpg': [1280, 768],
+  'Konsing5.jpg': [900, 450],
+  'Konsing5b.jpg': [2305, 1290],
+  'Konsing6.jpg': [1200, 675],
+  'Konsing7.jpg': [2309, 1300],
+  'Konsing7a.jpg': [2476, 1157],
+  'Konsing8.jpg': [980, 649],
+  'Konsing9.jpg': [1616, 1064],
+};
+
+const containerVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } }
+};
+
+const reelVariants = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1, transition: { duration: 0.6, delay: 0.3 } }
+};
+
 const AboutMe = () => {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.1 });
   const controls = useAnimation();
@@ -133,25 +173,6 @@ const AboutMe = () => {
   React.useEffect(() => {
     if (inView) controls.start('visible');
   }, [controls, inView]);
-
-  const containerVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } }
-  };
-
-  const reelVariants = {
-    hidden: { opacity: 0 },
-    visible: { opacity: 1, transition: { duration: 0.6, delay: 0.3 } }
-  };
-
-  const importAll = (r) => {
-    let imgs = {};
-    r.keys().forEach((item) => { imgs[item.replace('./', '')] = r(item); });
-    return imgs;
-  };
-
-  const images = importAll(require.context('../assets', false, /\.(png|jpe?g|svg)$/));
-  const imageNames = Object.keys(images).filter(name => name.startsWith('Konsing')).sort();
 
   return (
     <AboutMeContainer id="aboutMe" initial="hidden" animate={controls} variants={containerVariants} ref={ref}>
@@ -185,7 +206,15 @@ const AboutMe = () => {
       <PhotoReel>
         <ReelContainer initial="hidden" animate={controls} variants={reelVariants}>
           {[...imageNames, ...imageNames].map((image, index) => (
-            <img key={index} src={images[image]} alt={`Konsing ${index + 1}`} />
+            <img
+              key={index}
+              src={images[image]}
+              alt={`Konsing ${index + 1}`}
+              width={(imageDims[image] || [])[0]}
+              height={(imageDims[image] || [])[1]}
+              loading="lazy"
+              decoding="async"
+            />
           ))}
         </ReelContainer>
       </PhotoReel>

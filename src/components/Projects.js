@@ -131,6 +131,41 @@ const importAll = (r) => {
 
 const images = importAll(require.context('../assets', false, /\.(png|jpe?g|svg)$/));
 
+/* Intrinsic dimensions of each card image. Passed as width/height attributes
+   so the browser reserves the final aspect-ratio box BEFORE the lazy image
+   downloads — without this, cards start collapsed and grow as images load,
+   which throws off navbar scroll targets computed against the early layout.
+   CSS (width:100%; height:auto) still controls the rendered size. */
+const imageDims = {
+  'PrismDashboard.png': [2122, 1165],
+  'QwikSell.png': [2557, 1231],
+  'RAG.png': [2552, 1180],
+  'VoiceAssistant.png': [2551, 1191],
+  'InboxAutomation.png': [2231, 1216],
+  'StartupPulse.png': [2538, 1148],
+  'EGX.png': [2557, 1227],
+  'FINDIT4ME.png': [2553, 1235],
+  'CriterionAddon.png': [2559, 1439],
+  'PR1.png': [1655, 1111],
+  'AI_Resume.png': [1220, 1140],
+  'ECSite.jpg': [400, 168],
+  'PHGame.jpg': [1262, 778],
+  'YappinBlog.png': [2557, 1232],
+  'ANNSite.jpg': [2533, 1227],
+  'GameArcadePic.png': [2556, 1237],
+  'Connect4AI.png': [900, 450],
+  'FSSite.png': [900, 385],
+  'sshell.jpg': [770, 404],
+  'Banking.jpg': [1280, 720],
+  'WebCrawler.jpg': [1792, 808],
+  'PSite.jpg': [2537, 1216],
+};
+
+// The projects array stores resolved asset URLs, so index dimensions by URL.
+const dimsByUrl = Object.fromEntries(
+  Object.entries(imageDims).map(([name, dims]) => [images[name], dims])
+);
+
 const projects = [
   {
     title: "Prism — LLM Gateway with a Semantic Cache",
@@ -420,16 +455,18 @@ const Projects = () => {
         Click any project to view it on GitHub
       </motion.p>
       <div className="projects-grid">
-        {projects.map((project, index) => (
+        {projects.map((project, index) => {
+          const [imgWidth, imgHeight] = dimsByUrl[project.image] || [];
+          return (
           <ProjectCard
             key={index}
             initial="hidden"
             whileInView="visible"
             variants={cardVariants}
             viewport={{ once: true, margin: "-50px" }}
-            onClick={() => window.open(project.link, "_blank")}
+            onClick={() => window.open(project.link, "_blank", "noopener,noreferrer")}
           >
-            <img src={project.image} alt={project.title} />
+            <img src={project.image} alt={project.title} width={imgWidth} height={imgHeight} loading="lazy" decoding="async" />
             <h3>{project.title}</h3>
             <ul>
               {project.description.map((item, idx) => (
@@ -442,7 +479,8 @@ const Projects = () => {
               ))}
             </TechPills>
           </ProjectCard>
-        ))}
+          );
+        })}
       </div>
     </ProjectsContainer>
   );

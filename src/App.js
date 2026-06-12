@@ -11,7 +11,9 @@ import theme from './theme';
 
 const App = () => {
   useEffect(() => {
-    window.onbeforeunload = () => window.scrollTo(0, 0);
+    const resetScroll = () => window.scrollTo(0, 0);
+    window.addEventListener('beforeunload', resetScroll);
+    return () => window.removeEventListener('beforeunload', resetScroll);
   }, []);
 
   return (
